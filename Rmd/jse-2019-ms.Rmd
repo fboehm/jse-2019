@@ -1,0 +1,7 @@
+---
+title: 'Making Sense of Tweets: Student research projects in data science'
+author: "Frederick J. Boehm and Bret M. Hanlon"
+date: "8/20/2019"
+output: html_document
+---
+
