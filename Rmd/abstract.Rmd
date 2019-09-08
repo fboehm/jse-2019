@@ -1,0 +1,4 @@
+## Abstract
+
+Social media platforms have altered the way that we communicate. The tremendous volumes of streaming data that are available through platforms like Twitter and Facebook enable the investigation of new data science research questions. In many cases, these research questions may serve as engaging and scientifically meaningful studies for those who are new to data science research. 
+In seeking to explore social media data science as a pedagogical tool, we guided two undergraduate researchers during the 2015-2016 academic year while they completed mentored research projects. 

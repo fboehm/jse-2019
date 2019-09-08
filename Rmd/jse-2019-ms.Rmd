@@ -7,6 +7,12 @@ bibliography: jse.bib
 output: html_document
 ---
 
+
+```{r child = "abstract.Rmd"}
+```
+
+
+
 ## Introduction
 
 
