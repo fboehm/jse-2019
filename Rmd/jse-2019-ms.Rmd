@@ -2,6 +2,42 @@
 title: 'Making Sense of Tweets: Student research projects in data science'
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "8/20/2019"
+lastmod: "`r lubridate::now()`"
+bibliography: jse.bib
 output: html_document
 ---
+
+## Introduction
+
+
+## Methods
+
+- how did we/they conceive of projects?
+
+We mentored two data science researchers in the last year of undergraduate study in statistics at University of Wisconsin-Madison. Both students developed novel research questions, collected observational data, analyzed data, and interpreted results. 
+
+
+
+- how did we balance our input with that of the students?
+- What data did we use?
+- How did we collect data? (which packages, code to sample twitter). How did Jinyu get her stock market data? 
+- What is the sampling scheme - for the 1% sample - from the entirety of Twitter? (Cite the webpage that documents the API)
+
+
+
+
+## Results
+
+
+
+
+
+## Discussion
+
+
+
+
+
+## References
+
 
