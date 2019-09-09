@@ -1,0 +1,10 @@
+---
+title: "Title ideas"
+author: "Frederick Boehm"
+date: "9/9/2019"
+output: html_document
+---
+
+Social media data science research as a pedagogical tool
+
+Teaching research skills with social media data science
