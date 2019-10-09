@@ -13,28 +13,24 @@ output: html_document
 
 
 
-## Introduction
+
+```{r child = "introduction.Rmd"}
+```
 
 
-## Methods
-
-- how did we/they conceive of projects?
-
-We mentored two data science researchers in the last year of undergraduate study in statistics at University of Wisconsin-Madison. Both students developed novel research questions, collected observational data, analyzed data, and interpreted results. 
-
-
-
-- how did we balance our input with that of the students?
-- What data did we use?
-- How did we collect data? (which packages, code to sample twitter). How did Jinyu get her stock market data? 
-- What is the sampling scheme - for the 1% sample - from the entirety of Twitter? (Cite the webpage that documents the API)
+```{r child = "methods.Rmd"}
+```
 
 
 
 
-## Results
+
+```{r child = "results.Rmd"}
+```
 
 
+```{r child = "discussion.Rmd"}
+```
 
 
 

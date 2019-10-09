@@ -1,0 +1,36 @@
+## Methods
+
+1. Overview of our framework
+  a. student-led, hypothesis-driven research
+  b. BH and FB helped with data acquisition
+  c. helped with research question formulation
+  d. how to describe roles for students v mentors?
+
+Our framework for mentored student research projects involves these components:
+
+    
+
+
+1. State the questions and research hypotheses that the two students chose
+  
+1. Data description
+
+
+  
+
+
+
+
+
+- how did we/they conceive of projects?
+
+We mentored two data science researchers in the last year of undergraduate study in statistics at University of Wisconsin-Madison. Both students developed novel research questions, collected observational data, analyzed data, and interpreted results. 
+
+
+
+- how did we balance our input with that of the students?
+- What data did we use?
+- How did we collect data? (which packages, code to sample twitter). How did Jinyu get her stock market data? 
+- What is the sampling scheme - for the 1% sample - from the entirety of Twitter? (Cite the webpage that documents the API)
+
+
