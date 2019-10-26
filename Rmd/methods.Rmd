@@ -1,5 +1,23 @@
 ## Methods
 
+We designed and used a framework for mentored undergraduate data science research projects with big data. Our framework draws heavily on ideas in @nolan2010computing. Specifically, we incorporate the three key aspects that @nolan2010computing identified: 
+
+1. broaden statistical computing to include emerging areas
+1. deepen computational reasoning skills
+1. combine computational topics with data analysis in the practice of statistics
+
+Our mentored research framework begins with brainstorming research ideas based on the student's interests. From there, we (mentor and student together) formulate the most promising ideas into scientific hypotheses. For the most appealing hypotheses, we encourage the student to translate the scientific question into a statistical question that may be addressed with data analysis. 
+
+
+
+
+
+
+
+
+
+
+
 1. Overview of our framework
   a. student-led, hypothesis-driven research
   b. BH and FB helped with data acquisition
@@ -24,7 +42,6 @@ Our framework for mentored student research projects involves these components:
 
 - how did we/they conceive of projects?
 
-We mentored two data science researchers in the last year of undergraduate study in statistics at University of Wisconsin-Madison. Both students developed novel research questions, collected observational data, analyzed data, and interpreted results. 
 
 
 

@@ -1,11 +1,14 @@
 ---
-title: 'Making Sense of Tweets: A framework for individualized student research projects'
+title: 'A framework for mentored data science research projects'
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "8/20/2019"
-lastmod: "`r lubridate::now()`"
+params:
+  lastmod: !r lubridate::now()
 bibliography: jse.bib
-output: html_document
+output: bookdown::html_document2
 ---
+
+Last modified: `r params$lastmod`
 
 
 ```{r child = "abstract.Rmd"}
@@ -34,7 +37,6 @@ output: html_document
 
 
 
-## Discussion
 
 
 
