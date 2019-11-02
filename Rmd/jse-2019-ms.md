@@ -3,7 +3,7 @@ A framework for mentored data science research projects
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-01 20:01:34
+Last modified: 2019-11-02 14:46:52
 
 ## Abstract
 
@@ -36,14 +36,65 @@ aspects that Nolan and Temple Lang (2010) identified:
 3.  combine computational topics with data analysis in the practice of
     statistics
 
+### Broaden statistical computing to include emerging areas
+
+Our framework broadens statistical computing by including the emerging
+areas of social media data analysis, sentiment analysis, and topic
+modeling. Both of our students used Twitter tweets, which we accessed
+through a Twitter streaming API.
+
+Our computational system for acquiring tweets involved several steps. We
+interacted with the API via the R package `twitteR` (Gentry 2015). We
+used the free Twitter streaming API that gave us access to approximately
+one percent stream of all tweets during the specified query time period.
+To ensure that we collected tweets continuously, we used the linux tool
+`crontab` to execute our R script every five minutes. Each execution of
+the R script performed a single streaming API query, lasting five
+minutes. Twitter’s streaming API, at the time of our data collection,
+enforced rate limits on the frequency and duration of queries.
+
+### deepen computational reasoning skills
+
+Our framework, and the projects developed under it, encourage students
+to deepen computational reasoning skills in several ways. First, they
+work with a variety of internet-based data to answer research questions.
+In the two example cases, our students collected tweets over time and
+gathered complementary data from other resources, including daily
+closing prices of stock market indexes.
+
+Second, the students worked with a variety of data structures. The
+Twitter streaming API returns tweets as JSON files. Because distinct
+Twitter users may provide different pieces of profile information, there
+is variability in the structure of each tweet’s JSON entry. Students
+needed to recognize this, and write code that accommodated these
+variations in tweet data
+structure.
+
+### combine computational topics with data analysis in the practice of statistics
+
 Our mentored research framework begins with brainstorming scientific
-research ideas based on the student’s interests. From there, we (mentor
-and student together) formulate the most promising ideas into scientific
-hypotheses. For the most appealing hypotheses, we encourage the student
-to translate the scientific question into a statistical question that
-may be addressed with data.
+research ideas based on the student’s interests. This enables us to
+craft a project that excites the student. With the results of
+brainstorming sessions, we (mentor and student together) formulate the
+most promising ideas into scientific hypotheses.
+
+For the most appealing hypotheses, we encourage the student to translate
+the scientific question into a statistical question that may be
+addressed with data.
+
+Examples may help to demonstrate our approach to identifying a
+statistical research question. One of our students had interests in
+acquiring and using social media posts. We helped her in brainstorming
+ideas for research involving social media like Facebook and Twitter.
+Through this brainstorming, we recognized that she had a parallel
+interest in financial markets.
+
+study relationships between social media trends and financial market
+trends. We helped her to brainstorm related research ideas. We then
 
 **justify each step**
+
+**Maybe use/cite Box’s science and statistics article from… 1976?**
 
 1.  Overview of our framework
 
@@ -98,8 +149,8 @@ other pursued employment in health care analytics.
 
 ### Benefits of our framework
 
-Benefits of our
-framework
+Benefits of our framework include
+enhanced
 
 ### How does the framework relate to ideas in Nolan and Temple Lang 2010??
 
@@ -112,9 +163,28 @@ this is to administer a survey, such as \_\_\_, both before and after
 the mentored research project. We would use validated survey questions
 that focused on student beliefs about themselves and their skills.
 
+### Areas for improvement
+
+1.  reproducible research best practices
+
+One shortcoming of our initial framework was the relative lack of
+emphasis on best practices for computational reproducibility. This is
+one area that we would like to rectify in future iterations. The
+University of Wisconsin-Madison has periodically offered a semester
+course in best practices for computationally reproducible research. We
+especially see version control systems, such as Git and Github, as
+essential tools for the modern data scientist.
+
 ## References
 
 <div id="refs" class="references">
+
+<div id="ref-twitteR">
+
+Gentry, Jeff. 2015. *TwitteR: R Based Twitter Client*.
+<https://CRAN.R-project.org/package=twitteR>.
+
+</div>
 
 <div id="ref-nolan2010computing">
 

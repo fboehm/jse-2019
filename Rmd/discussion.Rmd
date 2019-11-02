@@ -2,7 +2,7 @@
 
 ### Benefits of our framework
 
-Benefits of our framework 
+Benefits of our framework include enhanced 
 
 ### How does the framework relate to ideas in Nolan and Temple Lang 2010??
 
@@ -11,5 +11,11 @@ Benefits of our framework
 ### Critiques of our framework
 
 Our measures of students' self-confidence in research ability was merely subjective. In future iterations of our framework, we would like to measure systematic and objective outcomes. One strategy for implementing this is to administer a survey, such as \_\_\_, both before and after the mentored research project. We would use validated survey questions that focused on student beliefs about themselves and their skills.
+
+### Areas for improvement
+
+1. reproducible research best practices
+
+One shortcoming of our initial framework was the relative lack of emphasis on best practices for computational reproducibility. This is one area that we would like to rectify in future iterations. The University of Wisconsin-Madison has periodically offered a semester course in best practices for computationally reproducible research. We especially see version control systems, such as Git and Github, as essential tools for the modern data scientist.
 
 
