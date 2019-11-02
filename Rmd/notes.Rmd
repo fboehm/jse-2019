@@ -2,7 +2,7 @@
 title: "Notes on @nolan2010computing"
 author: "Frederick J. Boehm"
 date: "10/25/2019"
-output: html_document
+output: github_document
 bibliography: jse.bib
 ---
 
