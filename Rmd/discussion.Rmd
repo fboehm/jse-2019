@@ -10,7 +10,13 @@ Benefits of our framework include enhanced
 
 ### Critiques of our framework
 
-Our measures of students' self-confidence in research ability was merely subjective. In future iterations of our framework, we would like to measure systematic and objective outcomes. One strategy for implementing this is to administer a survey, such as \_\_\_, both before and after the mentored research project. We would use validated survey questions that focused on student beliefs about themselves and their skills.
+Our measures of students' self-confidence in research ability was merely subjective. In 
+future iterations of our framework, we would like to measure systematic and objective 
+outcomes. One strategy for implementing this is to administer a survey, such as \_\_\_, 
+both before and after the mentored research project. We would use validated survey 
+questions that focused on student beliefs about themselves, their skills, and their 
+future careers. **maybe list resources for such survey questions**
+
 
 ### Areas for improvement
 

@@ -3,7 +3,7 @@ A framework for mentored data science research projects
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-02 14:46:52
+Last modified: 2019-11-08 08:10:14
 
 ## Abstract
 
@@ -51,7 +51,8 @@ To ensure that we collected tweets continuously, we used the linux tool
 `crontab` to execute our R script every five minutes. Each execution of
 the R script performed a single streaming API query, lasting five
 minutes. Twitter’s streaming API, at the time of our data collection,
-enforced rate limits on the frequency and duration of queries.
+enforced rate limits on the frequency and duration of queries. With the
+above settings, we continuously collected tweets.
 
 ### deepen computational reasoning skills
 
@@ -60,17 +61,39 @@ to deepen computational reasoning skills in several ways. First, they
 work with a variety of internet-based data to answer research questions.
 In the two example cases, our students collected tweets over time and
 gathered complementary data from other resources, including daily
-closing prices of stock market indexes.
+closing prices of stock market indexes. This gave students opportunities
+to think creatively about what data to acquire and how to use multiple
+data sources in a single cohesive project.
 
 Second, the students worked with a variety of data structures. The
-Twitter streaming API returns tweets as JSON files. Because distinct
-Twitter users may provide different pieces of profile information, there
-is variability in the structure of each tweet’s JSON entry. Students
-needed to recognize this, and write code that accommodated these
-variations in tweet data
-structure.
+Twitter streaming API returns tweets as JSON (Javascript Object
+Notation, <http://json.org>). Because distinct Twitter users may provide
+different pieces of profile information, there is variability in the
+structure of each tweet’s JSON. Additionally, tweet metadata fields may
+appear in any order
+(<https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data>).
+Students needed to recognize this and write code that accommodated these
+variations in tweet data structure.
+
+Students wrote code to parse and organize tweet JSONs. Each tweet’s JSON
+included required fields, and, possibly, some optional fields. The
+required fields are:
+
+**see
+<https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object>**
+
+The evolving nature of JSON tweet structure
+(<https://developer.twitter.com/en/docs/tweets/data-dictionary/guides/tweet-timeline>)
+required students to write flexible code that could incorporate newly
+introduced or deprecated
+metadata.
 
 ### combine computational topics with data analysis in the practice of statistics
+
+computational topics: LDA & topic modeling; time series analysis;
+sentiment analysis.
+
+data analysis and practice of statistics:
 
 Our mentored research framework begins with brainstorming scientific
 research ideas based on the student’s interests. This enables us to
@@ -161,7 +184,8 @@ subjective. In future iterations of our framework, we would like to
 measure systematic and objective outcomes. One strategy for implementing
 this is to administer a survey, such as \_\_\_, both before and after
 the mentored research project. We would use validated survey questions
-that focused on student beliefs about themselves and their skills.
+that focused on student beliefs about themselves, their skills, and
+their future careers. **maybe list resources for such survey questions**
 
 ### Areas for improvement
 
