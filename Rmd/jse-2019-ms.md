@@ -3,7 +3,7 @@ A framework for mentored data science research projects
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-08 08:10:14
+Last modified: 2019-11-11 09:56:36
 
 ## Abstract
 
@@ -40,8 +40,8 @@ aspects that Nolan and Temple Lang (2010) identified:
 
 Our framework broadens statistical computing by including the emerging
 areas of social media data analysis, sentiment analysis, and topic
-modeling. Both of our students used Twitter tweets, which we accessed
-through a Twitter streaming API.
+modeling. Both students used Twitter tweets, which we accessed through a
+Twitter streaming API.
 
 Our computational system for acquiring tweets involved several steps. We
 interacted with the API via the R package `twitteR` (Gentry 2015). We
@@ -75,9 +75,10 @@ appear in any order
 Students needed to recognize this and write code that accommodated these
 variations in tweet data structure.
 
-Students wrote code to parse and organize tweet JSONs. Each tweet’s JSON
-included required fields, and, possibly, some optional fields. The
-required fields are:
+Students wrote code to parse and organize tweet JSONs. They organized
+their R code into a package, <https://github.com/rturn/parseTweetFiles>.
+Each tweet’s JSON included required fields, and, possibly, some optional
+fields. The required fields are:
 
 **see
 <https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object>**
@@ -92,6 +93,24 @@ metadata.
 
 computational topics: LDA & topic modeling; time series analysis;
 sentiment analysis.
+
+Both mentored students combined computing with data analysis in the
+practice of statistics. They used a combination of latent dirichlet
+allocation topic modeling, sentiment analysis, and time series analysis
+to reach conclusions about real world data.
+
+Both drew heavily on our collection of tweets. One student examined
+Standard and Poor’s 500 index daily closing prices over time. She also
+analyzed sentiments from each day’s stock market-related tweets to look
+for relationships between tweet sentiment and stock market prices.
+
+Our other student focused on developing detection methods for social
+media events through topic modeling of tweets at different time periods.
+As a proof of principle, he fitted topic models to collections of tweets
+preceding, during, and following the National Football League’s Super
+Bowl game. He hypothesized that topics would evolve over time, with
+football-related tweets appearing during the football game and
+disappearing soon after conclusion of the game.
 
 data analysis and practice of statistics:
 

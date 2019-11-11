@@ -1,2 +1,8 @@
 ## Introduction
 
+- big data
+- new areas of application of statistical methods - social media
+- need for mentoring 
+- need for students to work with real data
+- motivate statistical analysis by real world research questions
+
