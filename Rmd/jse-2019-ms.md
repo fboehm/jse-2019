@@ -3,7 +3,7 @@ A framework for mentored data science research projects
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-11 09:56:36
+Last modified: 2019-11-11 20:43:36
 
 ## Abstract
 
@@ -23,6 +23,12 @@ lessons learned, and ideas for others to build similar frameworks for
 future honors projects.
 
 ## Introduction
+
+  - big data
+  - new areas of application of statistical methods - social media
+  - need for mentoring
+  - need for students to work with real data
+  - motivate statistical analysis by real world research questions
 
 ## Methods
 
