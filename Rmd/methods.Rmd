@@ -8,6 +8,7 @@ Specifically, we incorporate the three key aspects that @nolan2010computing iden
 1. deepen computational reasoning skills
 1. combine computational topics with data analysis in the practice of statistics
 
+
 ### Broaden statistical computing to include emerging areas
 
 Our framework broadens statistical computing by including the emerging areas of

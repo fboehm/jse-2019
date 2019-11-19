@@ -3,7 +3,7 @@ A framework for mentored data science research projects
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-11 20:43:36
+Last modified: 2019-11-19 10:34:59
 
 ## Abstract
 
