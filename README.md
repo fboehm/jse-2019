@@ -1,5 +1,16 @@
 # jse-2019
-materials for a Journal of Statistics Education manuscript
+
+materials for a Journal of Statistics Education manuscript. Bret and I are the two authors
+
+In late 2019, JSE issued a call for papers. See the flyer in doc/ subdirectory.
+
+We submitted an abstract to the call, and received a little feedback. 
+
+We are now using this repository to write the manuscript. 
+
+We want to draw heavily on Nolan and Temple Lang's 2010 article.
+
+
 
 
 ## Timeline
