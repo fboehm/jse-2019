@@ -1,0 +1,35 @@
+---
+title: "outline"
+author: "Frederick J. Boehm"
+date: "11/20/2019"
+output: github_document
+---
+
+## What is the structure of Nolan and Temple Lang 2010??
+
+They give one major section (2, 3, and 4) to each of the three bullet points that I highlight in my methods section.
+
+
+
+
+
+## What are the important ideas that I need to convey in each section?? 
+
+**Intro**
+
+Mimic, maybe, the DTL2010 article in organization of the intro. have a subsection on *four* key components (vs DTL's three key components). These are the three of DTL plus reproducible research practices.
+
+Maybe also try to write a paragraph about relevant background for each of me and Bret. Note that DTL puts a subsection on backgrounds in their intro.
+
+
+
+**Methods**
+
+Here, say more about our contributions - what we did and how we did it. Don't discuss DTL in depth in the Methods - ie, move DTL discussion (that's currently in my methods section) to intro. 
+
+Here is the place to discuss our framework and its implementation for two students JX and RT.
+
+**Results**
+
+
+
