@@ -6,3 +6,5 @@
 - need for students to work with real data
 - motivate statistical analysis by real world research questions
 
+@nolan2010computing 
+
