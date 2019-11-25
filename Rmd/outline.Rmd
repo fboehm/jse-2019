@@ -17,7 +17,11 @@ They give one major section (2, 3, and 4) to each of the three bullet points tha
 
 **Intro**
 
-Mimic, maybe, the DTL2010 article in organization of the intro. have a subsection on *four* key components (vs DTL's three key components). These are the three of DTL plus reproducible research practices.
+Mimic, maybe, the DTL2010 article in organization of the intro. 
+
+~~have a subsection on *four* key components (vs DTL's three key components). These are the three of DTL plus reproducible research practices.~~
+
+
 
 Maybe also try to write a paragraph about relevant background for each of me and Bret. Note that DTL puts a subsection on backgrounds in their intro.
 
