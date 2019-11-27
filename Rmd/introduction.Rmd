@@ -4,7 +4,27 @@
 - new areas of application of statistical methods - social media
 - need for mentoring 
 - need for students to work with real data
-- motivate statistical analysis by real world research questions
+- motivate statistical analysis and statistics research by real world scientific research questions (Box 1976)
 
 @nolan2010computing 
+
+The need to analyze unprecedentedly large volumes of information combined with 
+the development of faster and more powerful computers has fueled advances in 
+data science methods for big data. We present below a framework for mentored 
+undergraduate data science research and our findings from its initial 
+implementation for two statistics students. We conclude with lessons learned 
+and suggestions for those who wish to reproduce and refine our framework.
+
+
+Social media data, including tweets from Twitter and posts from Facebook, are 
+available through website application product interfaces (APIs). Twitter 
+shares, via a streaming API, a sample of approximately one percent of all 
+tweets during an API query time period. Researchers have studied tweets for a 
+variety of purposes, including 
+inference of relationships and social networks among users [@lin2011joint]; determination of 
+authorship of specific tweets when multiple persons use a single account [@drob]; and 
+study of rhetoric in recruiting political supporters [@pelled2018little,@wells2016trump].
+
+
+
 

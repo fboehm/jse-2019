@@ -1,9 +1,9 @@
-A framework for mentored data science research projects
+A framework for undergraduate data science research
 ================
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-19 10:34:59
+Last modified: 2019-11-26 19:41:42
 
 ## Abstract
 
@@ -28,7 +28,28 @@ future honors projects.
   - new areas of application of statistical methods - social media
   - need for mentoring
   - need for students to work with real data
-  - motivate statistical analysis by real world research questions
+  - motivate statistical analysis and statistics research by real world
+    scientific research questions (Box 1976)
+
+Nolan and Temple Lang (2010)
+
+The need to analyze unprecedentedly large volumes of information
+combined with the development of faster and more powerful computers has
+fueled advances in data science methods for big data. We present below a
+framework for mentored undergraduate data science research and our
+findings from its initial implementation for two statistics students. We
+conclude with lessons learned and suggestions for those who wish to
+reproduce and refine our framework.
+
+Social media data, including tweets from Twitter and posts from
+Facebook, are available through website application product interfaces
+(APIs). Twitter shares, via a streaming API, a sample of approximately
+one percent of all tweets during an API query time period. Researchers
+have studied tweets for a variety of purposes, including inference of
+relationships and social networks among users (Lin et al. 2011);
+determination of authorship of specific tweets when multiple persons use
+a single account (Robinson, n.d.); and study of rhetoric in recruiting
+political supporters (Pelled et al. 2018,@wells2016trump).
 
 ## Methods
 
@@ -41,6 +62,16 @@ aspects that Nolan and Temple Lang (2010) identified:
 2.  deepen computational reasoning skills
 3.  combine computational topics with data analysis in the practice of
     statistics
+
+Additionally, our projects gave students opportunities to develop and to
+practice skills in reproducible research. Given the growing imperative
+to document and share code, we feel that this skill set equals in
+importance the three points above.
+
+4.  develop and practice skills in reproducible research
+
+Below, we describe how our framework enabled students to achieve in the
+four items listed above.
 
 ### Broaden statistical computing to include emerging areas
 
@@ -55,21 +86,21 @@ used the free Twitter streaming API that gave us access to approximately
 one percent stream of all tweets during the specified query time period.
 To ensure that we collected tweets continuously, we used the linux tool
 `crontab` to execute our R script every five minutes. Each execution of
-the R script performed a single streaming API query, lasting five
-minutes. Twitter’s streaming API, at the time of our data collection,
-enforced rate limits on the frequency and duration of queries. With the
-above settings, we continuously collected tweets.
+the R script performed a single streaming API query for five minutes.
+Twitter’s streaming API, at the time of our data collection, enforced
+rate limits on the frequency and duration of queries. With the above
+settings, we continuously collected tweets.
 
 ### deepen computational reasoning skills
 
-Our framework, and the projects developed under it, encourage students
-to deepen computational reasoning skills in several ways. First, they
-work with a variety of internet-based data to answer research questions.
-In the two example cases, our students collected tweets over time and
-gathered complementary data from other resources, including daily
-closing prices of stock market indexes. This gave students opportunities
-to think creatively about what data to acquire and how to use multiple
-data sources in a single cohesive project.
+Our framework encourages students to deepen computational reasoning
+skills in several ways. First, they work with a variety of
+internet-based data to answer research questions. In the two example
+cases, our students collected tweets over time and gathered
+complementary data from other resources, including daily closing prices
+of stock market indexes. This gave students opportunities to think
+creatively about what data to acquire and how to use multiple data
+sources in a single cohesive project.
 
 Second, the students worked with a variety of data structures. The
 Twitter streaming API returns tweets as JSON (Javascript Object
@@ -78,8 +109,8 @@ different pieces of profile information, there is variability in the
 structure of each tweet’s JSON. Additionally, tweet metadata fields may
 appear in any order
 (<https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data>).
-Students needed to recognize this and write code that accommodated these
-variations in tweet data structure.
+Students needed to recognize this and to write code that accommodated
+these variations in tweet data structure.
 
 Students wrote code to parse and organize tweet JSONs. They organized
 their R code into a package, <https://github.com/rturn/parseTweetFiles>.
@@ -88,6 +119,7 @@ fields. The required fields are:
 
 **see
 <https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object>**
+**insert a 2-column table of fields here**
 
 The evolving nature of JSON tweet structure
 (<https://developer.twitter.com/en/docs/tweets/data-dictionary/guides/tweet-timeline>)
@@ -235,11 +267,47 @@ Gentry, Jeff. 2015. *TwitteR: R Based Twitter Client*.
 
 </div>
 
+<div id="ref-lin2011joint">
+
+Lin, Cindy Xide, Qiaozhu Mei, Jiawei Han, Yunliang Jiang, and Marina
+Danilevsky. 2011. “The Joint Inference of Topic Diffusion and Evolution
+in Social Communities.” In *2011 Ieee 11th International Conference on
+Data Mining*, 378–87. IEEE.
+
+</div>
+
 <div id="ref-nolan2010computing">
 
 Nolan, Deborah, and Duncan Temple Lang. 2010. “Computing in the
 Statistics Curricula.” *The American Statistician* 64 (2). Taylor &
 Francis: 97–107.
+
+</div>
+
+<div id="ref-pelled2018little">
+
+Pelled, Ayellet, Josephine Lukito, Fred Boehm, JungHwan Yang, and Dhavan
+Shah. 2018. “‘Little Marco,’‘Lyin’Ted,’‘Crooked Hillary,’ and the
+‘Biased’ Media: How Trump Used Twitter to Attack and Organize.” In
+*Digital Discussions*, 176–96. Routledge.
+
+</div>
+
+<div id="ref-drob">
+
+Robinson, David. n.d. “Text Analysis of Trump’s Tweets Confirms He
+Writes Only the (Angrier) Android Half.”
+<http://varianceexplained.org/r/trump-tweets/>.
+
+</div>
+
+<div id="ref-wells2016trump">
+
+Wells, Chris, Dhavan V Shah, Jon C Pevehouse, JungHwan Yang, Ayellet
+Pelled, Frederick Boehm, Josephine Lukito, Shreenita Ghosh, and Jessica
+L Schmidt. 2016. “How Trump Drove Coverage to the Nomination: Hybrid
+Media Campaigning.” *Political Communication* 33 (4). Taylor & Francis:
+669–76.
 
 </div>
 
