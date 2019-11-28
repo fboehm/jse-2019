@@ -2,6 +2,15 @@
 
 ### Benefits of our framework
 
+1. build self-confidence, self-assessed proficiency in data analysis and statistics
+
+1. greater interest in quantitative careers and/or grad school in quant fields
+
+1. Working with real data to solve real scientific questions
+
+1. Learn by example interplay between data science (statistics) and science research
+
+
 Benefits of our framework include enhanced 
 
 ### How does the framework relate to ideas in Nolan and Temple Lang 2010??
@@ -24,4 +33,7 @@ future careers. **maybe list resources for such survey questions**
 
 One shortcoming of our initial framework was the relative lack of emphasis on best practices for computational reproducibility. This is one area that we would like to rectify in future iterations. The University of Wisconsin-Madison has periodically offered a semester course in best practices for computationally reproducible research. We especially see version control systems, such as Git and Github, as essential tools for the modern data scientist.
 
+1. assessment of attitudes (pre and post survey??) 
 
+
+1. survey questions might include those from @vance2017eight. I have the survey as a pdf in mendeley. It is part of the supp info for @vance2017eight.

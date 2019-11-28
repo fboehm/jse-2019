@@ -3,7 +3,7 @@ A framework for undergraduate data science research
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-26 19:41:42
+Last modified: 2019-11-27 19:10:03
 
 ## Abstract
 
@@ -26,12 +26,10 @@ future honors projects.
 
   - big data
   - new areas of application of statistical methods - social media
-  - need for mentoring
   - need for students to work with real data
   - motivate statistical analysis and statistics research by real world
     scientific research questions (Box 1976)
-
-Nolan and Temple Lang (2010)
+  - need for mentoring
 
 The need to analyze unprecedentedly large volumes of information
 combined with the development of faster and more powerful computers has
@@ -44,12 +42,37 @@ reproduce and refine our framework.
 Social media data, including tweets from Twitter and posts from
 Facebook, are available through website application product interfaces
 (APIs). Twitter shares, via a streaming API, a sample of approximately
-one percent of all tweets during an API query time period. Researchers
-have studied tweets for a variety of purposes, including inference of
-relationships and social networks among users (Lin et al. 2011);
-determination of authorship of specific tweets when multiple persons use
-a single account (Robinson, n.d.); and study of rhetoric in recruiting
-political supporters (Pelled et al. 2018,@wells2016trump).
+one percent of all tweets during an API query time period (“Sampled
+Stream,” n.d.). Researchers have studied tweets for a variety of
+purposes, including inference of relationships and social networks among
+users (Lin et al. 2011); determination of authorship of specific tweets
+when multiple persons share a single account (Robinson, n.d.); and study
+of rhetoric in recruiting political supporters (Pelled et al.
+2018,@wells2016trump). Recognizing the potential utility of tweets for
+data science research, we created a collection of tweets over time by
+repeated querying of the Twitter streaming API.
+
+Nolan and Temple Lang (2010) fervently argue for students to work with
+real data. Working with real data allows them to develop skill not only
+in statistical analysis, but also in data transfer from online sources,
+in data storage, and in using data from multiple file formats. In the
+case of Twitter data, tweets are stored in Javascript Object Notation
+(JSON) (“Consuming Streaming Data,” n.d., @json).
+
+A key component of our mentoring framework is the emphasis on using real
+data to answer real scientific questions. We believe that this process
+develops the problem-solving skills that students will need in their
+future careers in data science.
+
+We encouraged the student to articulate a scientific research question,
+translate that question into quantitative and statistical terms,
+determine which data could be used to address the question, acquire the
+data, analyze data, visualize results, and communicate what they
+learned.
+
+**Need to explain above paragraph with our two student examples. What
+types of questions did they articulate? How did they translate to quant
+terms? How did they determine data availability? etc.**
 
 ## Methods
 
@@ -229,6 +252,17 @@ other pursued employment in health care analytics.
 
 ### Benefits of our framework
 
+1.  build self-confidence, self-assessed proficiency in data analysis
+    and statistics
+
+2.  greater interest in quantitative careers and/or grad school in quant
+    fields
+
+3.  Working with real data to solve real scientific questions
+
+4.  Learn by example interplay between data science (statistics) and
+    science research
+
 Benefits of our framework include
 enhanced
 
@@ -256,14 +290,29 @@ course in best practices for computationally reproducible research. We
 especially see version control systems, such as Git and Github, as
 essential tools for the modern data scientist.
 
+1.  assessment of attitudes (pre and post survey??)
+
 ## References
 
 <div id="refs" class="references">
+
+<div id="ref-tweet_json">
+
+“Consuming Streaming Data.” n.d.
+<https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data>.
+
+</div>
 
 <div id="ref-twitteR">
 
 Gentry, Jeff. 2015. *TwitteR: R Based Twitter Client*.
 <https://CRAN.R-project.org/package=twitteR>.
+
+</div>
+
+<div id="ref-json">
+
+“Introducing Json.” n.d. <https://json.org>.
 
 </div>
 
@@ -298,6 +347,13 @@ Shah. 2018. “‘Little Marco,’‘Lyin’Ted,’‘Crooked Hillary,’ and th
 Robinson, David. n.d. “Text Analysis of Trump’s Tweets Confirms He
 Writes Only the (Angrier) Android Half.”
 <http://varianceexplained.org/r/trump-tweets/>.
+
+</div>
+
+<div id="ref-tweet_stream">
+
+“Sampled Stream.” n.d.
+<https://developer.twitter.com/en/docs/labs/sampled-stream/overview>.
 
 </div>
 

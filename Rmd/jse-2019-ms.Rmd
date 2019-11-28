@@ -7,7 +7,8 @@ params:
 bibliography: jse.bib
 output: 
   - github_document
-  - pdf_document
+  - bookdown::pdf_document2
+  - bookdown::html_document2
 ---
 
 Last modified: `r params$lastmod`

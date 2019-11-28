@@ -2,7 +2,7 @@
 title: "outline"
 author: "Frederick J. Boehm"
 date: "11/20/2019"
-output: github_document
+output: bookdown::html_document2
 ---
 
 ## What is the structure of Nolan and Temple Lang 2010??

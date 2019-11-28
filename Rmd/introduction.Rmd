@@ -2,11 +2,10 @@
 
 - big data
 - new areas of application of statistical methods - social media
-- need for mentoring 
 - need for students to work with real data
 - motivate statistical analysis and statistics research by real world scientific research questions (Box 1976)
+- need for mentoring 
 
-@nolan2010computing 
 
 The need to analyze unprecedentedly large volumes of information combined with 
 the development of faster and more powerful computers has fueled advances in 
@@ -19,11 +18,33 @@ and suggestions for those who wish to reproduce and refine our framework.
 Social media data, including tweets from Twitter and posts from Facebook, are 
 available through website application product interfaces (APIs). Twitter 
 shares, via a streaming API, a sample of approximately one percent of all 
-tweets during an API query time period. Researchers have studied tweets for a 
+tweets during an API query time period [@tweet_stream]. 
+Researchers have studied tweets for a 
 variety of purposes, including 
-inference of relationships and social networks among users [@lin2011joint]; determination of 
-authorship of specific tweets when multiple persons use a single account [@drob]; and 
-study of rhetoric in recruiting political supporters [@pelled2018little,@wells2016trump].
+inference of relationships and social networks among users [@lin2011joint]; 
+determination of 
+authorship of specific tweets when multiple persons share a single account [@drob]; and 
+study of rhetoric in recruiting political supporters [@pelled2018little,@wells2016trump]. 
+Recognizing the potential utility of tweets for data science research, we created a 
+collection of tweets over time by repeated querying of the Twitter streaming API. 
+
+@nolan2010computing fervently argue for students to work with real data. 
+Working with real data allows them to develop skill not only in statistical analysis,
+but also in data transfer from online sources, in data storage, and in using data 
+from multiple file formats. In the case of Twitter data, tweets are stored in
+Javascript Object Notation (JSON) [@tweet_json, @json]. 
+
+A key component of our mentoring framework is the emphasis on using real data to answer real 
+scientific questions. We believe that this process develops the problem-solving skills that 
+students will need in their future careers in data science. 
+
+We encouraged the student to articulate a scientific research question, translate that question into quantitative and statistical terms, determine which data could be used to address the question, acquire the data, analyze data, visualize results, and communicate what they learned.
+
+**Need to explain above paragraph with our two student examples. What types of questions did they articulate? How did they translate to quant terms? How did they determine data availability? etc.**
+
+
+
+
 
 
 
