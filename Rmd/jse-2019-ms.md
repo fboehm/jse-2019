@@ -3,7 +3,7 @@ A framework for undergraduate data science research
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-27 19:10:03
+Last modified: 2019-11-29 16:02:12
 
 ## Abstract
 
@@ -88,13 +88,14 @@ aspects that Nolan and Temple Lang (2010) identified:
 
 Additionally, our projects gave students opportunities to develop and to
 practice skills in reproducible research. Given the growing imperative
-to document and share code, we feel that this skill set equals in
-importance the three points above.
+to document and share code to promote open science, we feel that this
+skill set equals in importance the three points above.
 
-4.  develop and practice skills in reproducible research
+4.  develop and practice skills in reproducible research to promote open
+    science
 
-Below, we describe how our framework enabled students to achieve in the
-four items listed above.
+Below, we describe how our framework enabled students to achieve
+competence in the four areas listed above.
 
 ### Broaden statistical computing to include emerging areas
 
@@ -173,7 +174,7 @@ Bowl game. He hypothesized that topics would evolve over time, with
 football-related tweets appearing during the football game and
 disappearing soon after conclusion of the game.
 
-data analysis and practice of statistics:
+### data analysis and practice of statistics
 
 Our mentored research framework begins with brainstorming scientific
 research ideas based on the student’s interests. This enables us to
@@ -292,6 +293,10 @@ essential tools for the modern data scientist.
 
 1.  assessment of attitudes (pre and post survey??)
 
+2.  survey questions might include those from Vance et al. (2017). I
+    have the survey as a pdf in mendeley. It is part of the supp info
+    for Vance et al. (2017).
+
 ## References
 
 <div id="refs" class="references">
@@ -354,6 +359,15 @@ Writes Only the (Angrier) Android Half.”
 
 “Sampled Stream.” n.d.
 <https://developer.twitter.com/en/docs/labs/sampled-stream/overview>.
+
+</div>
+
+<div id="ref-vance2017eight">
+
+Vance, Eric A, Erin Tanenbaum, Amarjot Kaur, Mark C Otto, and Richard
+Morris. 2017. “An Eight-Step Guide to Creating and Sustaining a
+Mentoring Program.” *The American Statistician* 71 (1). Taylor &
+Francis: 23–29.
 
 </div>
 
