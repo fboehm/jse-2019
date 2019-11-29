@@ -1,9 +1,9 @@
-A framework for undergraduate data science research
+Towards a reproducible framework for undergraduate data science research
 ================
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-29 16:02:12
+Last modified: 2019-11-29 16:51:57
 
 ## Abstract
 
@@ -52,27 +52,74 @@ of rhetoric in recruiting political supporters (Pelled et al.
 data science research, we created a collection of tweets over time by
 repeated querying of the Twitter streaming API.
 
-Nolan and Temple Lang (2010) fervently argue for students to work with
-real data. Working with real data allows them to develop skill not only
-in statistical analysis, but also in data transfer from online sources,
-in data storage, and in using data from multiple file formats. In the
-case of Twitter data, tweets are stored in Javascript Object Notation
-(JSON) (“Consuming Streaming Data,” n.d., @json).
+Nolan and Temple Lang (2010) argue for students to work with real data.
+Working with real data allows them to develop skill not only in
+statistical analysis, but also in data transfer from online sources, in
+data storage, and in using data from multiple file formats. In the case
+of Twitter data, tweets are stored in Javascript Object Notation (JSON)
+(“Consuming Streaming Data,” n.d., @json).
 
-A key component of our mentoring framework is the emphasis on using real
-data to answer real scientific questions. We believe that this process
-develops the problem-solving skills that students will need in their
-future careers in data science.
+Mentoring in the work place and in higher education can have many
+benefits, including (Higgins and Kram 2001). A key component of our
+mentoring framework is the emphasis on using real data to answer real
+scientific questions. We believe that this process develops the
+problem-solving skills that students will need in their future careers
+in data science. We encouraged the student to articulate a scientific
+research question, translate that question into quantitative and
+statistical terms, determine which data could be used to address the
+question, acquire the data, analyze data, visualize results, and
+communicate what they learned.
 
-We encouraged the student to articulate a scientific research question,
-translate that question into quantitative and statistical terms,
-determine which data could be used to address the question, acquire the
-data, analyze data, visualize results, and communicate what they
-learned.
+We provide guidance regarding selection of
 
 **Need to explain above paragraph with our two student examples. What
 types of questions did they articulate? How did they translate to quant
 terms? How did they determine data availability? etc.**
+
+## Our backgrounds
+
+During the time when we first implemented our framework, we served as
+early-career instructors in the statistics department at the University
+of Wisconsin-Madison. One of us (Hanlon) had prior experience in
+mentoring undergraduates, while the other (Boehm) had none. Our initial
+conceptualization of mentoring drew heavily on ideas we first
+encountered in professional development courses, including the Delta
+Program’s Entering Mentoring class (<https://delta.wisc.edu>). Professor
+Erik Nordheim heavily influenced our approach to and philosophy of
+teaching statistics. We studied with Professor Nordheim early in our
+teaching careers, and his guidance continues to influence our teaching
+practices.
+
+We both have experience in teaching undergraduate introductory
+statistics courses with enrollments over 100 students. Through our
+interactions with students in these classes, we’ve come to value not
+only the ideas in a traditional introductory course, but also the need
+to prepare students with the essential skills needed for success in data
+science. Nolan and Temple Lang (2010) summarizes these skill sets in the
+following three ideas:
+
+1.  broaden statistical computing to include emerging areas
+2.  deepen computational reasoning skills
+3.  combine computational topics with data analysis in the practice of
+    statistics
+
+To these three praiseworthy goals, we add a fourth:
+
+4.  develop skills in reproducible research to promote the practice of
+    open science
+
+We see the fourth goal as an equal with the first three from Nolan and
+Temple Lang (2010). Data scientists are uniquely positioned to promote
+open science practices, including the free sharing of data, code, and
+instructions for their use. The recently recognized need for science to
+be more transparent and more reproducible elevate this goal to the level
+of the first three.
+
+Below, we detail our methods for creating a reproducible framework for
+undergraduate data science research. We describe our results before
+concluding with lessons learned, things we could have done differently,
+and recommendations for future mentors who may use and extend our
+framework.
 
 ## Methods
 
@@ -312,6 +359,15 @@ essential tools for the modern data scientist.
 
 Gentry, Jeff. 2015. *TwitteR: R Based Twitter Client*.
 <https://CRAN.R-project.org/package=twitteR>.
+
+</div>
+
+<div id="ref-higgins2001reconceptualizing">
+
+Higgins, Monica C, and Kathy E Kram. 2001. “Reconceptualizing Mentoring
+at Work: A Developmental Network Perspective.” *Academy of Management
+Review* 26 (2). Academy of Management Briarcliff Manor, NY 10510:
+264–88.
 
 </div>
 
