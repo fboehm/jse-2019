@@ -1,18 +1,47 @@
 # Methods
 
 We designed and used a framework for mentored undergraduate data science research 
-projects with big data. Our framework draws heavily on ideas in @nolan2010computing. 
-Specifically, we incorporate the three key aspects that @nolan2010computing identified: 
+projects with big data. Below, we describe our initial implementation of the framework before relating 
+it to three major ideas from @nolan2010computing. 
+
+## Framework implementation
+
+
+Our mentored research framework begins with brainstorming scientific research ideas 
+based on the student's interests. This enables us to craft a project that excites the 
+student. With the results of brainstorming sessions, we (mentor and student together) 
+formulate the most promising ideas into scientific hypotheses. 
+
+For the most appealing 
+hypotheses, we encourage the student to translate the scientific question into a 
+statistical question that may be addressed with data. 
+
+Examples may help to demonstrate our approach to identifying a statistical research 
+question. One of our students had interests in acquiring and using social media posts. 
+We helped her in brainstorming ideas for research involving social media like Facebook 
+and Twitter. Through this brainstorming, we recognized that she had a parallel interest 
+in financial markets. 
+
+study relationships between social media trends and financial market trends. We helped 
+her to brainstorm related research ideas. We then 
+
+
+## Relating to three ideas from @nolan2010computing
+
+We incorporate three key aspects that @nolan2010computing identified: 
 
 1. broaden statistical computing to include emerging areas
 1. deepen computational reasoning skills
 1. combine computational topics with data analysis in the practice of statistics
 
-Additionally, our projects gave students opportunities to develop and to practice skills in reproducible research. Given the growing imperative to document and share code to promote open science, we feel that this skill set equals in importance the three points above.
+Additionally, our projects gave students opportunities to develop and to practice skills in reproducible 
+research. Given the growing imperative to document and share code to promote open science, we feel that 
+this skill set equals in importance the three points above.
 
 4. develop and practice skills in reproducible research to promote open science
 
-Below, we describe how our framework enabled students to achieve competence in the four areas listed above.
+Below, we describe how our framework enabled students to achieve competence in the four areas listed 
+above.
 
 ## Broaden statistical computing to include emerging areas
 
@@ -34,6 +63,7 @@ tweets.
 
 
 
+
 ## Deepen computational reasoning skills
 
 Our framework encourages students to deepen 
@@ -46,42 +76,62 @@ data sources in a single cohesive project.
 
 Second, the students worked with a variety of data structures. 
 The Twitter streaming 
-API returns tweets as JSON (Javascript Object Notation, http://json.org). Because 
+API returns tweets as JSON (Javascript Object Notation). Because 
 distinct Twitter users may provide 
 different pieces of profile information, there is variability in the structure of 
 each tweet's JSON. 
 Additionally, tweet metadata fields may appear in any order (https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data). 
 Students needed to recognize this and to write code that 
 accommodated these variations in tweet data structure.
-
-Students wrote code to parse and organize tweet JSONs. They organized their R code into a package, https://github.com/rturn/parseTweetFiles. 
-Each tweet's JSON included required fields, and, possibly, some optional fields. 
-The required fields are:
-
-**see https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object**
-**insert a 2-column table of fields here**
-
+Additional variability in tweet structure arose due to changes in the API. 
 The evolving nature of JSON tweet structure 
 (https://developer.twitter.com/en/docs/tweets/data-dictionary/guides/tweet-timeline) 
 required students to write flexible code that could incorporate newly introduced 
 or deprecated metadata. 
 
 
+Students wrote R code to parse and organize tweet JSON []. They organized their R code into a package, and shared it on Github (https://github.com/rturn/parseTweetFiles). 
+Each tweet's JSON included required fields, and, possibly, some optional fields. 
+
+
+
 ## Combine computational topics with data analysis in the practice of statistics
 
 computational topics: LDA & topic modeling; time series analysis; sentiment analysis.
 
-Both mentored students combined computing with data analysis in the practice of statistics. They used a combination of latent dirichlet allocation topic modeling, sentiment analysis, and time series analysis to reach conclusions about real world data.
+Both mentored students combined computing with data analysis in 
+the practice of statistics. 
+They used a combination of latent dirichlet allocation topic 
+modeling, sentiment analysis, and time series analysis to reach 
+conclusions about real world data.
 
-Both drew heavily on our collection of tweets. One student examined Standard and Poor's 500 index daily 
-closing prices over time. She also analyzed sentiments from each day's stock market-related tweets 
+Both drew heavily on the collection of tweets. One student examined 
+Standard and Poor's 500 index daily 
+closing prices over time. She also analyzed sentiments 
+from each day's stock market-related tweets 
 to look for relationships between tweet sentiment and stock market prices. 
 
 
 Our other student focused on developing detection methods for social media events through 
 topic modeling of tweets at different time periods. As a proof of principle, he fitted topic 
 models to collections of tweets preceding, during, and following the National Football 
-League's Super Bowl game. He hypothesized that topics would evolve over time, with football-related tweets appearing during the football game and disappearing soon after conclusion of the game.
+League's Super Bowl game. He hypothesized that topics would evolve 
+over time, with football-related tweets appearing during the football 
+game and disappearing soon after conclusion of the game.
+
+Both students analyzed tweets as texts. This first required them to write code to parse the JSON
+that the API returns. Once they had isolated the tweet text from its metadata, they parsed the 
+tweet text into words for use in sentiment analysis and topic modeling. 
+For the stock market project, they analyzed only those tweets that contained finance-related 
+keywords. Sentiment analysis involved comparisons of tweet words to a dictionary that mapped words to 
+sentiments. This yielded a net sentiment score for each tweet. 
+They then treated tweet sentiment scores as a time series and compared them with 
+daily stock market index closing prices.
+
+The second student project involved latent Dirichlet allocation modeling of
+tweet words at distinct time points to detect social media events [@blei2003latent]. 
+Latent Dirichlet allocation is a bayesian nonparametric method for modeling text corpora as the result 
+of words chosen from topics. 
 
 
 
@@ -91,27 +141,6 @@ League's Super Bowl game. He hypothesized that topics would evolve over time, wi
 
 
 
-
-## Implementation of the framework
-
-
-Our mentored research framework begins with brainstorming scientific research ideas 
-based on the student's interests. This enables us to craft a project that excites the 
-student. With the results of brainstorming sessions, we (mentor and student together) 
-formulate the most promising ideas into scientific hypotheses. 
-
-For the most appealing 
-hypotheses, we encourage the student to translate the scientific question into a 
-statistical question that may be addressed with data. 
-
-Examples may help to demonstrate our approach to identifying a statistical research 
-question. One of our students had interests in acquiring and using social media posts. 
-We helped her in brainstorming ideas for research involving social media like Facebook 
-and Twitter. Through this brainstorming, we recognized that she had a parallel interest 
-in financial markets. 
-
-study relationships between social media trends and financial market trends. We helped 
-her to brainstorm related research ideas. We then 
 
 
 **justify each step**

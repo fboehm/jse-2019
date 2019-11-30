@@ -32,11 +32,14 @@ collection of tweets over time by repeated querying of the Twitter streaming API
 Working with real data allows them to develop skill not only in statistical analysis,
 but also in data transfer from online sources, in data storage, and in using data 
 from multiple file formats. In the case of Twitter data, tweets are stored in
-Javascript Object Notation (JSON) [@tweet_json, @json]. 
+Javascript Object Notation (JSON) [@tweet_json,@json]. 
 
-Mentoring in the work place and in higher education can have many benefits, including [@higgins2001reconceptualizing].
-A key component of our mentoring framework is the emphasis on using real data to answer real 
-scientific questions. We believe that this process develops the problem-solving skills that 
+Mentoring in the work place and in higher education can have many 
+benefits, including improving students' development as thinkers and scholars, confidence in their 
+own abilities, integration into the campus community, and interest in graduate training 
+[@baker2010beyond,@higgins2001reconceptualizing].
+A key component of our data science mentoring framework is the emphasis on using real data to answer real 
+scientific questions. We believe that this process develops problem-solving skills that 
 students will need in their future careers in data science. 
 We encouraged the student to articulate a scientific research question, translate that question 
 into quantitative and statistical terms, determine which data could be used to address the 
@@ -50,17 +53,23 @@ We provide guidance regarding selection of
 
 During the time when we first implemented our framework, we served as early-career instructors in 
 the statistics department at the University of Wisconsin-Madison. One of us (Hanlon) had prior 
-experience in mentoring undergraduates, while the other (Boehm) had none. Our initial 
-conceptualization of mentoring drew heavily on ideas we first encountered in professional development 
-courses, including the Delta Program's Entering Mentoring class (https://delta.wisc.edu). 
+experience in mentoring students, while the other (Boehm) had none. Our initial 
+conceptualization of mentoring drew heavily on ideas we first encountered in professional 
+development 
+activities, including the Delta Program's mentoring class (https://delta.wisc.edu) and @handelsman2005entering. 
 Professor Erik Nordheim heavily 
 influenced our approach to and philosophy of teaching statistics. 
 We studied with Professor Nordheim early in our teaching 
-careers, and his guidance continues to influence our teaching practices. 
+careers, and his emphasis on active learning continues to influence our teaching practices. 
 
-We both have experience in teaching undergraduate introductory statistics courses with enrollments over 
-100 students. Through our interactions with students in these classes, we've come to value not only 
-the ideas in a traditional introductory course, but also the need to prepare students with the essential skills needed for success in data science. @nolan2010computing summarizes these skill sets in the following three ideas:
+We both have experience in teaching undergraduate introductory 
+statistics courses with enrollments over 
+100 students. Through our interactions with students in these 
+classes, we've grown to value not only 
+the ideas in a traditional introductory course, but also the need 
+to prepare students with the essential skills needed for success 
+in data science. @nolan2010computing summarizes these skill sets 
+in the following three goals:
 
 1. broaden statistical computing to include emerging areas
 1. deepen computational reasoning skills
@@ -68,22 +77,19 @@ the ideas in a traditional introductory course, but also the need to prepare stu
 
 To these three praiseworthy goals, we add a fourth:
 
-4. develop skills in reproducible research to promote the practice of open science
+4. develop skills in reproducible research to promote open science practices
 
 We see the fourth goal as an equal with the first three from @nolan2010computing. 
-Data scientists are uniquely positioned to promote open science practices, including the free sharing of 
-data, code, and instructions for their use. The recently recognized need for science to be more transparent and more reproducible elevate this goal to the level of the first three.
+Data scientists are uniquely positioned to promote open science 
+practices, including the free sharing of 
+data, code, and instructions for their use. 
+The need for science to be more transparent and more reproducible
+elevate this goal to the level of the first three.
 
-Below, we detail our methods for creating a reproducible framework for undergraduate data science 
+Below, we detail our methods for creating a reproducible framework
+for undergraduate data science 
 research. We describe our results before concluding with lessons learned, 
 things we could have done differently, and recommendations for future 
 mentors who may use and extend our framework. 
-
-
-
-
-
-
-
 
 
