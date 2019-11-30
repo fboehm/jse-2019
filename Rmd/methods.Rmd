@@ -1,4 +1,4 @@
-## Methods
+# Methods
 
 We designed and used a framework for mentored undergraduate data science research 
 projects with big data. Our framework draws heavily on ideas in @nolan2010computing. 
@@ -14,7 +14,7 @@ Additionally, our projects gave students opportunities to develop and to practic
 
 Below, we describe how our framework enabled students to achieve competence in the four areas listed above.
 
-### Broaden statistical computing to include emerging areas
+## Broaden statistical computing to include emerging areas
 
 Our framework broadens statistical computing by including the emerging areas of
 social media data analysis, sentiment analysis, and topic modeling. 
@@ -34,7 +34,7 @@ tweets.
 
 
 
-### deepen computational reasoning skills
+## Deepen computational reasoning skills
 
 Our framework encourages students to deepen 
 computational reasoning skills in several ways. First, they work with a variety of 
@@ -67,7 +67,7 @@ required students to write flexible code that could incorporate newly introduced
 or deprecated metadata. 
 
 
-### combine computational topics with data analysis in the practice of statistics
+## Combine computational topics with data analysis in the practice of statistics
 
 computational topics: LDA & topic modeling; time series analysis; sentiment analysis.
 
@@ -88,12 +88,11 @@ League's Super Bowl game. He hypothesized that topics would evolve over time, wi
 
 
 
-### data analysis and practice of statistics
 
 
 
 
-
+## Implementation of the framework
 
 
 Our mentored research framework begins with brainstorming scientific research ideas 

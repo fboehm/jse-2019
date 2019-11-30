@@ -1,20 +1,20 @@
-## Results
+# Results
 
 We applied the project framework to our mentoring of two students. Both engaged in 12 months of mentored research during their senior year of undergraduate studies in statistics in 2015 and 2016.
 
 
-### Student Outcomes
+## Student Outcomes
 
 We subjectively assessed student outcomes through conversations in our weekly student research meetings. 
 
 One student later enrolled in a statistics graduate program, while the other pursued employment in health care analytics. 
 
 
-### Mentor Outcomes
+## Mentor Outcomes
 
 
 
-### Scholarly outcomes & deliverables
+## Scholarly outcomes & deliverables
 
 
 

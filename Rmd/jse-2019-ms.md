@@ -3,9 +3,9 @@ Towards a reproducible framework for undergraduate data science research
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-29 16:51:57
+Last modified: 2019-11-29 22:09:40
 
-## Abstract
+# Abstract
 
 To explore social media data science as a pedagogical tool, we develop a
 teaching and mentoring framework to guide undergraduate researchers
@@ -22,7 +22,7 @@ science increased for both students. Below, we describe our successes,
 lessons learned, and ideas for others to build similar frameworks for
 future honors projects.
 
-## Introduction
+# Introduction
 
   - big data
   - new areas of application of statistical methods - social media
@@ -121,7 +121,7 @@ concluding with lessons learned, things we could have done differently,
 and recommendations for future mentors who may use and extend our
 framework.
 
-## Methods
+# Methods
 
 We designed and used a framework for mentored undergraduate data science
 research projects with big data. Our framework draws heavily on ideas in
@@ -144,7 +144,7 @@ skill set equals in importance the three points above.
 Below, we describe how our framework enabled students to achieve
 competence in the four areas listed above.
 
-### Broaden statistical computing to include emerging areas
+## Broaden statistical computing to include emerging areas
 
 Our framework broadens statistical computing by including the emerging
 areas of social media data analysis, sentiment analysis, and topic
@@ -162,7 +162,7 @@ Twitter’s streaming API, at the time of our data collection, enforced
 rate limits on the frequency and duration of queries. With the above
 settings, we continuously collected tweets.
 
-### deepen computational reasoning skills
+## Deepen computational reasoning skills
 
 Our framework encourages students to deepen computational reasoning
 skills in several ways. First, they work with a variety of
@@ -198,7 +198,7 @@ required students to write flexible code that could incorporate newly
 introduced or deprecated
 metadata.
 
-### combine computational topics with data analysis in the practice of statistics
+## Combine computational topics with data analysis in the practice of statistics
 
 computational topics: LDA & topic modeling; time series analysis;
 sentiment analysis.
@@ -221,7 +221,7 @@ Bowl game. He hypothesized that topics would evolve over time, with
 football-related tweets appearing during the football game and
 disappearing soon after conclusion of the game.
 
-### data analysis and practice of statistics
+## Implementation of the framework
 
 Our mentored research framework begins with brainstorming scientific
 research ideas based on the student’s interests. This enables us to
@@ -278,13 +278,13 @@ components:
   - What is the sampling scheme - for the 1% sample - from the entirety
     of Twitter? (Cite the webpage that documents the API)
 
-## Results
+# Results
 
 We applied the project framework to our mentoring of two students. Both
 engaged in 12 months of mentored research during their senior year of
 undergraduate studies in statistics in 2015 and 2016.
 
-### Student Outcomes
+## Student Outcomes
 
 We subjectively assessed student outcomes through conversations in our
 weekly student research meetings.
@@ -292,13 +292,13 @@ weekly student research meetings.
 One student later enrolled in a statistics graduate program, while the
 other pursued employment in health care analytics.
 
-### Mentor Outcomes
+## Mentor Outcomes
 
-### Scholarly outcomes & deliverables
+## Scholarly outcomes & deliverables
 
-## Discussion
+# Discussion
 
-### Benefits of our framework
+## Benefits of our framework
 
 1.  build self-confidence, self-assessed proficiency in data analysis
     and statistics
@@ -314,9 +314,9 @@ other pursued employment in health care analytics.
 Benefits of our framework include
 enhanced
 
-### How does the framework relate to ideas in Nolan and Temple Lang 2010??
+## How does the framework relate to ideas in Nolan and Temple Lang 2010??
 
-### Critiques of our framework
+## Critiques of our framework
 
 Our measures of students’ self-confidence in research ability was merely
 subjective. In future iterations of our framework, we would like to
@@ -326,7 +326,7 @@ the mentored research project. We would use validated survey questions
 that focused on student beliefs about themselves, their skills, and
 their future careers. **maybe list resources for such survey questions**
 
-### Areas for improvement
+## Areas for improvement
 
 1.  reproducible research best practices
 
