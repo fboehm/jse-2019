@@ -18,17 +18,12 @@ Last modified: `r params$lastmod`
 ```
 
 
-
-
 ```{r child = "introduction.Rmd"}
 ```
 
 
 ```{r child = "methods.Rmd"}
 ```
-
-
-
 
 
 ```{r child = "results.Rmd"}

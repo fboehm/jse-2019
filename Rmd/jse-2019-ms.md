@@ -3,24 +3,21 @@ Towards a reproducible framework for undergraduate data science research
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-11-29 22:09:40
+Last modified: 2019-12-01 13:19:15
 
 # Abstract
 
 To explore social media data science as a pedagogical tool, we develop a
-teaching and mentoring framework to guide undergraduate researchers
-through individualized research projects. We demonstrate our approach by
-describing our mentoring experience with two undergraduate researchers.
-These projects involved Twitter data, Facebook data, topic modeling, and
-sentiment analysis. Our framework involves research question
-formulation, data acquisition, data analysis and visualization, and
-presentation of results. Our two student projects, which serve as case
-studies for our framework, completed all components of the
-individualized research projects. We found that research skills,
-self-confidence in research ability, and professional interest in data
-science increased for both students. Below, we describe our successes,
-lessons learned, and ideas for others to build similar frameworks for
-future honors projects.
+mentoring framework to guide undergraduate researchers through
+individualized research projects. Our framework involves research
+question formulation, data acquisition, data analysis and visualization,
+and presentation and communication of results. Our two honors students,
+whose projects serve as case studies for our framework, completed all
+components of the individualized research projects. We found that data
+science research skills, self-confidence in research ability, and
+professional interest in data science increased for both students. We
+describe our successes, lessons learned, and ideas for others to build
+similar frameworks.
 
 # Introduction
 
@@ -57,12 +54,15 @@ Working with real data allows them to develop skill not only in
 statistical analysis, but also in data transfer from online sources, in
 data storage, and in using data from multiple file formats. In the case
 of Twitter data, tweets are stored in Javascript Object Notation (JSON)
-(“Consuming Streaming Data,” n.d., @json).
+(“Consuming Streaming Data,” n.d.,@json).
 
 Mentoring in the work place and in higher education can have many
-benefits, including (Higgins and Kram 2001). A key component of our
+benefits, including improving students’ development as thinkers and
+scholars, confidence in their own abilities, integration into the campus
+community, and interest in graduate training (Baker and Griffin
+2010,@higgins2001reconceptualizing). A key component of our data science
 mentoring framework is the emphasis on using real data to answer real
-scientific questions. We believe that this process develops the
+scientific questions. We believe that this process develops
 problem-solving skills that students will need in their future careers
 in data science. We encouraged the student to articulate a scientific
 research question, translate that question into quantitative and
@@ -81,22 +81,22 @@ terms? How did they determine data availability? etc.**
 During the time when we first implemented our framework, we served as
 early-career instructors in the statistics department at the University
 of Wisconsin-Madison. One of us (Hanlon) had prior experience in
-mentoring undergraduates, while the other (Boehm) had none. Our initial
+mentoring students, while the other (Boehm) had none. Our initial
 conceptualization of mentoring drew heavily on ideas we first
-encountered in professional development courses, including the Delta
-Program’s Entering Mentoring class (<https://delta.wisc.edu>). Professor
-Erik Nordheim heavily influenced our approach to and philosophy of
-teaching statistics. We studied with Professor Nordheim early in our
-teaching careers, and his guidance continues to influence our teaching
-practices.
+encountered in professional development activities, including the Delta
+Program’s mentoring class (<https://delta.wisc.edu>) and Handelsman et
+al. (2005). Professor Erik Nordheim heavily influenced our approach to
+and philosophy of teaching statistics. We studied with Professor
+Nordheim early in our teaching careers, and his emphasis on active
+learning continues to influence our teaching practices.
 
 We both have experience in teaching undergraduate introductory
 statistics courses with enrollments over 100 students. Through our
-interactions with students in these classes, we’ve come to value not
+interactions with students in these classes, we’ve grown to value not
 only the ideas in a traditional introductory course, but also the need
 to prepare students with the essential skills needed for success in data
 science. Nolan and Temple Lang (2010) summarizes these skill sets in the
-following three ideas:
+following three goals:
 
 1.  broaden statistical computing to include emerging areas
 2.  deepen computational reasoning skills
@@ -105,15 +105,14 @@ following three ideas:
 
 To these three praiseworthy goals, we add a fourth:
 
-4.  develop skills in reproducible research to promote the practice of
-    open science
+4.  develop skills in reproducible research to promote open science
+    practices
 
 We see the fourth goal as an equal with the first three from Nolan and
 Temple Lang (2010). Data scientists are uniquely positioned to promote
 open science practices, including the free sharing of data, code, and
-instructions for their use. The recently recognized need for science to
-be more transparent and more reproducible elevate this goal to the level
-of the first three.
+instructions for their use. The need for science to be more transparent
+and more reproducible elevate this goal to the level of the first three.
 
 Below, we detail our methods for creating a reproducible framework for
 undergraduate data science research. We describe our results before
@@ -124,9 +123,36 @@ framework.
 # Methods
 
 We designed and used a framework for mentored undergraduate data science
-research projects with big data. Our framework draws heavily on ideas in
-Nolan and Temple Lang (2010). Specifically, we incorporate the three key
-aspects that Nolan and Temple Lang (2010) identified:
+research projects with big data. Below, we describe our initial
+implementation of the framework before relating it to three major ideas
+from Nolan and Temple Lang (2010).
+
+## Framework implementation
+
+Our mentored research framework begins with brainstorming scientific
+research ideas based on the student’s interests. This enables us to
+craft a project that excites the student. With the results of
+brainstorming sessions, we (mentor and student together) formulate the
+most promising ideas into scientific hypotheses.
+
+For the most appealing hypotheses, we encourage the student to translate
+the scientific question into a statistical question that may be
+addressed with data.
+
+Examples may help to demonstrate our approach to identifying a
+statistical research question. One of our students had interests in
+acquiring and using social media posts. We helped her in brainstorming
+ideas for research involving social media like Facebook and Twitter.
+Through this brainstorming, we recognized that she had a parallel
+interest in financial markets.
+
+study relationships between social media trends and financial market
+trends. We helped her to brainstorm related research ideas. We then
+
+## Relating to three ideas from Nolan and Temple Lang (2010)
+
+We incorporate three key aspects that Nolan and Temple Lang (2010)
+identified:
 
 1.  broaden statistical computing to include emerging areas
 2.  deepen computational reasoning skills
@@ -175,28 +201,24 @@ sources in a single cohesive project.
 
 Second, the students worked with a variety of data structures. The
 Twitter streaming API returns tweets as JSON (Javascript Object
-Notation, <http://json.org>). Because distinct Twitter users may provide
-different pieces of profile information, there is variability in the
-structure of each tweet’s JSON. Additionally, tweet metadata fields may
-appear in any order
+Notation). Because distinct Twitter users may provide different pieces
+of profile information, there is variability in the structure of each
+tweet’s JSON. Additionally, tweet metadata fields may appear in any
+order
 (<https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data>).
 Students needed to recognize this and to write code that accommodated
-these variations in tweet data structure.
-
-Students wrote code to parse and organize tweet JSONs. They organized
-their R code into a package, <https://github.com/rturn/parseTweetFiles>.
-Each tweet’s JSON included required fields, and, possibly, some optional
-fields. The required fields are:
-
-**see
-<https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object>**
-**insert a 2-column table of fields here**
-
-The evolving nature of JSON tweet structure
+these variations in tweet data structure. Additional variability in
+tweet structure arose due to changes in the API. The evolving nature of
+JSON tweet structure
 (<https://developer.twitter.com/en/docs/tweets/data-dictionary/guides/tweet-timeline>)
 required students to write flexible code that could incorporate newly
-introduced or deprecated
-metadata.
+introduced or deprecated metadata.
+
+Students wrote R code to parse and organize tweet JSON \[\]. They
+organized their R code into a package, and shared it on Github
+(<https://github.com/rturn/parseTweetFiles>). Each tweet’s JSON included
+required fields, and, possibly, some optional
+fields.
 
 ## Combine computational topics with data analysis in the practice of statistics
 
@@ -208,7 +230,7 @@ practice of statistics. They used a combination of latent dirichlet
 allocation topic modeling, sentiment analysis, and time series analysis
 to reach conclusions about real world data.
 
-Both drew heavily on our collection of tweets. One student examined
+Both drew heavily on the collection of tweets. One student examined
 Standard and Poor’s 500 index daily closing prices over time. She also
 analyzed sentiments from each day’s stock market-related tweets to look
 for relationships between tweet sentiment and stock market prices.
@@ -221,27 +243,22 @@ Bowl game. He hypothesized that topics would evolve over time, with
 football-related tweets appearing during the football game and
 disappearing soon after conclusion of the game.
 
-## Implementation of the framework
+Both students analyzed tweets as texts. This first required them to
+write code to parse the JSON that the API returns. Once they had
+isolated the tweet text from its metadata, they parsed the tweet text
+into words for use in sentiment analysis and topic modeling. For the
+stock market project, they analyzed only those tweets that contained
+finance-related keywords. Sentiment analysis involved comparisons of
+tweet words to a dictionary that mapped words to sentiments. This
+yielded a net sentiment score for each tweet. They then treated tweet
+sentiment scores as a time series and compared them with daily stock
+market index closing prices.
 
-Our mentored research framework begins with brainstorming scientific
-research ideas based on the student’s interests. This enables us to
-craft a project that excites the student. With the results of
-brainstorming sessions, we (mentor and student together) formulate the
-most promising ideas into scientific hypotheses.
-
-For the most appealing hypotheses, we encourage the student to translate
-the scientific question into a statistical question that may be
-addressed with data.
-
-Examples may help to demonstrate our approach to identifying a
-statistical research question. One of our students had interests in
-acquiring and using social media posts. We helped her in brainstorming
-ideas for research involving social media like Facebook and Twitter.
-Through this brainstorming, we recognized that she had a parallel
-interest in financial markets.
-
-study relationships between social media trends and financial market
-trends. We helped her to brainstorm related research ideas. We then
+The second student project involved latent Dirichlet allocation modeling
+of tweet words at distinct time points to detect social media events
+(Blei, Ng, and Jordan 2003). Latent Dirichlet allocation is a bayesian
+nonparametric method for modeling text corpora as the result of words
+chosen from topics.
 
 **justify each step**
 
@@ -348,6 +365,22 @@ essential tools for the modern data scientist.
 
 <div id="refs" class="references">
 
+<div id="ref-baker2010beyond">
+
+Baker, Vicki L, and Kimberly A Griffin. 2010. “Beyond Mentoring and
+Advising: Toward Understanding the Role of Faculty ‘Developers’ in
+Student Success.” *About Campus* 14 (6). Wiley Online Library: 2–8.
+
+</div>
+
+<div id="ref-blei2003latent">
+
+Blei, David M, Andrew Y Ng, and Michael I Jordan. 2003. “Latent
+Dirichlet Allocation.” *Journal of Machine Learning Research* 3 (Jan):
+993–1022.
+
+</div>
+
 <div id="ref-tweet_json">
 
 “Consuming Streaming Data.” n.d.
@@ -359,6 +392,13 @@ essential tools for the modern data scientist.
 
 Gentry, Jeff. 2015. *TwitteR: R Based Twitter Client*.
 <https://CRAN.R-project.org/package=twitteR>.
+
+</div>
+
+<div id="ref-handelsman2005entering">
+
+Handelsman, Jo, Christine Pfund, Sarah Miller Lauffer, and Christine
+Maidl Pribbenow. 2005. *Entering Mentoring*.
 
 </div>
 
