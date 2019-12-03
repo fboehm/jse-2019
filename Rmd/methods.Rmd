@@ -19,6 +19,19 @@ data science research question formulation. Skill in translating in both directi
 scientific and statistical questions is a key communication skill that data science 
 researchers offer.
 
+We also incorporated data availability into our question formulation. We limited questions to those 
+that could be studied with publicly available data. This practice also enabled reproducibility of
+our analyses, since students could share the URL from which they accessed data.
+
+After identifying research questions and publicly available data, 
+the next step is to decide on informative data visualizations and quantitative analyses. Because 
+both projects primarily involved exploratory analyses of times series, 
+we encouraged students to think about
+visualizations that might reveal relationships over time.
+
+
+### Examples
+
 Examples may help to demonstrate our approach to identifying a statistical research 
 question. One of our students had interests in acquiring and using social media posts. 
 We helped her in brainstorming ideas for research involving social media sources like Facebook 
@@ -37,8 +50,6 @@ might generate enough tweets that Super Bowl-related words would appear with hig
 weights in results from latent Dirichlet allocation modeling of collections of tweets 
 at distinct time points. We reasoned that Super Bowl-related topics might appear during 
 the Super Bowl and vanish soon after the game's conclusion.
-
-The brainstorming sessions thus led to one set of questions for each student.
 
 
 

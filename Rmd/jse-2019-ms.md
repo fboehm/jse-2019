@@ -3,21 +3,20 @@ Towards a reproducible framework for undergraduate data science research
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-12-01 13:19:15
+Last modified: 2019-12-02 11:23:55
 
 # Abstract
 
-To explore social media data science as a pedagogical tool, we develop a
-mentoring framework to guide undergraduate researchers through
-individualized research projects. Our framework involves research
-question formulation, data acquisition, data analysis and visualization,
-and presentation and communication of results. Our two honors students,
-whose projects serve as case studies for our framework, completed all
-components of the individualized research projects. We found that data
-science research skills, self-confidence in research ability, and
-professional interest in data science increased for both students. We
-describe our successes, lessons learned, and ideas for others to build
-similar frameworks.
+We develop a mentoring framework to guide undergraduate researchers
+through individualized research projects in social media data science.
+Our framework involves research question formulation, data acquisition,
+data analysis and visualization, and presentation and communication of
+results. Our two honors students, whose projects serve as case studies
+for our framework, completed all components of the individualized
+research projects. We found that data science research skills,
+self-confidence in research ability, and professional interest in data
+science increased for both students. We describe our successes, lessons
+learned, and ideas for others to build similar frameworks.
 
 # Introduction
 
@@ -132,22 +131,51 @@ from Nolan and Temple Lang (2010).
 Our mentored research framework begins with brainstorming scientific
 research ideas based on the student’s interests. This enables us to
 craft a project that excites the student. With the results of
-brainstorming sessions, we (mentor and student together) formulate the
+brainstorming sessions, we (mentors and student together) formulate the
 most promising ideas into scientific hypotheses.
 
-For the most appealing hypotheses, we encourage the student to translate
-the scientific question into a statistical question that may be
-addressed with data.
+For the most appealing scientific hypotheses, we encourage the student
+to translate the scientific question into a statistical question that
+may be addressed with data. This is a crucial step in data science
+research question formulation. Skill in translating in both directions
+between scientific and statistical questions is a key communication
+skill that data science researchers offer.
+
+We also incorporated data availability into our question formulation. We
+limited questions to those that could be studied with publicly available
+data. This practice also enabled reproducibility of our analyses, since
+students could share the URL from which they accessed data.
+
+After identifying research questions and publicly available data, the
+next step is to decide on informative data visualizations and
+quantitative analyses. Because both projects primarily involved
+exploratory analyses of times series, we encouraged students to think
+about visualizations that might reveal relationships over time.
+
+### Examples
 
 Examples may help to demonstrate our approach to identifying a
 statistical research question. One of our students had interests in
 acquiring and using social media posts. We helped her in brainstorming
-ideas for research involving social media like Facebook and Twitter.
-Through this brainstorming, we recognized that she had a parallel
-interest in financial markets.
+ideas for research involving social media sources like Facebook and
+Twitter. Through this brainstorming, we recognized that she had a
+parallel interest in financial markets. Our student hypothesized that
+sentiment analysis of finance-related tweets might reflect trends in
+financial market index prices. On days when the market index prices
+increase, sentiment analysis of finance-related tweets might reveal more
+use of positive words, while days with decreasing prices might have more
+negative words in finance-related tweets.
 
-study relationships between social media trends and financial market
-trends. We helped her to brainstorm related research ideas. We then
+A second student wanted to study tweets over time and entertainment
+events that garner lots of attention in social media. We encouraged this
+student to develop a strategy for event detection from tweets over time.
+The rationale is that a big entertainment event, such as the National
+Football League’s Super Bowl game, might generate enough tweets that
+Super Bowl-related words would appear with high weights in results from
+latent Dirichlet allocation modeling of collections of tweets at
+distinct time points. We reasoned that Super Bowl-related topics might
+appear during the Super Bowl and vanish soon after the game’s
+conclusion.
 
 ## Relating to three ideas from Nolan and Temple Lang (2010)
 
@@ -304,14 +332,20 @@ undergraduate studies in statistics in 2015 and 2016.
 ## Student Outcomes
 
 We subjectively assessed student outcomes through conversations in our
-weekly student research meetings.
+weekly student research meetings. Both students showed increases in
+confidence and ability to do data science research. While the students
+benefited
 
-One student later enrolled in a statistics graduate program, while the
-other pursued employment in health care analytics.
+Both students secured positions in data science after graduation. One
+student later enrolled in a statistics graduate program, while the other
+pursued employment in health care analytics.
 
 ## Mentor Outcomes
 
-## Scholarly outcomes & deliverables
+## Scholarly outcomes
+
+Our scholarly contributions include the `parseTweetFiles` R package on
+Github (<https://github.com/rturn/parseTweetFiles>) and
 
 # Discussion
 
