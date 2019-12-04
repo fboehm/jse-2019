@@ -1,12 +1,5 @@
 # Introduction
 
-- big data
-- new areas of application of statistical methods - social media
-- need for students to work with real data
-- motivate statistical analysis and statistics research by real world scientific research questions (Box 1976)
-- need for mentoring 
-
-
 The need to analyze unprecedentedly large volumes of information combined with 
 the development of faster and more powerful computers has fueled advances in 
 data science methods for big data. We present below a framework for mentored 

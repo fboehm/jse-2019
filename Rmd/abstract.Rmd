@@ -1,6 +1,6 @@
 # Abstract
 
-We develop
+We backward design
 a mentoring framework to guide undergraduate researchers
 through individualized research projects in social media data science. 
 Our framework involves research question formulation, data acquisition, data 

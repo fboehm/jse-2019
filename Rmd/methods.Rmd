@@ -1,8 +1,17 @@
 # Methods
 
-We designed and used a framework for mentored undergraduate data science research 
-projects with big data. Below, we describe our initial implementation of the framework before relating 
-it to three major ideas from @nolan2010computing. 
+We used backward design principles to create and implement a 
+framework for mentored undergraduate data science research 
+projects with big data. Below, we describe our use of 
+backward design and ideas from @nolan2010computing.
+We then detail our framework and its initial implementation.
+
+## Framework design
+
+We started with the backward design principles from @wiggins2005understanding. We prioritized 
+
+
+
 
 ## Framework implementation
 
@@ -19,12 +28,15 @@ data science research question formulation. Skill in translating in both directi
 scientific and statistical questions is a key communication skill that data science 
 researchers offer.
 
-We also incorporated data availability into our question formulation. We limited questions to those 
-that could be studied with publicly available data. This practice also enabled reproducibility of
+We also incorporated data availability into our question formulation. 
+We limited questions to those 
+that could be studied with publicly available data. 
+This practice also enabled reproducibility of
 our analyses, since students could share the URL from which they accessed data.
 
 After identifying research questions and publicly available data, 
-the next step is to decide on informative data visualizations and quantitative analyses. Because 
+the next step is to decide on informative data visualizations and quantitative analyses. 
+Because 
 both projects primarily involved exploratory analyses of times series, 
 we encouraged students to think about
 visualizations that might reveal relationships over time.
