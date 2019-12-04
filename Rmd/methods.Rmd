@@ -8,7 +8,16 @@ We then detail our framework and its initial implementation.
 
 ## Framework design
 
-We started with the backward design principles from @wiggins2005understanding. We prioritized 
+We used the backward design principles from @wiggins2005understanding 
+to create a framework for undergraduate data science research. 
+Following @wiggins2005understanding, we identified desired results, 
+determined acceptable evidence, and planned learning experiences. 
+
+In establishing framework priorities, we categorized all terms from Figure 1 of @nolan2010computing into 3 categories: 
+1. worth being familiar with 
+1. important to know and do
+1. enduring understanding
+
 
 
 
