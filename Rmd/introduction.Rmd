@@ -1,6 +1,5 @@
 # Introduction
 
-
 The need to analyze unprecedentedly large volumes of information combined with 
 the development of faster and more powerful computers has fueled advances in 
 data science methods for big data. We present below a framework for mentored 

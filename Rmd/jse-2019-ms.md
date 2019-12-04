@@ -1,31 +1,25 @@
-Towards a reproducible framework for undergraduate data science research
+Backward designing a reproducible framework for undergraduate data
+science research
 ================
 Frederick J. Boehm and Bret M. Hanlon
 8/20/2019
 
-Last modified: 2019-12-02 11:23:55
+Last modified: 2019-12-04 13:22:36
 
 # Abstract
 
-We develop a mentoring framework to guide undergraduate researchers
-through individualized research projects in social media data science.
-Our framework involves research question formulation, data acquisition,
-data analysis and visualization, and presentation and communication of
-results. Our two honors students, whose projects serve as case studies
-for our framework, completed all components of the individualized
-research projects. We found that data science research skills,
-self-confidence in research ability, and professional interest in data
-science increased for both students. We describe our successes, lessons
-learned, and ideas for others to build similar frameworks.
+We backward design a mentoring framework to guide undergraduate
+researchers through individualized research projects in social media
+data science. Our framework involves research question formulation, data
+acquisition, data analysis and visualization, and presentation and
+communication of results. Our two honors students, whose projects serve
+as case studies for our framework, completed all components of the
+individualized research projects. We found that data science research
+skills, self-confidence in research ability, and professional interest
+in data science increased for both students. We describe our successes,
+lessons learned, and ideas for others to build similar frameworks.
 
 # Introduction
-
-  - big data
-  - new areas of application of statistical methods - social media
-  - need for students to work with real data
-  - motivate statistical analysis and statistics research by real world
-    scientific research questions (Box 1976)
-  - need for mentoring
 
 The need to analyze unprecedentedly large volumes of information
 combined with the development of faster and more powerful computers has
@@ -121,10 +115,1300 @@ framework.
 
 # Methods
 
-We designed and used a framework for mentored undergraduate data science
-research projects with big data. Below, we describe our initial
-implementation of the framework before relating it to three major ideas
-from Nolan and Temple Lang (2010).
+We used backward design principles to create and implement a framework
+for mentored undergraduate data science research projects with big data.
+Below, we describe our use of backward design with ideas from Nolan and
+Temple Lang (2010). We then detail our framework and its initial
+implementation.
+
+## Framework design
+
+We used backward design principles from Wiggins and McTighe (2005) to
+create a framework for undergraduate data science research. Following
+Wiggins and McTighe (2005), we identified desired results, determined
+acceptable evidence, and planned learning experiences.
+
+Before we identified desired results, we prioritized topics from Nolan
+and Temple Lang (2010). Specifically, we assigned all terms from Figure
+1 of Nolan and Temple Lang (2010) into one of three categories:
+
+1.  worth being familiar with
+2.  important to know and do
+3.  enduring understanding
+
+<!-- end list -->
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   Term = col_character(),
+    ##   Class = col_double()
+    ## )
+
+    ## Joining, by = "Class"
+
+<!--html_preserve-->
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#hojdgqpkbk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  /* table.margin.left */
+  margin-right: auto;
+  /* table.margin.right */
+  color: #333333;
+  font-size: 16px;
+  /* table.font.size */
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+  border-bottom-style: solid;
+  /* table.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table.border.bottom.color */
+}
+
+#hojdgqpkbk .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+  /* table.background.color */
+  border-left-style: hidden;
+  /* heading.border.lr.style */
+  border-left-width: 1px;
+  /* heading.border.lr.width */
+  border-left-color: #D3D3D3;
+  /* heading.border.lr.color */
+  border-right-style: hidden;
+  /* heading.border.lr.style */
+  border-right-width: 1px;
+  /* heading.border.lr.width */
+  border-right-color: #D3D3D3;
+  /* heading.border.lr.color */
+}
+
+#hojdgqpkbk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  /* heading.title.font.size */
+  font-weight: initial;
+  /* heading.title.font.weight */
+  padding-top: 4px;
+  /* heading.top.padding - not yet used */
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  /* table.background.color */
+  border-bottom-width: 0;
+}
+
+#hojdgqpkbk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  font-weight: initial;
+  /* heading.subtitle.font.weight */
+  padding-top: 0;
+  padding-bottom: 4px;
+  /* heading.bottom.padding - not yet used */
+  border-top-color: #FFFFFF;
+  /* table.background.color */
+  border-top-width: 0;
+}
+
+#hojdgqpkbk .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* heading.border.bottom.color */
+}
+
+#hojdgqpkbk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hojdgqpkbk .gt_col_headings {
+  border-top-style: solid;
+  /* column_labels.border.top.style */
+  border-top-width: 2px;
+  /* column_labels.border.top.width */
+  border-top-color: #D3D3D3;
+  /* column_labels.border.top.color */
+  border-bottom-style: solid;
+  /* column_labels.border.bottom.style */
+  border-bottom-width: 2px;
+  /* column_labels.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* column_labels.border.bottom.color */
+  border-left-style: none;
+  /* column_labels.border.lr.style */
+  border-left-width: 1px;
+  /* column_labels.border.lr.width */
+  border-left-color: #D3D3D3;
+  /* column_labels.border.lr.color */
+  border-right-style: none;
+  /* column_labels.border.lr.style */
+  border-right-width: 1px;
+  /* column_labels.border.lr.width */
+  border-right-color: #D3D3D3;
+  /* column_labels.border.lr.color */
+}
+
+#hojdgqpkbk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 100%;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  text-transform: inherit;
+  /* column_labels.text_transform */
+  vertical-align: middle;
+  padding: 5px;
+  margin: 10px;
+  overflow-x: hidden;
+}
+
+#hojdgqpkbk .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#hojdgqpkbk .gt_group_heading {
+  padding: 8px;
+  /* row_group.padding */
+  color: #333333;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 100%;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  text-transform: inherit;
+  /* row_group.text_transform */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #D3D3D3;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* row_group.border.bottom.color */
+  border-left-style: none;
+  /* row_group.border.left.style */
+  border-left-width: 1px;
+  /* row_group.border.left.width */
+  border-left-color: #D3D3D3;
+  /* row_group.border.left.color */
+  border-right-style: none;
+  /* row_group.border.right.style */
+  border-right-width: 1px;
+  /* row_group.border.right.width */
+  border-right-color: #D3D3D3;
+  /* row_group.border.right.color */
+  vertical-align: middle;
+}
+
+#hojdgqpkbk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 100%;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #D3D3D3;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#hojdgqpkbk .gt_striped {
+  background-color: #8080800D;
+  /* row.striping.background_color */
+}
+
+#hojdgqpkbk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hojdgqpkbk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hojdgqpkbk .gt_row {
+  padding-top: 8px;
+  /* data_row.padding */
+  padding-bottom: 8px;
+  /* data_row.padding */
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  /* table_body.hlines.style */
+  border-top-width: 1px;
+  /* table_body.hlines.width */
+  border-top-color: #D3D3D3;
+  /* table_body.hlines.color */
+  border-left-style: none;
+  /* table_body.vlines.style */
+  border-left-width: 1px;
+  /* table_body.vlines.width */
+  border-left-color: #D3D3D3;
+  /* table_body.vlines.color */
+  border-right-style: none;
+  /* table_body.vlines.style */
+  border-right-width: 1px;
+  /* table_body.vlines.width */
+  border-right-color: #D3D3D3;
+  /* table_body.vlines.color */
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hojdgqpkbk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* stub.background.color */
+  font-weight: initial;
+  /* stub.font.weight */
+  text-transform: inherit;
+  /* stub.text_transform */
+  border-right-style: solid;
+  /* stub.border.style */
+  border-right-width: 2px;
+  /* stub.border.width */
+  border-right-color: #D3D3D3;
+  /* stub.border.color */
+  padding-left: 12px;
+}
+
+#hojdgqpkbk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+  padding-top: 8px;
+  /* summary_row.padding */
+  padding-bottom: 8px;
+  /* summary_row.padding */
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hojdgqpkbk .gt_first_summary_row {
+  padding-top: 8px;
+  /* summary_row.padding */
+  padding-bottom: 8px;
+  /* summary_row.padding */
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  /* summary_row.border.style */
+  border-top-width: 2px;
+  /* summary_row.border.width */
+  border-top-color: #D3D3D3;
+  /* summary_row.border.color */
+}
+
+#hojdgqpkbk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+  padding-top: 8px;
+  /* grand_summary_row.padding */
+  padding-bottom: 8px;
+  /* grand_summary_row.padding */
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hojdgqpkbk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  /* grand_summary_row.padding */
+  padding-bottom: 8px;
+  /* grand_summary_row.padding */
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  /* grand_summary_row.border.style */
+  border-top-width: 6px;
+  /* grand_summary_row.border.width */
+  border-top-color: #D3D3D3;
+  /* grand_summary_row.border.color */
+}
+
+#hojdgqpkbk .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #D3D3D3;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* table_body.border.bottom.color */
+}
+
+#hojdgqpkbk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* footnotes.background.color */
+  border-bottom-style: none;
+  /* footnotes.border.bottom.style */
+  border-bottom-width: 2px;
+  /* footnotes.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* footnotes.border.bottom.color */
+  border-left-style: none;
+  /* footnotes.border.lr.color */
+  border-left-width: 2px;
+  /* footnotes.border.lr.color */
+  border-left-color: #D3D3D3;
+  /* footnotes.border.lr.color */
+  border-right-style: none;
+  /* footnotes.border.lr.color */
+  border-right-width: 2px;
+  /* footnotes.border.lr.color */
+  border-right-color: #D3D3D3;
+  /* footnotes.border.lr.color */
+}
+
+#hojdgqpkbk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  /* footnotes.font.size */
+  padding: 4px;
+  /* footnotes.padding */
+}
+
+#hojdgqpkbk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* source_notes.background.color */
+  border-bottom-style: none;
+  /* source_notes.border.bottom.style */
+  border-bottom-width: 2px;
+  /* source_notes.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* source_notes.border.bottom.color */
+  border-left-style: none;
+  /* source_notes.border.lr.style */
+  border-left-width: 2px;
+  /* source_notes.border.lr.style */
+  border-left-color: #D3D3D3;
+  /* source_notes.border.lr.style */
+  border-right-style: none;
+  /* source_notes.border.lr.style */
+  border-right-width: 2px;
+  /* source_notes.border.lr.style */
+  border-right-color: #D3D3D3;
+  /* source_notes.border.lr.style */
+}
+
+#hojdgqpkbk .gt_sourcenote {
+  font-size: 90%;
+  /* source_notes.font.size */
+  padding: 4px;
+  /* source_notes.padding */
+}
+
+#hojdgqpkbk .gt_left {
+  text-align: left;
+}
+
+#hojdgqpkbk .gt_center {
+  text-align: center;
+}
+
+#hojdgqpkbk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hojdgqpkbk .gt_font_normal {
+  font-weight: normal;
+}
+
+#hojdgqpkbk .gt_font_bold {
+  font-weight: bold;
+}
+
+#hojdgqpkbk .gt_font_italic {
+  font-style: italic;
+}
+
+#hojdgqpkbk .gt_super {
+  font-size: 65%;
+}
+
+#hojdgqpkbk .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+
+<div id="hojdgqpkbk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+
+<table class="gt_table">
+
+<thead class="gt_header">
+
+<tr>
+
+<th colspan="2" class="gt_heading gt_title gt_font_normal gt_center" style>
+
+Prioritizing Terms from Figure 1 of Nolan and Temple Lang
+(2010)
+
+</th>
+
+</tr>
+
+<tr>
+
+<th colspan="2" class="gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border" style>
+
+</th>
+
+</tr>
+
+</thead>
+
+<thead class="gt_col_headings">
+
+<tr>
+
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+
+Term
+
+</th>
+
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">
+
+Circle
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="gt_table_body">
+
+<tr>
+
+<td class="gt_row gt_left">
+
+R packages
+
+</td>
+
+<td class="gt_row gt_left">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+debugging
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+shell tools
+
+</td>
+
+<td class="gt_row gt_left">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+reproducible computation
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+text editors
+
+</td>
+
+<td class="gt_row gt_left">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+version control
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+file system concepts
+
+</td>
+
+<td class="gt_row gt_left">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+text processing
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+regular expressions
+
+</td>
+
+<td class="gt_row gt_left">
+
+Enduring understanding
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+EM
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+MCMC
+
+</td>
+
+<td class="gt_row gt_left">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+Bayeisan computation
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+programming scope
+
+</td>
+
+<td class="gt_row gt_left">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+data structures
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+portability
+
+</td>
+
+<td class="gt_row gt_left">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+authoring tools
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+GUIs
+
+</td>
+
+<td class="gt_row gt_left">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+grammar of graphics
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+composition
+
+</td>
+
+<td class="gt_row gt_left">
+
+Important to know and do
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+linear algebra decompositions
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+representation of numbers
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+RNG
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+optimization
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+numerical algorithms
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+efficiency
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+parallel computing
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+modeling language
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+distributed computing
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+compiled languages
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+OOP
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+symbolic math
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+data bases
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+I/O
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+Flash
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+HTTP
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+XML
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+SOAP
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+SVG
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+KML
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+grid
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+lattice
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+event programming
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+maps
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+interactivity
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+animation
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+perception
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left">
+
+color
+
+</td>
+
+<td class="gt_row gt_left">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="gt_row gt_left gt_striped">
+
+raster/vector graphics
+
+</td>
+
+<td class="gt_row gt_left gt_striped">
+
+Worth being familiar with
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!--/html_preserve-->
 
 ## Framework implementation
 
@@ -508,6 +1792,12 @@ Pelled, Frederick Boehm, Josephine Lukito, Shreenita Ghosh, and Jessica
 L Schmidt. 2016. “How Trump Drove Coverage to the Nomination: Hybrid
 Media Campaigning.” *Political Communication* 33 (4). Taylor & Francis:
 669–76.
+
+</div>
+
+<div id="ref-wiggins2005understanding">
+
+Wiggins, Grant, and Jay McTighe. 2005. *Understanding by Design*.
 
 </div>
 
