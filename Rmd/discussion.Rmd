@@ -2,7 +2,7 @@
 
 ## Benefits of our framework
 
-1. build self-confidence, self-assessed proficiency in data analysis and statistics
+1. build self-confidence, proficiency in data analysis and statistics
 
 1. greater interest in quantitative careers and/or grad school in quant fields
 
@@ -30,9 +30,19 @@ future careers. **maybe list resources for such survey questions**
 
 1. reproducible research best practices
 
-One shortcoming of our initial framework was the relative lack of emphasis on best practices for computational reproducibility. This is one area that we would like to rectify in future iterations. The University of Wisconsin-Madison has periodically offered a semester course in best practices for computationally reproducible research. We especially see version control systems, such as Git and Github, as essential tools for the modern data scientist.
+One shortcoming of our initial framework was the relative lack of emphasis on best practices for 
+computational reproducibility. This is one area that we would like to rectify in 
+future mentoring activities. The 
+University of Wisconsin-Madison has periodically offered a semester course in best practices for 
+computationally reproducible research (https://kbroman.org/Tools4RR/). We especially see collaborative 
+version control systems, such as Git and 
+Github, as essential tools for the modern data scientist.
+
+1. assessment of data science skills
 
 1. assessment of attitudes (pre and post survey??) 
+
+
 
 
 1. survey questions might include those from @vance2017eight. I have the survey as a pdf in mendeley. It is part of the supp info for @vance2017eight.

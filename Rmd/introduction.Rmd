@@ -23,7 +23,7 @@ Recognizing the potential utility of tweets for data science research, we create
 collection of tweets over time by repeated querying of the Twitter streaming API. 
 
 @nolan2010computing argue for students to work with real data. 
-Working with real data allows them to develop skill not only in statistical analysis,
+Working with real data allows students to develop skill not only in statistical analysis,
 but also in data transfer from online sources, in data storage, and in using data 
 from multiple file formats. In the case of Twitter data, tweets are stored in
 Javascript Object Notation (JSON) [@tweet_json,@json]. 
