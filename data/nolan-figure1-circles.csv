@@ -1,4 +1,4 @@
-Term,Circle
+Term,Class
 linear algebra decompositions,1
 representation of numbers,1
 EM,2
@@ -6,7 +6,7 @@ RNG,1
 MCMC,2
 optimization,1
 numerical algorithms,1
-Bayeisan computation,2
+Bayesian computation,2
 efficiency,1
 parallel computing,1
 modeling language,1

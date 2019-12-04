@@ -6,7 +6,6 @@ params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
 output: 
-  - github_document
   - bookdown::pdf_document2
   - bookdown::html_document2
 ---
