@@ -2,22 +2,32 @@
 
 The need to analyze unprecedentedly large volumes of information combined with 
 the development of faster and more powerful computers has fueled advances in 
-data science methods for big data. We present below a framework for mentored 
-undergraduate data science research and our findings from its initial 
-implementation for two statistics students. We conclude with lessons learned 
-and suggestions for those who wish to reproduce and refine our framework.
+data science methods for big data. Similar causes have led to a
+need for greater 
+numbers of scientists with quantitative skills. In efforts to enhance training
+and mentoring for trainees, we created a program that emphasizes many 
+transferable skills that contribute to career success in data science.
+
+We elected to work with social media data. This choice was deliberate. In making 
+this decision, we recognized that social media data, such as tweets from 
+Twitter, can be acquired with little cost and that there is growing research 
+interest in social media in many social science disciplines, including political 
+science, communication studies, and sociology. We also anticipated 
+that our undergraduate trainees might be intrigued by the possibility of 
+analyzing social media data, since many young adults use Facebook, Twitter, 
+Instagram, and related sites.
 
 
-Social media data, including tweets from Twitter and posts from Facebook, are 
+Some social media data, including tweets from Twitter, are 
 available through website application product interfaces (APIs). Twitter 
 shares, via a streaming API, a sample of approximately one percent of all 
-tweets during an API query time period [@tweet_stream]. 
+tweets during an API query time period [@tweet_stream].
 Researchers have studied tweets for a 
 variety of purposes, including 
 inference of relationships and social networks among users [@lin2011joint]; 
 determination of 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
-study of rhetoric in recruiting political supporters [@pelled2018little,@wells2016trump]. 
+study of rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump]. 
 Recognizing the potential utility of tweets for data science research, we created a 
 collection of tweets over time by repeated querying of the Twitter streaming API. 
 
@@ -25,12 +35,12 @@ collection of tweets over time by repeated querying of the Twitter streaming API
 Working with real data allows students to develop skill not only in statistical analysis,
 but also in data transfer from online sources, in data storage, and in using data 
 from multiple file formats. In the case of Twitter data, tweets are stored in
-Javascript Object Notation (JSON) [@tweet_json,@json]. 
+Javascript Object Notation (JSON) [@tweet_json;@json]. 
 
 Mentoring in the work place and in higher education can have many 
 benefits, including improving students' development as thinkers and scholars, confidence in their 
 own abilities, integration into the campus community, and interest in graduate training 
-[@baker2010beyond,@higgins2001reconceptualizing].
+[@baker2010beyond;@higgins2001reconceptualizing].
 A key component of our data science mentoring framework is the emphasis on using real data to answer real 
 scientific questions. We believe that this process develops problem-solving skills that 
 students will need in their future careers in data science. 
@@ -40,7 +50,6 @@ question, acquire the data, analyze data, visualize results, and communicate wha
 
 We provide guidance regarding selection of 
 
-**Need to explain above paragraph with our two student examples. What types of questions did they  articulate? How did they translate to quant terms? How did they determine data availability? etc.**
 
 ## Our backgrounds
 
@@ -50,10 +59,10 @@ experience in mentoring students, while the other (Boehm) had none. Our initial
 conceptualization of mentoring drew heavily on ideas we first encountered in professional 
 development 
 activities, including the Delta Program's mentoring class (https://delta.wisc.edu) and @handelsman2005entering. 
-Professor Erik Nordheim heavily 
+Professor Erik Nordheim
 influenced our approach to and philosophy of teaching statistics. 
 We studied with Professor Nordheim early in our teaching 
-careers, and his emphasis on active learning continues to influence our teaching practices. 
+careers, and his emphasis on backward design and active learning continues to influence our teaching practices. 
 
 We both have experience in teaching undergraduate introductory 
 statistics courses with enrollments over 

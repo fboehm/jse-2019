@@ -9,6 +9,9 @@ and connect it to ideas from @nolan2010computing.
 ## Framework implementation
 
 
+### Research question formulation
+
+
 Our mentored research framework begins with brainstorming scientific research ideas 
 based on the student's interests. This enables us to craft a project that excites the 
 student. With the results of brainstorming sessions, we (mentors and student together) 
@@ -21,21 +24,60 @@ data science research question formulation. Skill in translating in both directi
 scientific and statistical questions is a key communication skill that data science 
 researchers offer.
 
+### Data acquisition
+
 We also incorporated data availability into our question formulation. 
 We limited questions to those 
 that could be studied with publicly available data. 
 This practice also enabled reproducibility of
 our analyses, since students could share the URL from which they accessed data.
 
+### Data analysis and visualization
+
 After identifying research questions and publicly available data, 
 the next step is to decide on informative data visualizations and quantitative analyses. 
 Because 
-both projects primarily involved exploratory analyses of times series, 
+both projects involved exploratory analyses of times series, 
 we encouraged students to think about
 visualizations that might reveal relationships over time.
 
+In the case of the event detection project, we e
 
-### Examples
+
+### Presentation and communication of results
+
+Students presented their research in a variety of settings. 
+Each student presented at the annual undergraduate statistics poster session. 
+We also encouraged them to present at the annual university-wide 
+undergraduate research symposium.
+
+In planning with students for poster and slide presentations, 
+we (Hanlon and Boehm) emphasized
+the importance of succinctly stating the research question and its scientific 
+context. After clarifying the importance of the question, the student could 
+proceed with explaining many of the elements that we've described above. Namely, the 
+student would discuss the analyzed data and its acquisition while noting any shortcomings or 
+biases of the data. For oral presentations, we suggested that 
+students cautiously limit discussion of statistical methods, with the caveat that 
+they prepare to answer detailed methodological inquiries during the question and 
+answer session. 
+Our students created powerful data 
+visualizations for their projects. Their presentations also included their major results and future research directions.
+
+In efforts to develop student written communication, we encouraged both students to 
+prepare a written senior thesis document that detailed their research. In the senior 
+thesis, we suggested that the students describe in rigorous detail their statistical 
+methods. The rationale for this distinction, relative to the oral presentation, is 
+that a reader doesn't have access to a question and answer session, while a poster 
+session attendee may freely ask questions of the author.
+
+
+
+
+
+
+
+## Examples
 
 Examples may help to demonstrate our approach to identifying a statistical research 
 question. One of our students had interests in acquiring and using social media posts. 
@@ -170,4 +212,4 @@ of words chosen from topics.
 Our framework for mentored student research projects involves these components:
 
     
-
+## Develop and practice skills in reproducible research to promote open science
