@@ -2,39 +2,35 @@
 
 ## Benefits of our framework
 
-1. build self-confidence, proficiency in data analysis and statistics
-
-1. greater interest in quantitative careers and/or grad school in quant fields
-
-1. Working with real data to solve real scientific questions
-
-1. Learn by example interplay between data science (statistics) and science research
-
-
-Benefits of our framework include enhanced 
-
-## How does the framework relate to ideas in Nolan and Temple Lang 2010??
+The student test cases for our framework demonstrated greater 
+self-confidence and greater proficiency in data science skills over the 
+course of the research projects. They used real-world data sources to 
+address real scientific research questions.
+Additionally, they showed great interest
+in quantitative and data science careers. After graduation, one student immediately enrolled
+in statistics graduate training, while the other sought employment in 
+health care analytics.
 
 
 
 ## Critiques of our framework
 
-Our measures of students' self-confidence in research ability was merely subjective. In 
+From our current perspective, we offer a number of framework critiques and opportunities for improvement. Our measure of students' self-confidence in research ability was merely subjective. In 
 future iterations of our framework, we would like to measure systematic and objective 
-outcomes. One strategy for implementing this is to administer a survey, such as \_\_\_, 
+outcomes. One strategy for implementing this is to administer a survey, including questions from @vance2017eight, 
 both before and after the mentored research project. We would use validated survey 
 questions that focused on student beliefs about themselves, their skills, and their 
-future careers. **maybe list resources for such survey questions**
+future careers.
 
-## Areas for improvement
-
-1. reproducible research best practices
-
-One shortcoming of our initial framework was the relative lack of emphasis on best practices for 
-computational reproducibility. This is one area that we would like to rectify in 
+One shortcoming of our initial framework was the relative lack of emphasis 
+on best practices for 
+computational reproducibility. This is one area that we would like to 
+rectify in 
 future mentoring activities. The 
-University of Wisconsin-Madison has periodically offered a semester course in best practices for 
-computationally reproducible research (https://kbroman.org/Tools4RR/). We especially see collaborative 
+University of Wisconsin-Madison has periodically offered a semester course 
+in best practices for 
+computationally reproducible research (https://kbroman.org/Tools4RR/). We 
+especially see collaborative 
 version control systems, such as Git and 
 Github, as essential tools for the modern data scientist.
 
@@ -45,5 +41,52 @@ Github, as essential tools for the modern data scientist.
 
 
 
-1. survey questions might include those from @vance2017eight. I have the survey as a pdf in mendeley. It is part of the supp info for @vance2017eight.
+
+### Framework development with backward design
+
+In future research, we will continue to develop our framework for 
+undergraduate data science research by explicitly 
+incorporating backward design principles [@wiggins2005understanding]. 
+Following @wiggins2005understanding, we will identify desired results, 
+determined acceptable evidence, and planned learning experiences. 
+
+Before identifying desired results, we will prioritize topics from 
+@nolan2010computing. Specifically, we will assign all terms from Figure 1 
+of @nolan2010computing into one of three categories: 
+
+1. worth being familiar with 
+1. important to know and do
+1. enduring understanding
+
+We've tabulated below the @nolan2010computing terms for the current 
+framework and its student projects.
+
+```{r table1, echo = FALSE, message = FALSE}
+library(magrittr)
+circles <- tibble::tibble(Class = 1:3, Circle = c("Worth being familiar with", "Important to know and do", "Enduring understanding"))
+readr::read_csv("../data/nolan-figure1-circles.csv") %>%
+  dplyr::left_join(circles) %>%
+  dplyr::arrange(desc(Class)) %>%
+  dplyr::select(- Class) %>%
+  gt::gt() %>%
+  gt::tab_header(title = "Prioritizing Key Terms from Figure 1 of @nolan2010computing", 
+                 subtitle ="xxx" ) %>%
+  gt::as_latex()
+```
+
+Potential benefits of incorporating backward design ideas include clearer 
+articulation of goals and better assessment of goal achievement.
+
+We see our framework as one contribution to scholarship on improving data 
+science training programs. Given the increasing economic need, in the USA 
+and abroad, for 
+data scientists and other researchers with quantitative training, we 
+anticipate that our framework and its future iterations will continue
+to prepare students for data science careers by offering training in tangible and 
+transferable analytic skills in the context of solving scientific questions.
+
+
+
+
+
 

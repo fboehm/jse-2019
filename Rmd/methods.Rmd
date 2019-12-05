@@ -1,43 +1,9 @@
 # Methods
 
-We used backward design principles to create and implement a 
+We designed and implemented a 
 framework for mentored undergraduate data science research 
-projects with big data. Below, we describe our use of 
-backward design with ideas from @nolan2010computing.
-We then detail our framework and its initial implementation.
-
-## Framework design
-
-We used backward design principles from @wiggins2005understanding 
-to create a framework for undergraduate data science research. 
-Following @wiggins2005understanding, we identified desired results, 
-determined acceptable evidence, and planned learning experiences. 
-
-Before we identified desired results, we prioritized topics from 
-@nolan2010computing. Specifically, we assigned all terms from Figure 1 
-of @nolan2010computing into one of three categories: 
-
-1. worth being familiar with 
-1. important to know and do
-1. enduring understanding
-
-```{r table1, echo = FALSE}
-library(magrittr)
-circles <- tibble::tibble(Class = 1:3, Circle = c("Worth being familiar with", "Important to know and do", "Enduring understanding"))
-readr::read_csv("../data/nolan-figure1-circles.csv") %>%
-  dplyr::left_join(circles) %>%
-  dplyr::arrange(desc(Class)) %>%
-  dplyr::select(- Class) %>%
-  gt::gt() %>%
-  gt::tab_header(title = "Prioritizing Key Terms from Figure 1 of @nolan2010computing", 
-                 subtitle ="xxx" ) %>%
-  gt::as_latex()
-```
-
-
-
-
-
+projects with big data. Below, we describe our initial framework 
+and connect it to ideas from @nolan2010computing.
 
 
 ## Framework implementation
@@ -201,58 +167,7 @@ of words chosen from topics.
 
 
 
-
-
-
-
-
-
-
-
-**justify each step**
-
-**Maybe use/cite Box's science and statistics article from... 1976?**
-
-
-
-
-
-
-
-
-
-
-
-1. Overview of our framework
-  a. student-led, hypothesis-driven research
-  b. BH and FB helped with data acquisition
-  c. helped with research question formulation
-  d. how to describe roles for students v mentors?
-
 Our framework for mentored student research projects involves these components:
 
     
-
-
-1. State the questions and research hypotheses that the two students chose
-  
-1. Data description
-
-
-  
-
-
-
-
-
-- how did we/they conceive of projects?
-
-
-
-
-- how did we balance our input with that of the students?
-- What data did we use?
-- How did we collect data? (which packages, code to sample twitter). How did Jinyu get her stock market data? 
-- What is the sampling scheme - for the 1% sample - from the entirety of Twitter? (Cite the webpage that documents the API)
-
 

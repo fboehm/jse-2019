@@ -6,8 +6,9 @@ params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
 output: 
-  - bookdown::pdf_document2
-  - bookdown::html_document2
+  bookdown::pdf_document2:
+    includes:
+      in_header: head.tex
 ---
 
 Last modified: `r params$lastmod`
