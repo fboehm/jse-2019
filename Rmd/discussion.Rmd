@@ -85,6 +85,28 @@ anticipate that our framework and its future iterations will continue
 to prepare students for data science careers by offering training in tangible and 
 transferable analytic skills in the context of solving scientific questions.
 
+## Integrating more mentoring activities
+
+Our framework would benefit students more if we explicitly incorporate more 
+mentoring activities. Through professional development courses at the University
+of Wisconsin-Madison's Delta Program, we received training in how to offer 
+professional support to students. While we both informally supported our
+students, the Delta Program suggested
+ways to encourage the student's professional development through structured
+conversations and goal-setting. Additions like this would only enhance our 
+framework. 
+
+
+@baker2010beyond discuss the role of faculty "developers" in 
+student success. A faculty "developer", as envisioned by @higgins2001reconceptualizing, 
+offers not only psychosocial and career support, like a mentor, but also 
+supports students' academic goals. Such relationships between developers 
+and students benefit both parties. The student gets support while the 
+developer refines her teaching and expands her scholarly network. We anticipate
+expanding our framework to more holistically support students.
+
+
+
 
 
 

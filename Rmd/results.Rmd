@@ -1,8 +1,13 @@
-# Outcomes
+# Results
 
 We applied the project framework to our mentoring of two students. 
 Both engaged in 12 months of mentored research during their senior year of 
-undergraduate studies in statistics.
+undergraduate studies in statistics. Below, we describe three categories of outcomes:
+
+1. student outcomes
+1. mentor outcomes
+1. scholarly outcomes
+
 
 
 ## Student Outcomes
@@ -15,9 +20,17 @@ Both students secured positions in data science after graduation.
 One student later enrolled in a statistics graduate program, 
 while the other pursued employment in health care analytics. 
 
+## Mentor outcomes
+
+We (Boehm and Hanlon) grew as mentors during our work with the two students. We successfully
+guided junior scientists through a productive, hands-on research experience, and we anticipate
+refining the framework in future iterations.
+
 ## Scholarly outcomes
 
 Our scholarly contributions include the `parseTweetFiles` R package on Github
-(https://github.com/rturn/parseTweetFiles) and presentations at conferences such as useR! 2016 and local poster sessions. Additionally, both students prepared end-of-project reports on their research.
+(https://github.com/rturn/parseTweetFiles) and presentations at conferences such as useR! 2016 
+and local poster sessions. Additionally, both students prepared end-of-project reports on 
+their research.
 
-We consider below 
+
