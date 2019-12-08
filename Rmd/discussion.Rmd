@@ -50,6 +50,10 @@ incorporating backward design principles [@wiggins2005understanding].
 Following @wiggins2005understanding, we will identify desired results, 
 determined acceptable evidence, and planned learning experiences. 
 
+```{r backward}
+knitr::include_graphics("backward-design.jpg")
+```
+
 Before identifying desired results, we will prioritize topics from 
 @nolan2010computing. Specifically, we will assign all terms from Figure 1 
 of @nolan2010computing into one of three categories: 

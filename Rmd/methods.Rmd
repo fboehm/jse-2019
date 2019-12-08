@@ -5,16 +5,55 @@ framework for mentored undergraduate data science research
 projects with big data. Below, we describe our initial framework 
 and connect it to ideas from @nolan2010computing.
 
-| Framework step  | Details       |
-| ------------- |---------------|
-| Question formulation      | List many ideas |
-|               | Prioritize ideas |
-|               | Determine data availability |
-|               | Specify a statistical question |
-| ------------- |---------------|
-| Acquire data      |       | 
-| zebra stripes | are neat      | 
-
+```{r t1, echo = FALSE}
+library(magrittr)
+step <- c(rep("Question formulation", 3),
+          rep("Data acquisition", 3), 
+          rep("Data analysis and visualization", 2), 
+          rep("Presentation and communication", 3)
+)
+details <- c("List ideas", "Prioritize ideas", "Check data availability",
+             "Download tweets and other data", "Parse tweet JSON", "Organize data as times series",
+             "Exploratory plots", "Summary statistics",
+             "Interpret and summarize graphs and summary statistics", "Prepare written materials and figures", "Share findings as posters, slides, and reports"
+             )
+tibble::tibble(step, details) %>%
+#  dplyr::group_by(step) %>%
+  gt::gt() %>%
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "lightcyan"),
+      gt::cell_text(style = "italic")
+      ),
+    locations = gt::cells_data(
+      columns = dplyr::vars(details),
+      rows = step == "Question formulation"
+      )
+  ) %>%
+    gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "pink"),
+      gt::cell_text(style = "italic")
+      ),
+    locations = gt::cells_data(
+      columns = dplyr::vars(details),
+      rows = step == "Data acquisition"
+      )
+  ) %>%
+  gt::tab_header(
+    title = gt::md("Framework Overview"), subtitle = "xxx"
+  ) %>%
+  gt::tab_style(
+    style = list(
+      gt::cell_fill(color = "apricot"),
+      gt::cell_text(style = "italic")
+      ),
+    locations = gt::cells_data(
+      columns = dplyr::vars(details),
+      rows = step == "Data analysis and visualization"
+      )
+  )
+```
 
 
 
