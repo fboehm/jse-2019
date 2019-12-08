@@ -1,5 +1,5 @@
 ---
-title: 'A reproducible framework for undergraduate data science research'
+title: 'A framework for mentored data science research'
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "8/20/2019"
 params:

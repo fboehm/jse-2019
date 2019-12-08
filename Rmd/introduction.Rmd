@@ -5,10 +5,10 @@ the development of faster and more powerful computers has fueled advances in
 data science methods for big data. Similar causes have led to a
 need for greater 
 numbers of scientists with quantitative skills. In efforts to enhance training
-and mentoring for trainees, we created a program that emphasizes many 
+and mentoring for students, we created a program that emphasizes many 
 transferable skills that contribute to career success in data science.
 
-We elected to work with social media data. This choice was deliberate. In making 
+We elected to work with social media data. In making 
 this decision, we recognized that social media data, such as tweets from 
 Twitter, can be acquired with little cost and that there is growing research 
 interest in social media in many social science disciplines, including political 
@@ -27,9 +27,10 @@ variety of purposes, including
 inference of relationships and social networks among users [@lin2011joint]; 
 determination of 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
-study of rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump]. 
-Recognizing the potential utility of tweets for data science research, we created a 
-collection of tweets over time by repeated querying of the Twitter streaming API. 
+study of rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
+Recognizing the potential utility of tweets for data science research and teaching, 
+we created a 
+collection of tweets over time by repeated querying of the Twitter streaming API.
 
 @nolan2010computing argue for students to work with real data. 
 Working with real data allows students to develop skill not only in statistical analysis,
@@ -39,16 +40,17 @@ Javascript Object Notation (JSON) [@tweet_json;@json].
 
 Mentoring in the work place and in higher education can have many 
 benefits, including improving students' development as thinkers and scholars, confidence in their 
-own abilities, integration into the campus community, and interest in graduate training 
+own abilities, integration into the campus community,
+and interest in graduate training 
 [@baker2010beyond;@higgins2001reconceptualizing].
-A key component of our data science mentoring framework is the emphasis on using real data to answer real 
+A key component of our data science mentoring framework is 
+the emphasis on using real data to answer 
 scientific questions. We believe that this process develops problem-solving skills that 
 students will need in their future careers in data science. 
-We encouraged the student to articulate a scientific research question, translate that question 
+We encouraged students to articulate a scientific research question, translate that question 
 into quantitative and statistical terms, determine which data could be used to address the 
 question, acquire the data, analyze data, visualize results, and communicate what they learned.
 
-We provide guidance regarding selection of 
 
 
 ## Our backgrounds

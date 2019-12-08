@@ -5,6 +5,19 @@ framework for mentored undergraduate data science research
 projects with big data. Below, we describe our initial framework 
 and connect it to ideas from @nolan2010computing.
 
+| Framework step  | Details       |
+| ------------- |---------------|
+| Question formulation      | List many ideas |
+|               | Prioritize ideas |
+|               | Determine data availability |
+|               | Specify a statistical question |
+| ------------- |---------------|
+| Acquire data      |       | 
+| zebra stripes | are neat      | 
+
+
+
+
 
 ## Framework implementation
 
