@@ -52,7 +52,8 @@ tibble::tibble(step, details) %>%
       columns = dplyr::vars(details),
       rows = step == "Data analysis and visualization"
       )
-  )
+  ) %>%
+  gt::as_latex()
 ```
 
 
@@ -196,8 +197,11 @@ above.
 Our framework broadens statistical computing by including the emerging areas of
 social media data analysis, sentiment analysis, and topic modeling. 
 Both students used Twitter tweets, which we accessed through a Twitter 
-streaming API. 
-
+streaming API. One student chose to apply topic modeling to tweets. 
+The other elected to apply sentiment analysis to daily 
+tweet collections. By using these methods, sentiment analysis and 
+topic modeling, students learned an aspect of text analysis that 
+is not taught in traditional statistics courses.
 
 
 
