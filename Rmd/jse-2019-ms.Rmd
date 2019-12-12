@@ -5,8 +5,9 @@ date: "8/20/2019"
 params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
+geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
-  bookdown::pdf_document2:
+  bookdown::pdf_book:
     includes:
       in_header: head.tex
 ---

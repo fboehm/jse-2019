@@ -41,11 +41,11 @@ tibble::tibble(step, details) %>%
       )
   ) %>%
   gt::tab_header(
-    title = gt::md("Framework Overview"), subtitle = "xxx"
+    title = gt::md("Framework Overview"), subtitle = "t"
   ) %>%
   gt::tab_style(
     style = list(
-      gt::cell_fill(color = "apricot"),
+      gt::cell_fill(color = "yellow"),
       gt::cell_text(style = "italic")
       ),
     locations = gt::cells_data(
@@ -289,7 +289,7 @@ topic modeling). The goal of topic modeling, then, was to infer the underlying "
 With the goal of promoting transparency in our research, we encouraged students to 
 use `git` for version control of their code and documents and to share their code via
 the website Github (https://github.com). One student also enrolled in Karl Broman's class on 
-tools for reproducible research. This class features `git` and Github throughout 
+tools for reproducible research (https://kbroman.org/Tools4RR/). This class features `git` and Github throughout 
 its lectures and activities.
 
 As we stated above, the students created an R package, `parseTweetFiles`, version controlled it with `git`, and shared it via Github.

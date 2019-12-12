@@ -1,7 +1,6 @@
 # Abstract
 
-We design
-a mentoring framework to guide undergraduate researchers
+We design a mentoring framework to guide undergraduate researchers
 through individualized research projects in data science. 
 Our framework involves research question formulation, data acquisition, data 
 analysis and visualization, and presentation and communication of results. Our two honors students, 
@@ -10,4 +9,3 @@ individualized research projects. We found that data science research skills, se
 research ability, and professional interest in data science increased for both 
 students. We describe our successes, lessons learned, and ideas for others to 
 build similar frameworks.
-

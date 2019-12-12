@@ -20,6 +20,26 @@ Both students secured positions in data science after graduation.
 One student enrolled in a statistics graduate program, 
 while the other pursued employment in health care analytics. 
 
+Students benefited from our emphasis on the four central concepts, 
+three from @nolan2010computing plus reproducible research skills. 
+The research projects successfully drew on emerging areas of 
+statistical computing, namely text analysis. They combined 
+computational topics, including topic modeling and time series 
+methods, with data analysis in the practice of statistics. Although 
+we didn't formally measure them, our informal assessment indicates 
+that students' computational reasoning skills increased over the 
+duration of our projects. Students used a variety of computing tools 
+and methods to arrive at a practical solution to a selected task. 
+They became more skilled in computing with R and shell scripts and 
+more fluid in their verbal explanations during our regular meetings [@r]. 
+
+Our framework's emphasis on reproducible research skills is 
+evidenced by the students' R package, `parseTweetFiles`, which is 
+both version controlled with `git` and shared via Github.com.
+
+
+
+
 ## Mentor outcomes
 
 We (Boehm and Hanlon) grew as mentors during our work with the two students. We successfully

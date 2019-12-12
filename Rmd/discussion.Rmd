@@ -50,7 +50,7 @@ incorporating backward design principles [@wiggins2005understanding].
 Following @wiggins2005understanding, we will identify desired results, 
 determined acceptable evidence, and planned learning experiences. 
 
-```{r backward}
+```{r backward, echo = FALSE}
 knitr::include_graphics("backward-design.jpg")
 ```
 
