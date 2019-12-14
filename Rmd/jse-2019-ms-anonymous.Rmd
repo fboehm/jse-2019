@@ -1,0 +1,46 @@
+---
+title: 'A framework for mentored data science research'
+author: ""
+date: ""
+params:
+  lastmod: !r lubridate::now()
+bibliography: jse.bib
+geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
+output: 
+  bookdown::pdf_book:
+    toc: FALSE
+    number_sections: FALSE
+    includes:
+      in_header: head.tex
+---
+
+
+```{r child = "abstract.Rmd"}
+```
+
+
+```{r child = "introduction.Rmd"}
+```
+
+
+```{r child = "methods.Rmd"}
+```
+
+
+```{r child = "results.Rmd"}
+```
+
+
+```{r child = "discussion.Rmd"}
+```
+
+
+
+
+
+
+
+
+## References
+
+

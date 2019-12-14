@@ -56,8 +56,8 @@ question, acquire the data, analyze data, visualize results, and communicate wha
 ## Our backgrounds
 
 During the time when we first implemented our framework, we served as early-career instructors in 
-the statistics department at the University of Wisconsin-Madison. One of us (Hanlon) had prior 
-experience in mentoring students, while the other (Boehm) had none. Our initial 
+the statistics department at the University of Wisconsin-Madison. One of us had prior 
+experience in mentoring students, while the other had none. Our initial 
 conceptualization of mentoring drew heavily on ideas we first encountered in professional 
 development 
 activities, including the Delta Program's mentoring class (https://delta.wisc.edu) and @handelsman2005entering. 

@@ -1,0 +1,24 @@
+---
+title: ""
+author: ""
+date: "12/14/2019"
+output: github_document
+---
+
+Dear editors:
+
+We're writing to submit a manuscript for the Journal of Statistics Education's special issue on "Computing in the 
+Statistics Curriculum". In it, we describe our mentoring framework for undergraduate research projects in data science.
+We relate the framework to many ideas from Nolan & Temple Lang (2010) and offer minor amendments to Nolan & Temple Lang's 
+arguments. 
+
+We developed the framework while guiding two undergraduate students through their senior projects in statistics. 
+
+Our framework integrates ideas from Nolan and Temple Lang (2010) with literature on mentoring and curriculum design. 
+
+We thank you for your careful consideration of our manuscript. 
+
+Sincerely,
+
+Frederick Boehm and Bret Hanlon
+
