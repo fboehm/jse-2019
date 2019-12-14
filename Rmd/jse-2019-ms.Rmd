@@ -8,11 +8,11 @@ bibliography: jse.bib
 geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
   bookdown::pdf_book:
+    toc: FALSE
+    number_sections: FALSE
     includes:
       in_header: head.tex
 ---
-
-Last modified: `r params$lastmod`
 
 
 ```{r child = "abstract.Rmd"}

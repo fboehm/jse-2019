@@ -42,7 +42,7 @@ both version controlled with `git` and shared via Github.com.
 
 ## Mentor outcomes
 
-We (Boehm and Hanlon) grew as mentors during our work with the two students. We successfully
+We grew as mentors during our work with the two students. We successfully
 guided junior scientists through a productive, hands-on research experience, and we anticipate
 refining the framework in future iterations.
 

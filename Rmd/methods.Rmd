@@ -175,22 +175,6 @@ the Super Bowl and vanish soon after the game's conclusion.
 
 
 
-## Relating to three ideas from @nolan2010computing
-
-We incorporate three key aspects that @nolan2010computing identified: 
-
-1. broaden statistical computing to include emerging areas
-1. deepen computational reasoning skills
-1. combine computational topics with data analysis in the practice of statistics
-
-Additionally, our projects gave students opportunities to develop and to practice skills in reproducible 
-research. Given the growing imperative to document and share code to promote open science, we feel that 
-this skill set equals in importance the three points above.
-
-4. develop and practice skills in reproducible research to promote open science
-
-Below, we describe how our framework enabled students to achieve competence in the four areas listed 
-above.
 
 ## Broaden statistical computing to include emerging areas
 
