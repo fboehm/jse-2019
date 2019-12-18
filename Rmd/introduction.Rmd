@@ -56,15 +56,14 @@ question, acquire the data, analyze data, visualize results, and communicate wha
 ## Our backgrounds
 
 During the time when we first implemented our framework, we served as early-career instructors in 
-the statistics department at the University of Wisconsin-Madison. One of us had prior 
+the statistics department at a large university. One of us had prior 
 experience in mentoring students, while the other had none. Our initial 
 conceptualization of mentoring drew heavily on ideas we first encountered in professional 
 development 
-activities, including the Delta Program's mentoring class (https://delta.wisc.edu) and @handelsman2005entering. 
-Professor Erik Nordheim's class, "Teaching Statistics", 
+activities, including a professional development class and @handelsman2005entering. 
+A professional development class, "Teaching Statistics", 
 influenced our approach to and philosophy of teaching statistics. 
-We studied with Professor Nordheim early in our teaching 
-careers, and his course's emphasis on backward design and active learning continues to influence our teaching practices (https://delta.wisc.edu). 
+This course's emphasis on backward design and active learning continues to influence our teaching practices. 
 
 We both have experience in teaching undergraduate introductory 
 statistics courses with enrollments of more than 

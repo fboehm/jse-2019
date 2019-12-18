@@ -26,17 +26,13 @@ One shortcoming of our initial framework was the relative lack of emphasis
 on best practices for 
 computational reproducibility. This is one area that we would like to 
 rectify in 
-future mentoring activities. The 
-University of Wisconsin-Madison has periodically offered a semester course 
+future mentoring activities. The university has periodically offered a semester course 
 in best practices for 
-computationally reproducible research (https://kbroman.org/Tools4RR/). We 
+computationally reproducible research. We 
 especially see collaborative 
 version control systems, such as Git and 
 Github, as essential tools for the modern data scientist.
 
-1. assessment of data science skills
-
-1. assessment of attitudes (pre and post survey??) 
 
 
 
@@ -92,10 +88,9 @@ transferable analytic skills in the context of solving scientific questions.
 ## Integrating more mentoring activities
 
 Our framework would benefit students more if we explicitly incorporate more 
-mentoring activities. Through professional development courses at the University
-of Wisconsin-Madison's Delta Program, we received training in how to offer 
+mentoring activities. Through professional development courses at the university, we received training in how to offer 
 professional support to students. While we both informally supported our
-students, the Delta Program suggested
+students, the professional development program suggested
 ways to encourage the student's professional development through structured
 conversations and goal-setting. Additions like this would only enhance our 
 framework. 
