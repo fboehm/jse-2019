@@ -12,7 +12,7 @@ We elected to work with social media data. In making
 this decision, we recognized that social media data, such as tweets from 
 Twitter, can be acquired with little cost and that there is growing research 
 interest in social media in many social science disciplines, including political 
-science, communication studies, and sociology. We also anticipated 
+science, communication studies, public health, and sociology. We also anticipated 
 that our undergraduate trainees might be intrigued by the possibility of 
 analyzing social media data, since many young adults use Facebook, Twitter, 
 Instagram, and related sites.

@@ -1,7 +1,7 @@
 ---
-title: 'A framework for mentored data science research'
+title: 'Mentored data science research with tweets'
 author: "Frederick J. Boehm and Bret M. Hanlon"
-date: "8/20/2019"
+date: "May 15, 2020"
 params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
@@ -9,7 +9,7 @@ geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
   bookdown::pdf_book:
     toc: FALSE
-    number_sections: FALSE
+    number_sections: TRUE
     includes:
       in_header: head.tex
 ---
