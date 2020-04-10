@@ -1,0 +1,51 @@
+---
+title: "Tweets"
+author: "Frederick J. Boehm"
+date: "4/9/2020"
+output: html_document
+---
+
+## Goals
+
+1. Write a R script to query twitter streaming api to get 1 percent sample over 5'.
+1. Demonstrate how to set up a crontab to execute script every 5'.
+1. Verify that crontab approach works by running it on my computer for, say, 15'.
+    1. Cautions about twitter databases: deletions and amendments to tweets
+1. Examine structure of JSON obtained from api. 
+1. Create phony JSON to represent a collection of tweets.
+    1. Use lorem ipsum for text of tweets
+
+## R code to query twitter streaming api
+
+Install `rtweet` package from CRAN.
+
+```{r, eval = FALSE}
+install.packages("rtweet")
+install.packages("lubridate")
+```
+
+```{r}
+rtweet::stream_tweets(
+  timeout = (60 * 5),
+  parse = TRUE,
+  file_name = paste0("../data/", lubridate::now(), "-tweets")
+)
+```
+
+
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+# what commit is this file at? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
