@@ -32,7 +32,39 @@ rtweet::stream_tweets(
 )
 ```
 
+## Parse json file
 
+```{r}
+library(magrittr)
+```
+
+
+```{r}
+tweets <- rtweet::parse_stream("../data/2020-04-09 16:31:44-tweets.json") %>%
+  dplyr::filter(lang == "en") %>%
+  tidytext::unnest_tokens(output = word, input = text)
+```
+
+## Prepare document-term matrix from tweet words
+
+```{r}
+# create a twitter-specific stop word list
+twitter_stop <- tibble::tibble(word = c("https", "http", "t.co"))
+# get a list of english language words and names
+library(qdapDictionaries) # contains object GradyAugmented
+```
+
+```{r}
+# https://www.tidytextmining.com/topicmodeling.html#library-heist
+library(tidytext)
+word_counts <- tweets %>% 
+  dplyr::select(status_id, word) %>%
+  dplyr::anti_join(stop_words) %>%
+  dplyr::anti_join(twitter_stop) %>%
+  dplyr::filter(word %in% GradyAugmented) %>%
+  dplyr::count(status_id, word, sort = TRUE) %>%
+  dplyr::ungroup()
+```
 
 ### Colophon
 
