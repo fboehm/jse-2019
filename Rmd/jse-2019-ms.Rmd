@@ -86,7 +86,11 @@ results in their native JSON format. The R package `rtweet`
 provides functions that parse tweet JSON to R data frames. We then 
 conducted all further analyses with the R data frames.
 
+As a proof of principle of our event detection strategy, we chose to 
+examine tweets before, during, and after the National Football League's 
+2015 Super Bowl. We fitted five latent Dirichlet allocation models. We examined five time periods, each lasting one hour in duration. The first period began approximately 48h before the Super Bowl halftime show. Subsequent time periods started at -24, 0, +24, and +48 hours after the approximate start time of the halftime show. 
 
+We defined each time period to be a single corpus of tweets. We then fitted latent Dirichlet allocation models to each corpus. 
 
 
 
