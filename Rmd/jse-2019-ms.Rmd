@@ -18,13 +18,59 @@ output:
 ```{r child = "abstract.Rmd"}
 ```
 
+## Introduction
 
-```{r child = "introduction.Rmd"}
-```
+Twitter has changed the way that we communicate. 
+In only 140 characters, users speak their piece on politics, 
+current events, sports, media, and many other topics. 
+Recent development of accessible statistical methods for text 
+analysis now enable instructors to use tweets as pedagogical 
+tools in mentoring undergraduate research projects. 
+
+Some social media data, including tweets from Twitter, are 
+available through website application product interfaces (APIs). Twitter 
+shares, via a streaming API, a sample of approximately one percent of all 
+tweets during an API query time period [@tweet_stream].
+Researchers have studied tweets for a 
+variety of purposes, including 
+inference of relationships and social networks among users [@lin2011joint]; 
+determination of 
+authorship of specific tweets when multiple persons share a single account [@drob]; and 
+study of rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
+Recognizing the potential utility of tweets for data science research and teaching, 
+we created a 
+collection of tweets over time by repeated querying of the Twitter streaming API.
+
+@nolan2010computing argue for students to work with real data. 
+Working with real data allows students to develop skill not only in statistical analysis,
+but also in related data science skills, including data transfer from online sources, data storage, and using data 
+from multiple file formats. 
+
+Mentoring in the work place and in higher education can have many 
+benefits, including improving students' development as thinkers and scholars, confidence in their 
+own abilities, integration into the campus community,
+and interest in graduate training 
+[@baker2010beyond;@higgins2001reconceptualizing].
+
+We present below 1) an approach for collecting tweets in real 
+time and 2) statistical methods for detecting social media 
+events via topic modeling of tweets and 3) reflections on 
+using this data set in research mentoring for undergraduate 
+students.
 
 
-```{r child = "methods.Rmd"}
-```
+
+
+## Methods
+
+
+
+
+
+
+
+
+
 
 
 ```{r child = "results.Rmd"}
