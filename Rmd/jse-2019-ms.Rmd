@@ -41,16 +41,25 @@ Recognizing the potential utility of tweets for data science research and teachi
 we created a 
 collection of tweets over time by repeated querying of the Twitter streaming API.
 
-@nolan2010computing argue for students to work with real data. 
-Working with real data allows students to develop skill not only in statistical analysis,
-but also in related data science skills, including data transfer from online sources, data storage, and using data 
+@nolan2010computing argue for students to work with real 
+data. 
+Working with real data allows students to develop skill not 
+only in statistical analysis,
+but also in related data science skills, including data 
+transfer from online sources, data storage, and using data 
 from multiple file formats. 
 
-Mentoring in the work place and in higher education can have many 
+Mentoring in the work place and in higher education can have 
+many 
 benefits, including improving students' development as thinkers and scholars, confidence in their 
 own abilities, integration into the campus community,
 and interest in graduate training 
 [@baker2010beyond;@higgins2001reconceptualizing].
+
+The content of tweets over time particularly intrigued us. We 
+hypothesized that high-profile social media events would generate lots of tweets, and that we'd detect social media events through changes in tweet topic content over time.
+
+
 
 We present below 1) an approach for collecting tweets in real 
 time and 2) statistical methods for detecting social media 
@@ -63,6 +72,19 @@ students.
 
 ## Methods
 
+### Collecting tweets
+
+We collected tweets by automated, repeated querying of Twitter's 
+streaming API. This involved multiple steps. First, we created a 
+new account on Twitter. With these user credentials, we used the 
+R package `rtweet` to query the API. Because we work on computers 
+with linux operating systems, we made use of linux software 
+`crontab` to repeatedly execute R code to submit API queries. Each 
+query lasts a user-specified duration. We timed the API queries so 
+that there was no time lag between queries. We stored API query 
+results in their native JSON format. The R package `rtweet` 
+provides functions that parse tweet JSON to R data frames. We then 
+conducted all further analyses with the R data frames.
 
 
 
