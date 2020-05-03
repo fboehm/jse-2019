@@ -1,7 +1,7 @@
 ---
-title: 'Mentored data science research with tweets'
+title: 'Using tweet content to detect social media events'
 author: "Frederick J. Boehm and Bret M. Hanlon"
-date: "May 15, 2020"
+date: "June 15, 2020"
 params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
@@ -21,7 +21,7 @@ output:
 ## Introduction
 
 Twitter has changed the way that we communicate. 
-In only 140 characters, users speak their piece on politics, 
+In only 280 characters, users speak their piece on politics, 
 current events, sports, media, and many other topics. 
 Recent development of accessible statistical methods for text 
 analysis now enable instructors to use tweets as pedagogical 
@@ -41,13 +41,16 @@ Recognizing the potential utility of tweets for data science research and teachi
 we created a 
 collection of tweets over time by repeated querying of the Twitter streaming API.
 
-@nolan2010computing argue for students to work with real 
+Our collection of tweets over time served as a valuable resource in our mentoring 
+of undergraduate data science research. @nolan2010computing argue for students to 
+work with real 
 data. 
 Working with real data allows students to develop skill not 
 only in statistical analysis,
 but also in related data science skills, including data 
 transfer from online sources, data storage, and using data 
-from multiple file formats. 
+from multiple file formats. Analyzing our collection of tweets gave students 
+opportunities to develop skills in all of the above areas.
 
 Mentoring in the work place and in higher education can have 
 many 
@@ -57,13 +60,15 @@ and interest in graduate training
 [@baker2010beyond;@higgins2001reconceptualizing].
 
 The content of tweets over time particularly intrigued us. We 
-hypothesized that high-profile social media events would generate lots of tweets, and that we'd detect social media events through changes in tweet topic content over time.
+hypothesized that high-profile social media events would generate lots of 
+tweets, and that we'd detect social media events through changes in tweet 
+topic content over time.
 
 
 
 We present below 1) an approach for collecting tweets in real 
 time and 2) statistical methods for detecting social media 
-events via topic modeling of tweets and 3) reflections on 
+events via latent Dirichlet allocation modeling of collections of tweets and 3) reflections on 
 using this data set in research mentoring for undergraduate 
 students.
 
@@ -72,25 +77,67 @@ students.
 
 ## Methods
 
-### Collecting tweets
+### Study design
 
-We collected tweets by automated, repeated querying of Twitter's 
-streaming API. This involved multiple steps. First, we created a 
+We sought to validate our hypothesis that we could detect a major social 
+media event by examining tweet topic content at distinct time periods. We 
+chose the National Football League's Super Bowl as a case study. 
+
+As a proof of principle of our event detection strategy, we chose to 
+examine tweets before, during, and after the National Football League's 
+2015 Super Bowl. We fitted latent Dirichlet allocation models for each of five 
+distinct one-hour time periods. The first period began approximately 48h 
+before the Super Bowl halftime show. Subsequent time periods started at -24, 
+0, +24, and +48 hours after the approximate start time of the halftime show. 
+
+We defined each time period to be a single corpus of tweets. We then fitted latent Dirichlet allocation models to each corpus. 
+
+
+
+### Collecting tweets over time
+
+We include here instructions for creating a tweet collection. First, we created a 
 new account on Twitter. With these user credentials, we used the 
 R package `rtweet` to query the API. Because we work on computers 
-with linux operating systems, we made use of linux software 
+with linux operating systems, we use the linux software 
 `crontab` to repeatedly execute R code to submit API queries. Each 
-query lasts a user-specified duration. We timed the API queries so 
-that there was no time lag between queries. We stored API query 
+query lasts a user-specified duration. We time the API queries so 
+that there is no time lag between queries. We store API query 
 results in their native JSON format. The R package `rtweet` 
 provides functions that parse tweet JSON to R data frames. We then 
 conducted all further analyses with the R data frames.
 
-As a proof of principle of our event detection strategy, we chose to 
-examine tweets before, during, and after the National Football League's 
-2015 Super Bowl. We fitted five latent Dirichlet allocation models. We examined five time periods, each lasting one hour in duration. The first period began approximately 48h before the Super Bowl halftime show. Subsequent time periods started at -24, 0, +24, and +48 hours after the approximate start time of the halftime show. 
+### Querying Twitter API to get complete tweets
 
-We defined each time period to be a single corpus of tweets. We then fitted latent Dirichlet allocation models to each corpus. 
+We queried a tweets database, created with the methods described above, to get ID numbers for 
+tweets from the desired time periods. We then submitted API queries to Twitter
+to get the full content of the tweets, including the tweet text.
+We provide below the R code that we used to query the Twitter API to obtain full tweet content. 
+
+```{r, eval = FALSE}
+rtweet::lookup_tweets()
+```
+
+### Tweet structure
+
+Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists of multiple named fields, each of which is a key-value pair. The number of fields per tweet depends on user settings, retweet status, and other factors. 
+
+**PLACE TWEET JSON HERE**
+
+
+
+### Parsing text of tweets
+
+We used functions from the `rtweet` package to parse tweet JSON into a data frame. From there, we used `tidytext` R package functions to break the tweet text into individual words for latent Dirichlet allocation. We discarded commonly used "stop words" and emojis. 
+
+Latent Dirichlet allocation models require that the corpus be inputted as a 
+document by term matrix. Each row corresponds to a single document (a single 
+tweet), and each column is a single term (or word). Each cell contains a 
+count (the number of 
+occurrences of a term in the specified document). We created a document by 
+term matrix with the R functions `` from the `` R package.
+
+
 
 
 
