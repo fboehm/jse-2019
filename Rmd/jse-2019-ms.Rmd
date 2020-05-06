@@ -89,8 +89,9 @@ analyze tweets before, during, and after the National Football League's
 distinct one-hour periods. The first period began approximately 48h 
 before the Super Bowl halftime show. Subsequent time periods started at -24, 
 0, +24, and +48 hours after the approximate start time of the halftime show. 
-
-We defined each time period to be a single corpus of tweets. Each tweet constituted a document. We then fitted latent Dirichlet allocation models to each of the five corpora. 
+We defined each time period to be a single collection, or corpus, of tweets. Each tweet 
+constituted a "document", in the terminology of text analysis. We then fitted latent 
+Dirichlet allocation models to each of the five corpora. 
 
 
 
