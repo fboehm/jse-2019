@@ -1,5 +1,5 @@
 ---
-title: 'Detect social media events through tweet content analysis'
+title: 'Detecting social media events through tweet content analysis'
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "June 15, 2020"
 params:
@@ -23,56 +23,52 @@ output:
 # Introduction
 
 Twitter has profoundly changed how we communicate. 
-In only 280 characters, users speak their piece on politics, 
+In only 280 characters, users can instantly contribute to public conversations on politics, 
 current events, sports, media, and many other topics. 
 Recent development of accessible statistical methods for text 
-analysis now enable mentors to use tweets as pedagogical 
+analysis now enable mentors to use tweets as contemporary pedagogical 
 tools in guiding undergraduate research projects. 
 
 Some social media data, including tweets from Twitter, is
-available through website application product interfaces (APIs). Twitter 
-shares, via a streaming API, a sample of approximately one percent of all 
-tweets during an API query time period [@tweet_stream]. Any Twitter user can 
-access this one percent sample. For a price, researchers can get access to larger 
-tweet samples. 
+available through website application product interfaces (APIs). 
+By way of a streaming API, Twitter shares a sample of approximately one percent of all 
+tweets during an API query time period [@tweet_stream]. Any Twitter user can freely 
+access this one percent sample, whereas access to a larger selection is available to researchers for a fee.
 
 
 
-With large collections of tweets, researchers have studied
+Using large collections of tweets, researchers have studied
 inference of relationships and social networks among Twitter users [@lin2011joint]; 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
 rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
 Recognizing the potential utility of tweets for data science research and teaching, 
 we created a collection of tweets over time by repeated querying of the Twitter streaming API.
 
-Our collection of tweets over time served as a valuable resource in our mentoring 
-of undergraduate data science research. @nolan2010computing argue for students to 
-work with real data. 
-Working with real data allows students to develop skill not 
+In line with recent calls for students to work with real data [@nolan2010computing],   our collection of tweets has served as a valuable resource in our mentoring 
+of undergraduate data science research. 
+Working with real data allows students to develop proficiency not 
 only in statistical analysis,
 but also in related data science skills, including data 
 transfer from online sources, data storage, and using data 
 from multiple file formats. Collaboratively asking and addressing novel questions with 
 our collection of tweets gave mentored students 
-opportunities to develop skills in all of these areas.
+opportunities to develop competency in all of these areas.
 
 Mentoring in the work place and in higher education has many 
 benefits, including improving 1) students' development as thinkers and scholars, 2) confidence in their 
 own abilities, 3) integration into the campus community,
-and 4) interest in graduate training 
-[@baker2010beyond;@higgins2001reconceptualizing].
+and 4) interest in graduate training [@baker2010beyond;@higgins2001reconceptualizing]. 
+We strived to develop trusting, mutually respectful mentoring relationships with 
+our students while advising their senior projects. With input from us,
+the students selected appealing research questions. 
 
 
 
 While our tweet collection enables us to address many possible research questions, the 
 content of tweets over time particularly intrigued us. We 
-hypothesized that high-profile social media events would generate lots of 
+hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we'd detect social media events through changes in tweet 
-topic content over time.
-
-
-
-We present below 1) an approach for collecting tweets in real 
+topic content over time. We present below 1) an approach for collecting tweets in real 
 time and 2) statistical methods for detecting social media 
 events via latent Dirichlet allocation modeling of collections of tweets and 3) reflections on 
 using this data set in research mentoring of undergraduate 
@@ -88,7 +84,7 @@ students.
 We sought to validate our hypothesis that we could detect a major social 
 media event by examining tweet topic content at distinct time periods. 
 As a proof of principle of our event detection strategy, we chose to 
-examine tweets before, during, and after the National Football League's 
+analyze tweets before, during, and after the National Football League's 
 2015 Super Bowl. We fitted latent Dirichlet allocation models for each of five 
 distinct one-hour periods. The first period began approximately 48h 
 before the Super Bowl halftime show. Subsequent time periods started at -24, 
