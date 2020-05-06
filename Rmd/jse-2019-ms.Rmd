@@ -1,5 +1,5 @@
 ---
-title: 'Detecting social media events through tweet content analysis'
+title: 'Analyzing tweets to detect social media events'
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "June 15, 2020"
 params:
@@ -65,33 +65,18 @@ the students selected appealing research questions.
 
 
 While our tweet collection enables us to address many possible research questions, the 
-content of tweets over time particularly intrigued us. We 
+dynamic content of tweets over time particularly intrigued us. We 
 hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we'd detect social media events through changes in tweet 
 topic content over time. We present below 1) an approach for collecting tweets in real 
 time and 2) statistical methods for detecting social media 
 events via latent Dirichlet allocation modeling of collections of tweets and 3) reflections on 
-using this data set in research mentoring of undergraduate 
-students.
+using this data set in research mentoring of undergraduate students.
 
 
 
 
 ## Methods
-
-### Study design
-
-We sought to validate our hypothesis that we could detect a major social 
-media event by examining tweet topic content at distinct time periods. 
-As a proof of principle of our event detection strategy, we chose to 
-analyze tweets before, during, and after the National Football League's 
-2015 Super Bowl. We fitted latent Dirichlet allocation models for each of five 
-distinct one-hour periods. The first period began approximately 48h 
-before the Super Bowl halftime show. Subsequent time periods started at -24, 
-0, +24, and +48 hours after the approximate start time of the halftime show. 
-We defined each time period to be a single collection, or corpus, of tweets. Each tweet 
-constituted a "document", in the terminology of text analysis. We then fitted latent 
-Dirichlet allocation models to each of the five corpora. 
 
 
 
@@ -137,6 +122,28 @@ tweet), and each column is a single term (or word). Each cell contains a
 count (the number of 
 occurrences of a term in the specified document). We created a document by 
 term matrix with the R functions `` from the `` R package.
+
+### Study design
+
+We sought to validate our hypothesis that we could detect a major social 
+media event by examining tweet topic content at distinct time periods. 
+As a proof of principle of our event detection strategy, we chose to 
+analyze tweets before, during, and after the National Football League's 
+2015 Super Bowl. We fitted latent Dirichlet allocation models for each of five 
+distinct one-hour periods. The first period began approximately 48h 
+before the Super Bowl halftime show. Subsequent time periods started at -24, 
+0, +24, and +48 hours after the approximate start time of the halftime show. 
+We defined each time period to be a single collection, or corpus, of tweets. Each tweet 
+constituted a "document", in the terminology of text analysis. We then fitted latent 
+Dirichlet allocation models to each corpus. 
+
+We used several criteria to evaluate latent Dirichlet allocation model fits, with 
+emphasis on choosing a reasonable number of topics per corpus.
+Our strategy involved both visualization and more quantitative approaches to model 
+evaluation. For every model, we created one word cloud per topic. 
+
+We then inspected topic contents at each of the five time points.
+
 
 
 
