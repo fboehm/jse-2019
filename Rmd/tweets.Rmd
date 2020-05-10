@@ -26,8 +26,8 @@ install.packages("lubridate")
 
 ```{r}
 rtweet::stream_tweets(
-  timeout = (60 * 5),
-  parse = TRUE,
+  timeout = (15),
+  parse = FALSE,
   file_name = paste0("../data/", lubridate::now(), "-tweets")
 )
 ```
@@ -36,11 +36,15 @@ rtweet::stream_tweets(
 
 ```{r}
 library(magrittr)
+source("https://gist.githubusercontent.com/JBGruber/dee4c44e7d38d537426f57ba1e4f84ab/raw/ab87bebb8d020c2f96c71a40a483dc96a4c80e54/recover_stream.R")
 ```
 
 
+
+
+
 ```{r}
-tweets <- rtweet::parse_stream("../data/2020-04-09 16:31:44-tweets.json") %>%
+tweets <- recover_stream(path = "../data/2020-05-10 10:36:09-tweets.json", verbose = TRUE) %>%
   dplyr::filter(lang == "en") %>%
   tidytext::unnest_tokens(output = word, input = text)
 ```
@@ -65,6 +69,54 @@ word_counts <- tweets %>%
   dplyr::count(status_id, word, sort = TRUE) %>%
   dplyr::ungroup()
 ```
+
+```{r}
+tweets_dtm <- word_counts %>%
+  tidytext::cast_dtm(status_id, word, n)
+```
+
+```{r}
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 8)
+```
+
+```{r}
+tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
+```
+
+```{r}
+tweets_top_terms <- tweets_beta %>%
+  dplyr::group_by(topic) %>%
+  dplyr::top_n(10, beta) %>%
+  dplyr::ungroup() %>%
+  dplyr::arrange(topic, -beta)
+```
+
+```{r}
+tweets_top_terms %>%
+  dplyr::mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
+  ggplot2::geom_col(show.legend = FALSE) +
+  ggplot2::facet_wrap(~ topic, scales = "free") +
+  ggplot2::coord_flip()
+```
+
+```{r}
+tweets_gamma <- tidytext::tidy(tweets_lda, matrix = "gamma")
+tweets_gamma
+```
+
+```{r, eval = FALSE}
+# too many documents to plot all
+tweets_gamma %>%
+  dplyr::mutate(title = reorder(document, gamma * topic)) %>%
+  ggplot2::ggplot(ggplot2::aes(factor(topic), gamma)) +
+  ggplot2::geom_boxplot() +
+  ggplot2::facet_wrap(~ document)
+```
+
+
+
+
 
 ### Colophon
 

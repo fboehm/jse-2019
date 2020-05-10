@@ -114,7 +114,9 @@ Tweets are available as Javascript Object Notation (JSON) objects. Every tweet c
 
 ### Parsing text of tweets
 
-We used functions from the `rtweet` package to parse tweet JSON into a data frame. From there, we used `tidytext` R package functions to break the tweet text into individual words for latent Dirichlet allocation. We discarded commonly used "stop words" and emojis. 
+We used functions from the `rtweet` package to parse tweet JSON into a data frame. From there, we used `tidytext` R package 
+functions to break the tweet text into individual words for latent Dirichlet allocation. We discarded commonly used "stop words" 
+and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
 document by term matrix. Each row corresponds to a single document (a single 
