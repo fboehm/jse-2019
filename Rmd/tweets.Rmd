@@ -53,7 +53,7 @@ tweets <- recover_stream(path = "../data/2020-05-10 10:36:09-tweets.json", verbo
 
 ```{r}
 # create a twitter-specific stop word list
-twitter_stop <- tibble::tibble(word = c("https", "http", "t.co"))
+twitter_stop <- tibble::tibble(word = c("https", "http", "t.co", "amp"))
 # get a list of english language words and names
 library(qdapDictionaries) # contains object GradyAugmented
 ```
