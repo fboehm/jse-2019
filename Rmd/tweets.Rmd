@@ -12,8 +12,6 @@ output: html_document
 1. Verify that crontab approach works by running it on my computer for, say, 15'.
     1. Cautions about twitter databases: deletions and amendments to tweets
 1. Examine structure of JSON obtained from api. 
-1. Create phony JSON to represent a collection of tweets.
-    1. Use lorem ipsum for text of tweets
 
 ## R code to query twitter streaming api
 
@@ -22,14 +20,6 @@ Install `rtweet` package from CRAN.
 ```{r, eval = FALSE}
 install.packages("rtweet")
 install.packages("lubridate")
-```
-
-```{r}
-rtweet::stream_tweets(
-  timeout = (15),
-  parse = FALSE,
-  file_name = paste0("../data/", lubridate::now(), "-tweets")
-)
 ```
 
 ## Parse json file
@@ -44,24 +34,48 @@ source("https://gist.githubusercontent.com/JBGruber/dee4c44e7d38d537426f57ba1e4f
 
 
 ```{r}
-tweets <- recover_stream(path = "../data/2020-05-10 10:36:09-tweets.json", verbose = TRUE) %>%
-  dplyr::filter(lang == "en") %>%
-  tidytext::unnest_tokens(output = word, input = text)
+tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) %>%
+  dplyr::mutate(status_id = as.character(status_id))
 ```
+
+
+## Dehydrate tweets for sharing
+
+```{r}
+broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
+  dplyr::rename(status_id = X1) %>%
+  dplyr::mutate(status_id = format(status_id, scientific = FALSE))
+readr::write_csv(tibble::tibble(status_id = c(tweets$status_id, broken_ids$status_id)), col_names = FALSE, path = "../data/2020-05-10-status-ids.csv")
+```
+
+## Rehydrate tweets by querying Twitter
+
+```{r}
+# need multiple calls to get all tweets rehydrated
+tweets_rehydrated <- rtweet::lookup_tweets(statuses = tweets$status_id, parse = TRUE)
+```
+
+
 
 ## Prepare document-term matrix from tweet words
 
 ```{r}
 # create a twitter-specific stop word list
 twitter_stop <- tibble::tibble(word = c("https", "http", "t.co"))
+remove_reg <- "&amp;|&lt;|&gt;"
 # get a list of english language words and names
 library(qdapDictionaries) # contains object GradyAugmented
+library(tidytext) # get stop_words
 ```
 
 ```{r}
 # https://www.tidytextmining.com/topicmodeling.html#library-heist
-library(tidytext)
-word_counts <- tweets %>% 
+# https://www.tidytextmining.com/twitter.html
+word_counts <- tweets_rehydrated %>% 
+  dplyr::filter(lang == "en") %>%
+  dplyr::filter(!stringr::str_detect(text, "^RT")) %>%
+  dplyr::mutate(text = stringr::str_remove_all(text, remove_reg)) %>%
+  tidytext::unnest_tokens(output = word, input = text) %>%
   dplyr::select(status_id, word) %>%
   dplyr::anti_join(stop_words) %>%
   dplyr::anti_join(twitter_stop) %>%
@@ -76,7 +90,7 @@ tweets_dtm <- word_counts %>%
 ```
 
 ```{r}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = 8)
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 15)
 ```
 
 ```{r}
