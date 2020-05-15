@@ -44,7 +44,7 @@ rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
 Recognizing the potential utility of tweets for data science research and teaching, 
 we created a collection of tweets over time by repeated querying of the Twitter streaming API.
 
-In line with recent calls for students to work with real data [@nolan2010computing],   our collection of tweets has served as a valuable resource in our mentoring 
+In line with recent calls for students to work with real data [@nolan2010computing], our collection of tweets has served as a valuable resource in our mentoring 
 of undergraduate data science research. 
 Working with real data allows students to develop proficiency not 
 only in statistical analysis,
@@ -115,7 +115,7 @@ Tweets are available as Javascript Object Notation (JSON) objects. Every tweet c
 ### Parsing text of tweets
 
 We used functions from the `rtweet` package to parse tweet JSON into a data frame. From there, we used `tidytext` R package 
-functions to break the tweet text into individual words for latent Dirichlet allocation. We discarded commonly used "stop words" 
+functions to break the tweet text into individual words. We discarded commonly used "stop words" 
 and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
@@ -125,18 +125,35 @@ count (the number of
 occurrences of a term in the specified document). We created a document by 
 term matrix with the R functions `` from the `` R package.
 
+### Latent Dirichlet allocation
+
+Latent Dirichlet allocation is a statistical method for inferring latent (unobservable) topics (or themes)
+from a collection (or corpus) of documents. It is a probabilistic, generative model 
+for a corpus of documents. It is generative in the following sense. We pretend that
+there's an imaginary process for creating documents in the corpus. For each document,
+we choose a discrete distribution over topics. For example, some Mother's Day tweets wish 
+mothers a happy celebration. This may constitute one topic in the corpus. 
+Having chosen a distribution over topics, we then select document words by first 
+drawing a topic from the distribution over topics, then drawing a word from the
+chosen topic. 
+Thus, a topic is technically defined as a distribution over words in a fixed vocabulary (or collection of words).
+
+
+The literature on latent Dirichlet allocation and related methods is vast, 
+and we won't attempt to review it here. 
+
+
+
+
 ### Study design
 
 We sought to validate our hypothesis that we could detect a major social 
 media event by examining tweet topic content at distinct time periods. 
 As a proof of principle of our event detection strategy, we chose to 
-analyze tweets before, during, and after the National Football League's 
-2015 Super Bowl. We fitted latent Dirichlet allocation models for each of five 
-distinct one-hour periods. The first period began approximately 48h 
-before the Super Bowl halftime show. Subsequent time periods started at -24, 
-0, +24, and +48 hours after the approximate start time of the halftime show. 
-We defined each time period to be a single collection, or corpus, of tweets. Each tweet 
-constituted a "document", in the terminology of text analysis. We then fitted latent 
+analyze tweets during and after Mother's Day 2020. We fitted latent Dirichlet allocation models for each of four 
+distinct five-minute periods. The first period began at noon Eastern time on Mother's Day 2020. Subsequent time periods started 
+24, 48, and 72 hours later. 
+We defined each time period to be a single collection, or corpus, of tweets. We then fitted latent 
 Dirichlet allocation models to each corpus. 
 
 We used several criteria to evaluate latent Dirichlet allocation model fits, with 
@@ -144,7 +161,7 @@ emphasis on choosing a reasonable number of topics per corpus.
 Our strategy involved both visualization and more quantitative approaches to model 
 evaluation. For every model, we created one word cloud per topic. 
 
-We then inspected topic contents at each of the five time points.
+We then inspected topic contents at each of the four time points.
 
 
 

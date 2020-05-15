@@ -61,8 +61,8 @@ tweets_rehydrated <- rtweet::lookup_tweets(statuses = tweets$status_id, parse = 
 
 ```{r}
 # create a twitter-specific stop word list
-twitter_stop <- tibble::tibble(word = c("https", "http", "t.co"))
 remove_reg <- "&amp;|&lt;|&gt;"
+twitter_stop <- tibble::tibble(word = c("https", "http", "t.co", "amp"))
 # get a list of english language words and names
 library(qdapDictionaries) # contains object GradyAugmented
 library(tidytext) # get stop_words
