@@ -9,7 +9,7 @@ geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
   bookdown::pdf_book:
     toc: FALSE
-    number_sections: TRUE
+    number_sections: FALSE
     includes:
       in_header: head.tex
   bookdown::word_document2:
@@ -25,9 +25,13 @@ output:
 Twitter has profoundly changed how we communicate. 
 In only 280 characters, users can instantly contribute to public conversations on politics, 
 current events, sports, media, and many other topics. 
-Recent development of accessible statistical methods for text 
-analysis now enable mentors to use tweets as contemporary pedagogical 
-tools in guiding undergraduate research projects. 
+Recent development of accessible statistical methods for large-scale text 
+analysis now enable instructors to use tweets as contemporary pedagogical 
+tools in guiding undergraduate research projects.
+We report one instance of a mentored text analysis research project. 
+We share our data and computer code to encourage others to undertake 
+tweet text analysis research. We also describe our methods for creating a 
+collection of tweets.
 
 Some social media data, including tweets from Twitter, is
 available through website application product interfaces (APIs). 
@@ -37,20 +41,22 @@ access this one percent sample, whereas access to a larger selection is availabl
 
 
 
-Using large collections of tweets, researchers have studied
-inference of relationships and social networks among Twitter users [@lin2011joint]; 
+Using large collections of tweets, scholars have studied diverse research questions, including
+the inference of relationships and social networks among Twitter users [@lin2011joint]; 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
 rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
 Recognizing the potential utility of tweets for data science research and teaching, 
 we created a collection of tweets over time by repeated querying of the Twitter streaming API.
 
-In line with recent calls for students to work with real data [@nolan2010computing], our collection of tweets has served as a valuable resource in our mentoring 
+In line with recent calls for students to work with real data [@nolan2010computing], our 
+collection of tweets has served as a valuable resource in our mentoring 
 of undergraduate data science research. 
 Working with real data allows students to develop proficiency not 
 only in statistical analysis,
 but also in related data science skills, including data 
-transfer from online sources, data storage, and using data 
-from multiple file formats. Collaboratively asking and addressing novel questions with 
+transfer from online sources, data storage, using data 
+from multiple file formats, and communicating findings and their limitations. 
+Collaboratively asking and addressing novel questions with 
 our collection of tweets gave mentored students 
 opportunities to develop competency in all of these areas.
 
@@ -58,15 +64,12 @@ Mentoring in the work place and in higher education has many
 benefits, including improving 1) students' development as thinkers and scholars, 2) confidence in their 
 own abilities, 3) integration into the campus community,
 and 4) interest in graduate training [@baker2010beyond;@higgins2001reconceptualizing]. 
-We strived to develop trusting, mutually respectful mentoring relationships with 
-our students while advising their senior projects. With input from us,
-the students selected appealing research questions. 
 
 
 
 While our tweet collection enables us to address many possible research questions, the 
-dynamic content of tweets over time particularly intrigued us. We 
-hypothesized that high-profile social media events would generate a high volume of 
+dynamic content of tweets over time particularly piqued our interest. Together, students and 
+mentors hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we'd detect social media events through changes in tweet 
 topic content over time. We present below 1) an approach for collecting tweets in real 
 time and 2) statistical methods for detecting social media 
@@ -84,14 +87,13 @@ using this data set in research mentoring of undergraduate students.
 
 We include here instructions for creating a tweet collection. First, we created a 
 new account on Twitter. With these user credentials, we used the 
-R package `rtweet` to query the API. Because we work on computers 
-with linux operating systems, we use the linux software 
-`crontab` to repeatedly execute R code to submit API queries. Each 
+R package `rtweet` to query the API. Because we work with linux operating systems, we use the `crontab` software 
+to repeatedly execute R code to submit API queries. Each 
 query lasts a user-specified duration. We time the API queries so 
 that there is no time lag between queries. We store API query 
 results in their native JSON format. The R package `rtweet` 
 provides functions that parse tweet JSON to R data frames. We then 
-conducted all further analyses with the R data frames.
+conducted all further analyses in R.
 
 ### Querying Twitter API to get complete tweets
 
@@ -109,8 +111,15 @@ rtweet::lookup_tweets()
 Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists of multiple named fields, each of which is a key-value pair. The number of fields per tweet depends on user settings, retweet status, and other factors. 
 
 **PLACE TWEET JSON HERE**
-
-
+{"created_at":"Mon May 11 15:59:57 +0000 2020","id":1259875904551038978,"id_str":"1259875904551038978","text":"Ryan has done a great job (and is also a fantastic runner) follow him and stay informed!","source":"\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":2826587136,"id_str":"2826587136","name":"David, Mr. Priestap","screen_name":"dvdpeters","location":"Stolen Tonkowa Land","url":"https:\/\/tinyurl.com\/y6cptytj","description":"Penitent IRQ Veteran. Vicar of Pf. Waves at dogs #gothforgod #WAT Writes @guardianus @churchpubinc @oxunipress & @Ermenfrid. he\/him. #See my 1\u2b50\ufe0f reviews link\ud83d\udc47","translator_type":"none","protected":false,"verified":false,"followers_count":6271,"friends_count":1407,"listed_count":59,"favourites_count":347917,"statuses_count":61450,"created_at":"Mon Sep 22 16:17:34 +0000 2014","utc_offset":null,"time_zone":null,"geo_enabled":true,"lang":null,"contributors_enabled":false,"is_translator":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_link_color":"981CEB","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_teiestap","screen_name":"dvdpeters","location":"Stolen Tonkowa Land","url":"https:\/\/tinyurl.com\/y6cptytj","description":"Penitent IRQ Veteran. Vicar of Pf. Waves at dogs #gothforgod #WAT Writes @guardianus @churchpubinc @oxunipress & @Ermenfrid. he\/him. #See my 1\u2b50\ufe0f reviews link\ud83d\udc47","translator_type":"none","protected":false,"verified":false,"followers_count":6271,"friends_count":1407,"listed_count":59,"favourites_count":347917,"statuses_count":61450,"created_at":"Mon Sep 22 16:17:34 +0000 2014","utc_offset":null,"time_zone":null,"geo_enabled":true,"lang":null,"contributors_enabled":false,"is_translator":false,"profile_background_color":"000000","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_link_color":"981CEB","profile_sidebar_border_color":"000000","profile_sidebar_fill_color":"000000","profile_text_color":"000000","profile_use_background_image":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1251909563894370311\/WTOcxogh_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1251909563894370311\/WTOcxogh_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/2826587136\/1565768901","default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null},"geo":null,"coordinates":null,"place":null,"contributors":null,"quoted_status_id":1259874118251483136,"quoted_status_id_str":"1259874118251483136","quoted_status":{"created_at":"Mon May 11 15:52:
+51 +0000 2020","id":1259874118251483136,"id_str":"1259874118251483136","text":"Professional announcement: after 
+nearly four years of covering local courts for the Statesman, I soon will transiti\u2026 https:\/\/t.co\/zppt42m
+pwV","source":"\u003ca href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003
+e","truncated":true,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in
+_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":42271065,"id_str":"42271065","name":"Rya
+n Autullo","screen_name":"AutulloAAS","location":"Austin, Texas","url":"http:\/\/statesman.com","description":"R
+eporter for the Austin American-Statesman covering courts and criminal justice. After hours: scolding scooter ri
+ders on the hike-and-bike trail.","translator_type":"none","protected":false,"verified":false,"followers_count":
 
 ### Parsing text of tweets
 
