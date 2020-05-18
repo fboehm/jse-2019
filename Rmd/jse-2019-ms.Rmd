@@ -60,11 +60,6 @@ Collaboratively asking and addressing novel questions with
 our collection of tweets gave mentored students 
 opportunities to develop competency in all of these areas.
 
-Mentoring in the work place and in higher education has many 
-benefits, including improving 1) students' development as thinkers and scholars, 2) confidence in their 
-own abilities, 3) integration into the campus community,
-and 4) interest in graduate training [@baker2010beyond;@higgins2001reconceptualizing]. 
-
 
 
 While our tweet collection enables us to address many possible research questions, the 
@@ -118,10 +113,12 @@ rtweet::lookup_tweets()
 
 Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists of multiple named fields, each of which is a key-value pair. The number of fields per tweet depends on user settings, retweet status, and other factors. 
 
-**PLACE TWEET JSON HERE**
+
+
+
 ### Parsing text of tweets
 
-We used functions from the `rtweet` package to parse tweet JSON into a data frame. From there, we used `tidytext` R package 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame. From there, we used `tidytext` R package 
 functions to break the tweet text into individual words. We discarded commonly used "stop words" 
 and emojis. 
 
