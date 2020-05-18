@@ -100,7 +100,7 @@ tweets_dtm <- word_counts %>%
 ```
 
 ```{r}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = 15)
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 10)
 ```
 
 ```{r}

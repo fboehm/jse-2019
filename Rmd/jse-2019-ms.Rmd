@@ -5,6 +5,7 @@ date: "June 15, 2020"
 params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
+csl: chicago-annotated-bibliography.csl
 geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
   bookdown::pdf_book:
@@ -82,38 +83,85 @@ using this data set in research mentoring of undergraduate students.
 
 We include here instructions for creating a tweet collection. First, we created a 
 new account on Twitter. With these user credentials, we used the 
-R package `rtweet` to query the API. Because we work with linux operating systems, we use the `crontab` software 
+R package `rtweet` to query the API. Because we work with linux operating systems, we used the `crontab` software 
 to repeatedly execute R code to submit API queries. Each 
-query lasts a user-specified duration. We time the API queries so 
-that there is no time lag between queries. We store API query 
-results in their native JSON format. The R package `rtweet` 
+query lasted five minutes. We timed the API queries so 
+that there was no time lag between queries. We stored tweets resulting from API queries in their native JSON format. 
+
+The R package `rtweet` 
 provides functions that parse tweet JSON to R data frames. We then 
 conducted all further analyses in R.
 
-Setting up the query task with `crontab` is straightforward. On our computer, with Ubuntu 20.04 linux operating system, we opened a terminal and typed `crontab -e`. This opened a text file containing user-specified tasks. We added the following line to the bottom of the file:
+Setting up the query task with `crontab` is straightforward. On our computer, with 
+Ubuntu 20.04 linux operating system, we opened a terminal and typed `crontab -e`. This 
+opened a text file containing user-specified tasks. We added the following line to the 
+bottom of the file:
 
-```{bash}
-*/5 * * * * R -e 'rtweet::stream_tweets(timeout = (60 * 5), parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/", lubridate::now(), "-tweets"))'
+```{bash, eval = FALSE}
+*/5 * * * * R -e 'rtweet::stream_tweets(timeout = (60 * 5), 
+parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/",
+lubridate::now(), "-tweets"))'
 ```
 
 Users may need to slightly amend the above line to conform to requirements of their operating system's `crontab`.
 
 ### Querying Twitter API to get complete tweets
 
-We queried a tweets database, created with the methods described above, to get ID numbers for 
-tweets from the desired time periods. We then submitted API queries to Twitter
-to get the full content of the tweets, including the tweet text.
+Twitter API use agreements forbid users from sharing complete API query results. 
+However, Twitter enables users to share tweet identification numbers. A user can 
+then query a Twitter API to obtain complete tweet data. In our experience, this 
+process is incomplete; that is, many tweets submitted to the Twitter API return 
+no data. Additionally, on repeated querying of the API, different sets of tweets 
+return data. This complicates our goal of making all analyses computationally 
+reproducible. 
+
+From our collection of tweets, we chose to analyze those sent on five consecutive 
+days from May 10, 2020 to May 14, 2020. We then submitted API queries to Twitter
+to get the full content of tweets, including the tweet text.
 We provide below the R code that we used to query the Twitter API to obtain full tweet content. 
 
-```{r, eval = FALSE}
-rtweet::lookup_tweets()
-```
+
 
 ### Tweet structure
 
-Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists of multiple named fields, each of which is a key-value pair. The number of fields per tweet depends on user settings, retweet status, and other factors. 
+Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists 
+of multiple named fields, each of which is a key-value pair. The number of fields per 
+tweet depends on user settings, retweet status, and other factors [@tweet_json]. 
 
-
+```{bash, eval = FALSE}
+{
+  "created_at": "Thu Apr 06 15:24:15 +0000 2017",
+  "id_str": "850006245121695744",
+  "text": "1\/ Today we\u2019re sharing our vision for the future of the Twitter API platform!\nhttps:\/\/t.co\/XweGngmxlP",
+  "user": {
+    "id": 2244994945,
+    "name": "Twitter Dev",
+    "screen_name": "TwitterDev",
+    "location": "Internet",
+    "url": "https:\/\/dev.twitter.com\/",
+    "description": "Your official source for Twitter Platform news, updates & events. 
+    Need technical help? Visit https:\/\/twittercommunity.com\/ \u2328\ufe0f 
+    #TapIntoTwitter"
+  },
+  "place": {   
+  },
+  "entities": {
+    "hashtags": [      
+    ],
+    "urls": [
+      {
+        "url": "https:\/\/t.co\/XweGngmxlP",
+        "unwound": {
+          "url": "https:\/\/cards.twitter.com\/cards\/18ce53wgo4h\/3xo1c",
+          "title": "Building the Future of the Twitter API Platform"
+        }
+      }
+    ],
+    "user_mentions": [     
+    ]
+  }
+}
+```
 
 
 ### Parsing text of tweets
@@ -132,8 +180,7 @@ term matrix with the R functions `` from the `` R package.
 ### Latent Dirichlet allocation
 
 Latent Dirichlet allocation is a statistical method for inferring latent (unobservable) topics (or themes)
-from a collection (or corpus) of documents. It is a probabilistic, generative model 
-for a corpus of documents. It is generative in the following sense. We pretend that
+from a collection (or corpus) of documents. We pretend that
 there's an imaginary process for creating documents in the corpus. For each document,
 we choose a discrete distribution over topics. For example, some Mother's Day tweets wish 
 mothers a happy celebration. This may constitute one topic in the corpus. 
