@@ -61,6 +61,10 @@ tweets_rehydrated <- tweets_rehydrated1 %>%
   dplyr::bind_rows(tweets_rehydrated2)
 ```
 
+```{r}
+# save ids of tweets that we actually used
+readr::write_csv(tweets_rehydrated$status_id, path = "../data/2020-05-10-analyzed-tweet-ids.csv", col_names = FALSE)
+```
 
 
 ## Prepare document-term matrix from tweet words
