@@ -5,6 +5,7 @@ date: "4/9/2020"
 output: html_document
 ---
 
+
 ## Goals
 
 1. Write a R script to query twitter streaming api to get 1 percent sample over 5'.
@@ -30,12 +31,11 @@ source("https://gist.githubusercontent.com/JBGruber/dee4c44e7d38d537426f57ba1e4f
 ```
 
 
-
-
-
 ```{r}
-tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) %>%
-  dplyr::mutate(status_id = as.character(status_id))
+tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) 
+tweets %>%
+  dplyr::select(status_id) %>%
+  readr::write_csv(path = "../data/tweets-status-ids-2020-05-10.csv", col_names = FALSE)
 ```
 
 
@@ -44,15 +44,21 @@ tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbo
 ```{r}
 broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
   dplyr::rename(status_id = X1) %>%
-  dplyr::mutate(status_id = format(status_id, scientific = FALSE))
-readr::write_csv(tibble::tibble(status_id = c(tweets$status_id, broken_ids$status_id)), col_names = FALSE, path = "../data/2020-05-10-status-ids.csv")
+  dplyr::mutate(status_id = trimws(format(status_id, scientific = FALSE)))
 ```
 
-## Rehydrate tweets by querying Twitter
+## Hydrate tweets by querying Twitter
 
 ```{r}
+ids <- readr::read_csv("../data/tweets-status-ids-2020-05-10.csv", col_names = FALSE) %>%
+  dplyr::rename(status_id = X1) %>%
+  dplyr::mutate(status_id = as.character(status_id))
 # need multiple calls to get all tweets rehydrated
-tweets_rehydrated <- rtweet::lookup_tweets(statuses = tweets$status_id, parse = TRUE)
+tweets_rehydrated1 <- rtweet::lookup_tweets(statuses = ids$status_id, 
+                                            parse = TRUE)
+tweets_rehydrated2 <- rtweet::lookup_tweets(statuses = broken_ids$status_id, parse = TRUE)
+tweets_rehydrated <- tweets_rehydrated1 %>%
+  dplyr::bind_rows(tweets_rehydrated2)
 ```
 
 

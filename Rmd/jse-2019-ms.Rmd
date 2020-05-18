@@ -95,6 +95,14 @@ results in their native JSON format. The R package `rtweet`
 provides functions that parse tweet JSON to R data frames. We then 
 conducted all further analyses in R.
 
+Setting up the query task with `crontab` is straightforward. On our computer, with Ubuntu 20.04 linux operating system, we opened a terminal and typed `crontab -e`. This opened a text file containing user-specified tasks. We added the following line to the bottom of the file:
+
+```{bash}
+*/5 * * * * R -e 'rtweet::stream_tweets(timeout = (60 * 5), parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/", lubridate::now(), "-tweets"))'
+```
+
+Users may need to slightly amend the above line to conform to requirements of their operating system's `crontab`.
+
 ### Querying Twitter API to get complete tweets
 
 We queried a tweets database, created with the methods described above, to get ID numbers for 
