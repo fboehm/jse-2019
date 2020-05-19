@@ -1,0 +1,114 @@
+
+
+
+```{r}
+tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
+tweets %>%
+  dplyr::select(status_id) %>%
+  readr::write_csv(path = paste0("../data/tweets-status-ids-", "{{date}}", ".csv"), 
+                   col_names = FALSE)
+```
+
+
+## Dehydrate tweets for sharing
+
+```{r}
+broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
+  dplyr::rename(status_id = X1) %>%
+  dplyr::mutate(status_id = trimws(format(status_id, scientific = FALSE)))
+```
+
+## Hydrate tweets by querying Twitter
+
+```{r}
+ids <- readr::read_csv(paste0("../data/tweets-status-ids-", "{{date}}", ".csv"), col_names = FALSE) %>%
+  dplyr::rename(status_id = X1) %>%
+  dplyr::mutate(status_id = as.character(status_id))
+tweets_rehydrated1 <- rtweet::lookup_tweets(statuses = ids$status_id, 
+                                            parse = TRUE)
+tweets_rehydrated2 <- rtweet::lookup_tweets(statuses = broken_ids$status_id, parse = TRUE)
+tweets_rehydrated <- tweets_rehydrated1 %>%
+  dplyr::bind_rows(tweets_rehydrated2)
+```
+
+```{r}
+# save ids of tweets that we actually used
+readr::write_csv(tweets_rehydrated$status_id, path = paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv"), col_names = FALSE)
+```
+
+
+## Prepare document-term matrix from tweet words
+
+```{r}
+# create a twitter-specific stop word list
+remove_reg <- "&amp;|&lt;|&gt;"
+twitter_stop <- tibble::tibble(word = c("https", "http", "t.co", "amp"))
+# get a list of english language words and names
+library(qdapDictionaries) # contains object GradyAugmented
+library(tidytext) # get stop_words
+```
+
+```{r}
+# https://www.tidytextmining.com/topicmodeling.html#library-heist
+# https://www.tidytextmining.com/twitter.html
+word_counts <- tweets_rehydrated %>% 
+  dplyr::filter(lang == "en") %>%
+  dplyr::filter(!stringr::str_detect(text, "^RT")) %>%
+  dplyr::mutate(text = stringr::str_remove_all(text, remove_reg)) %>%
+  tidytext::unnest_tokens(output = word, input = text) %>%
+  dplyr::select(status_id, word) %>%
+  dplyr::anti_join(stop_words) %>%
+  dplyr::anti_join(twitter_stop) %>%
+  dplyr::filter(word %in% GradyAugmented) %>%
+  dplyr::count(status_id, word, sort = TRUE) %>%
+  dplyr::ungroup()
+```
+
+```{r}
+tweets_dtm <- word_counts %>%
+  tidytext::cast_dtm(status_id, word, n)
+```
+
+```{r}
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 10)
+```
+
+```{r}
+tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
+```
+
+```{r}
+tweets_top_terms <- tweets_beta %>%
+  dplyr::group_by(topic) %>%
+  dplyr::top_n(10, beta) %>%
+  dplyr::ungroup() %>%
+  dplyr::arrange(topic, -beta)
+```
+
+```{r}
+tweets_top_terms %>%
+  dplyr::mutate(term = reorder_within(term, beta, topic)) %>%
+  ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
+  ggplot2::geom_col(show.legend = FALSE) +
+  ggplot2::facet_wrap(~ topic, scales = "free") +
+  ggplot2::coord_flip()
+```
+
+```{r}
+tweets_gamma <- tidytext::tidy(tweets_lda, matrix = "gamma")
+tweets_gamma
+```
+
+```{r, eval = FALSE}
+# too many documents to plot all
+tweets_gamma %>%
+  dplyr::mutate(title = reorder(document, gamma * topic)) %>%
+  ggplot2::ggplot(ggplot2::aes(factor(topic), gamma)) +
+  ggplot2::geom_boxplot() +
+  ggplot2::facet_wrap(~ document)
+```
+
+```{r}
+Sys.sleep(15 * 60) # sleep for 15 minutes to allow api limits to reset
+```
+
