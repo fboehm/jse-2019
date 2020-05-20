@@ -1,7 +1,7 @@
 
 
 
-```{r}
+```{r, recover-{{date}}}
 tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
 tweets %>%
   dplyr::select(status_id) %>%
@@ -12,7 +12,7 @@ tweets %>%
 
 ## Dehydrate tweets for sharing
 
-```{r}
+```{r, broken-{{date}}}
 broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
   dplyr::rename(status_id = X1) %>%
   dplyr::mutate(status_id = trimws(format(status_id, scientific = FALSE)))
@@ -20,7 +20,7 @@ broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
 
 ## Hydrate tweets by querying Twitter
 
-```{r}
+```{r, ids-{{date}}}
 ids <- readr::read_csv(paste0("../data/tweets-status-ids-", "{{date}}", ".csv"), col_names = FALSE) %>%
   dplyr::rename(status_id = X1) %>%
   dplyr::mutate(status_id = as.character(status_id))
@@ -31,15 +31,15 @@ tweets_rehydrated <- tweets_rehydrated1 %>%
   dplyr::bind_rows(tweets_rehydrated2)
 ```
 
-```{r}
+```{r, saveids-{{date}}}
 # save ids of tweets that we actually used
-readr::write_csv(tweets_rehydrated$status_id, path = paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv"), col_names = FALSE)
+readr::write_csv(tibble::as_tibble(tweets_rehydrated$status_id), path = paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv"), col_names = FALSE)
 ```
 
 
 ## Prepare document-term matrix from tweet words
 
-```{r}
+```{r, stops-{{date}}}
 # create a twitter-specific stop word list
 remove_reg <- "&amp;|&lt;|&gt;"
 twitter_stop <- tibble::tibble(word = c("https", "http", "t.co", "amp"))
@@ -48,7 +48,7 @@ library(qdapDictionaries) # contains object GradyAugmented
 library(tidytext) # get stop_words
 ```
 
-```{r}
+```{r, wordcounts-{{date}}}
 # https://www.tidytextmining.com/topicmodeling.html#library-heist
 # https://www.tidytextmining.com/twitter.html
 word_counts <- tweets_rehydrated %>% 
@@ -64,20 +64,20 @@ word_counts <- tweets_rehydrated %>%
   dplyr::ungroup()
 ```
 
-```{r}
+```{r, cast-{{date}}}
 tweets_dtm <- word_counts %>%
   tidytext::cast_dtm(status_id, word, n)
 ```
 
-```{r}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = 10)
+```{r, lda-{{date}}}
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 8)
 ```
 
-```{r}
+```{r, beta-{{date}}}
 tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
 ```
 
-```{r}
+```{r, topterms-{{date}}}
 tweets_top_terms <- tweets_beta %>%
   dplyr::group_by(topic) %>%
   dplyr::top_n(10, beta) %>%
@@ -85,7 +85,7 @@ tweets_top_terms <- tweets_beta %>%
   dplyr::arrange(topic, -beta)
 ```
 
-```{r}
+```{r, plot-{{date}}}
 tweets_top_terms %>%
   dplyr::mutate(term = reorder_within(term, beta, topic)) %>%
   ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
@@ -94,21 +94,12 @@ tweets_top_terms %>%
   ggplot2::coord_flip()
 ```
 
-```{r}
+```{r, gamma-{{date}}}
 tweets_gamma <- tidytext::tidy(tweets_lda, matrix = "gamma")
 tweets_gamma
 ```
 
-```{r, eval = FALSE}
-# too many documents to plot all
-tweets_gamma %>%
-  dplyr::mutate(title = reorder(document, gamma * topic)) %>%
-  ggplot2::ggplot(ggplot2::aes(factor(topic), gamma)) +
-  ggplot2::geom_boxplot() +
-  ggplot2::facet_wrap(~ document)
-```
-
-```{r}
+```{r, sleep-{{date}}}
 Sys.sleep(15 * 60) # sleep for 15 minutes to allow api limits to reset
 ```
 

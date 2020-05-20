@@ -52,6 +52,20 @@ out <- purrr::pmap_dfc(tibble::tibble(date, tweet_json_file),
 
 `r knitr::knit(text = out[[2]])`
 
+## May 12, 2020
+
+`r knitr::knit(text = out[[3]])`
+
+## May 13, 2020
+
+`r knitr::knit(text = out[[4]])`
+
+## May 14, 2020
+
+`r knitr::knit(text = out[[5]])`
+
+
+
 
 
 ### Colophon
