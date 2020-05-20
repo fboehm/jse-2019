@@ -1,11 +1,7 @@
 # Abstract
 
-We design a mentoring framework to guide undergraduate researchers
-through individualized research projects in data science. 
-Our framework involves research question formulation, data acquisition, data 
-analysis and visualization, and presentation and communication of results. Our two honors students, 
-whose projects serve as case studies for our framework, completed all components of the 
-individualized research projects. We found that data science research skills, self-confidence in 
-research ability, and professional interest in data science increased for both 
-students. We describe our successes, lessons learned, and ideas for others to 
-build similar frameworks.
+We describe methods for collecting tweets from Twitter. With these methods, we 
+curate a large collection of tweets.
+We present methods for social media event detection through text analysis of tweets. 
+We describe our use of tweets in mentored undergraduate research. 
+We also offer other directions for other text analysis of tweets.
