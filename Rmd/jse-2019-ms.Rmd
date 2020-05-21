@@ -116,9 +116,11 @@ return data. This complicates our goal of making all analyses computationally
 reproducible. 
 
 From our collection of tweets, we chose to analyze those sent on five consecutive 
-days from May 10, 2020 to May 14, 2020. We then submitted API queries to Twitter
+days from May 10, 2020 to May 14, 2020. To minimize the computing requirements, we 
+limited our study to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day.
+We then submitted API queries to Twitter
 to get the full content of tweets, including the tweet text.
-We provide below the R code that we used to query the Twitter API to obtain full tweet content. 
+In supplementary files, we provide the R code that we used to query the Twitter API to obtain full tweet content. 
 
 
 
@@ -175,7 +177,7 @@ document by term matrix. Each row corresponds to a single document (a single
 tweet), and each column is a single term (or word). Each cell contains a 
 count (the number of 
 occurrences of a term in the specified document). We created a document by 
-term matrix with the R functions `` from the `` R package.
+term matrix with the R function `cast_dtm` from the `tidytext` package.
 
 ### Latent Dirichlet allocation
 
@@ -188,7 +190,6 @@ Having chosen a distribution over topics, we then select document words by first
 drawing a topic from the distribution over topics, then drawing a word from the
 chosen topic. 
 Thus, a topic is technically defined as a distribution over words in a fixed vocabulary (or collection of words).
-
 
 The literature on latent Dirichlet allocation and related methods is vast, 
 and we won't attempt to review it here. 
