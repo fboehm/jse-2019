@@ -6,11 +6,6 @@ output: html_document
 ---
 
 
-## Goals
-
-1. Write a R script to query twitter streaming api to get 1 percent sample over 5'.
-1. Demonstrate how to set up a crontab to execute script every 5'.
-1. Cautions about twitter databases: deletions and amendments to tweets
 
 ## R code to query twitter streaming api
 
