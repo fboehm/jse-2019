@@ -2,19 +2,22 @@
 
 
 ```{r, recover-{{date}}}
-fn <- paste0("../data/", {{date}}, "-analyzed-tweet-ids.csv")
-tr_fn <- paste0("../data/", {{date}}, "-rehydrated-tweets.csv")
-if (!file.exists(fn)){
-  
+fn <- paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv")
+#fn <- paste0("../data/", "2020-05-10", "-analyzed-tweet-ids.csv")
+tr_fn <- paste0("../data/", "{{date}}", "-rehydrated-tweets.csv")
+#tr_fn <- paste0("../data/", "2020-05-10", "-rehydrated-tweets.csv")
+if (!file.exists(tr_fn)){
   tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
+  #tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) 
+  id_fn <- paste0("../data/tweets-status-ids-", "{{date}}", ".csv")
   tweets %>%
     dplyr::select(status_id) %>%
-    readr::write_csv(path = paste0("../data/tweets-status-ids-", "{{date}}", ".csv"), 
+    readr::write_csv(path = id_fn, 
                      col_names = FALSE)
   broken_ids <- readr::read_csv("broken_tweets.txt", col_names = FALSE) %>%
     dplyr::rename(status_id = X1) %>%
     dplyr::mutate(status_id = trimws(format(status_id, scientific = FALSE)))
-  ids <- readr::read_csv(paste0("../data/tweets-status-ids-", "{{date}}", ".csv"), col_names = FALSE) %>%
+  ids <- readr::read_csv(id_fn, col_names = FALSE) %>%
     dplyr::rename(status_id = X1) %>%
     dplyr::mutate(status_id = as.character(status_id))
   tweets_rehydrated1 <- rtweet::lookup_tweets(statuses = ids$status_id, 
@@ -25,6 +28,8 @@ if (!file.exists(fn)){
   # save ids of tweets that we actually used
   readr::write_csv(tibble::as_tibble(tweets_rehydrated$status_id), path = fn, col_names = FALSE)
   readr::write_csv(tweets_rehydrated, path = tr_fn)
+} else {
+  tweets_rehydrated <- readr::read_csv(tr_fn)
 }
 ```
 
@@ -78,7 +83,7 @@ tweets_top_terms %>%
 ```
 
 ```{r, ggsave-{{date}}}
-ggplot2::ggsave(paste0("../results/beta-", {{date}}, ".png"))
+ggplot2::ggsave(paste0("../results/beta-", "{{date}}", ".png"))
 ```
 
 
