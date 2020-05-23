@@ -126,9 +126,13 @@ In supplementary files, we provide the R code that we used to query the Twitter 
 
 ### Tweet structure
 
+https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
+
 Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists 
 of multiple named fields, each of which is a key-value pair. The number of fields per 
 tweet depends on user settings, retweet status, and other factors [@tweet_json]. 
+
+
 
 ```{bash, eval = FALSE}
 {
@@ -164,6 +168,10 @@ tweet depends on user settings, retweet status, and other factors [@tweet_json].
   }
 }
 ```
+
+**INSERT DATA DICTIONARY TABLE HERE** (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object)
+
+
 
 
 ### Parsing text of tweets
