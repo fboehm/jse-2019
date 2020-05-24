@@ -1,15 +1,15 @@
 
 
-
 ```{r, recover-{{date}}}
 fn <- paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv")
 #fn <- paste0("../data/", "2020-05-10", "-analyzed-tweet-ids.csv")
-tr_fn <- paste0("../data/", "{{date}}", "-rehydrated-tweets.csv")
-#tr_fn <- paste0("../data/", "2020-05-10", "-rehydrated-tweets.csv")
+tr_fn <- paste0("../data/", "{{date}}", "-rehydrated-tweets.rds")
+#tr_fn <- paste0("../data/", "2020-05-10", "-rehydrated-tweets.rds")
 if (!file.exists(tr_fn)){
   tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
   #tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) 
   id_fn <- paste0("../data/tweets-status-ids-", "{{date}}", ".csv")
+  #id_fn <- paste0("../data/tweets-status-ids-", "2020-05-10", ".csv")
   tweets %>%
     dplyr::select(status_id) %>%
     readr::write_csv(path = id_fn, 
@@ -27,9 +27,9 @@ if (!file.exists(tr_fn)){
     dplyr::bind_rows(tweets_rehydrated2)
   # save ids of tweets that we actually used
   readr::write_csv(tibble::as_tibble(tweets_rehydrated$status_id), path = fn, col_names = FALSE)
-  readr::write_csv(tweets_rehydrated, path = tr_fn)
+  saveRDS(tweets_rehydrated, tr_fn)
 } else {
-  tweets_rehydrated <- readr::read_csv(tr_fn)
+  tweets_rehydrated <- readRDS(tr_fn)
 }
 ```
 
@@ -59,7 +59,7 @@ tweets_dtm <- word_counts %>%
 ```
 
 ```{r, lda-{{date}}}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = 8)
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 6)
 tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
 ```
 
@@ -78,7 +78,7 @@ tweets_top_terms %>%
   ggplot2::geom_col(show.legend = FALSE) +
   ggplot2::facet_wrap(~ topic, scales = "free") +
   ggplot2::coord_flip() + 
-  theme(axis.text.x = element_text(angle = 270))
+  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 270))
 
 ```
 

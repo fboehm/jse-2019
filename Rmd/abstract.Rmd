@@ -4,4 +4,4 @@ We describe methods for collecting tweets from Twitter. With these methods, we
 curate a large collection of tweets.
 We present methods for social media event detection through text analysis of tweets. 
 We describe our use of tweets in mentored undergraduate research. 
-We also offer other directions for other text analysis of tweets.
+We also offer other directions for text analysis of tweets.

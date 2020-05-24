@@ -8,7 +8,8 @@ bibliography: jse.bib
 csl: chicago-annotated-bibliography.csl
 geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
-  bookdown::pdf_book:
+  pdf_document:
+    latex_engine: xelatex
     toc: FALSE
     number_sections: FALSE
     includes:
@@ -73,6 +74,58 @@ events via latent Dirichlet allocation modeling of collections of tweets and 3) 
 using this data set in research mentoring of undergraduate students.
 
 
+## Research mentoring considerations
+
+We collaboratively developed research goals with students through a series of discussions throughout the academic year. As trainees begin their senior research projects, we suggest that mentors discuss with them:
+
+### Student research interests and goals
+Student experience with data analysis and statistical analysis software
+Software for statistical analysis and best practices for reproducibility
+
+
+
+### Student research interests and goals
+
+In our experience, student interests vary, and their initial ability to articulate research goals may be limited. An initial brainstorming session may clarify their interests and encourage them to think critically about goals under the time constraints of their academic schedules. Additionally, we anticipate that sharing completed student project reports will guide student thinking about the scope of possible projects.
+
+We mentored one student whose interest in financial time series guided her project. A second student formulated a project around event detection from tweet time series.
+
+### Student experience with data analysis and statistical software
+
+### Software for data 
+
+We used the linux software package `crontab` to automate the execution of R code every five minutes. The tweets are available from the Twitter API as JSON. We saved the JSON in plain text files. 
+
+We performed all analyses in the R statistical computing environment. We used the Rstudio software package to interface with R. We share our R code to enhance reproducibility of our findings. Users may also find our code helpful when creating their own tweet collections.
+
+
+
+
+
+### Backward design
+
+We sought to give our trainees opportunities to formulate and address a data science research question. We consulted the GAISE report for additional guidance. 
+The GAISE report executive summary highlights six goals for statistics training:
+
+1. Teach statistical thinking  
+1. Focus on conceptual understanding  
+1. Integrate real data with a context and purpose  
+1. Foster active learning  
+1. Use technology to explore concepts and analyze data  
+1. Use assessments to improve and evaluate student learning  
+
+
+
+
+### Learning outcomes
+
+
+
+
+
+### Time period
+
+We began collecting tweets in 2013. Our two students conducted their research projects during the 2015-2016 academic year. We recommend a full academic year for projects of this magnitude, although a one-semester project is possible. Our students presented their findings at the statistics department’s undergraduate poster session near the end of the 2015-2016 academic year.
 
 
 ## Methods
@@ -126,15 +179,26 @@ In supplementary files, we provide the R code that we used to query the Twitter 
 
 ### Tweet structure
 
-https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
+```{r, echo = FALSE, message = FALSE}
+data_dictionary <- readr::read_csv("../data/tweets-data-dictionary.csv")
+```
 
-Tweets are available as Javascript Object Notation (JSON) objects. Every tweet consists 
-of multiple named fields, each of which is a key-value pair. The number of fields per 
+
+
+Tweets are available from the Twitter API as Javascript Object Notation (JSON) objects. Every tweet consists 
+of multiple key-value pairs. The number of fields per 
 tweet depends on user settings, retweet status, and other factors [@tweet_json]. 
+The 31 tweet key-value pairs belong to
+`r length(unique(data_dictionary$Type))` distinct classes (Appendix 1). The 
+classes are either vectors - numeric, logical, or character - or arrays assembled 
+from the vector classes.
+
+Below is an example of Tweet JSON. Every tweet features the keys "created\_at" (the time stamp), 
+"id\_str" (a unique tweet identifier), and "text". We use these three keys in 
+our analyses.
 
 
-
-```{bash, eval = FALSE}
+```{bash, eval = FALSE, fig.cap = "Example Tweet JSON"}
 {
   "created_at": "Thu Apr 06 15:24:15 +0000 2017",
   "id_str": "850006245121695744",
@@ -169,15 +233,15 @@ tweet depends on user settings, retweet status, and other factors [@tweet_json].
 }
 ```
 
-**INSERT DATA DICTIONARY TABLE HERE** (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object)
-
-
 
 
 ### Parsing text of tweets
 
-We used functions from the `rtweet` R package to parse tweet JSON into a data frame. From there, we used `tidytext` R package 
-functions to break the tweet text into individual words. We discarded commonly used "stop words" 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
+With `rtweet` functions, we parsed JSON arrays into their component vectors and added them
+to the data frame.
+
+We then divided tweet text into words with functions from the `tidytext` R package. We discarded commonly used "stop words" 
 and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
@@ -190,7 +254,7 @@ term matrix with the R function `cast_dtm` from the `tidytext` package.
 ### Latent Dirichlet allocation
 
 Latent Dirichlet allocation is a statistical method for inferring latent (unobservable) topics (or themes)
-from a collection (or corpus) of documents. We pretend that
+from a corpus (or collection) of documents. We pretend that
 there's an imaginary process for creating documents in the corpus. For each document,
 we choose a discrete distribution over topics. For example, some Mother's Day tweets wish 
 mothers a happy celebration. This may constitute one topic in the corpus. 
@@ -233,14 +297,6 @@ We then inspected topic contents at each of the four time points.
 
 
 
-```{r child = "results.Rmd"}
-```
-
-
-```{r child = "discussion.Rmd"}
-```
-
-
 
 
 
@@ -249,4 +305,11 @@ We then inspected topic contents at each of the four time points.
 
 ## References
 
+<div id="refs"></div>
+
+\newpage
+
+## Appendix 1: Tweet data dictionary
+
+Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object,  (Accessed: May 23, 2020)). We have saved it as a supplementary file, "tweets-data-dictionary.csv".
 
