@@ -346,6 +346,8 @@ editors and anonymous reviewers for their constructive comments and suggestions.
 
 Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object,  (Accessed: May 23, 2020)). We have saved it as a supplementary file, "tweets-data-dictionary.csv".
 
+\newpage
+
 ## Appendix 2: LDA results for May 12, 13, and 14
 
 ```{r, fig.cap = "Top terms for LDA model from May 12, 2020"}
@@ -359,4 +361,8 @@ knitr::include_graphics("../results/beta-2020-05-13.png")
 ```{r, fig.cap = "Top terms for LDA model from May 14, 2020"}
 knitr::include_graphics("../results/beta-2020-05-14.png")
 ```
+
+\newpage
+
+## Appendix 3: R analysis code
 
