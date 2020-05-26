@@ -107,28 +107,6 @@ In our experience, student interests vary, and their initial ability to articula
 
 We mentored one student whose interest in financial time series guided her project. A second student formulated a project around event detection from tweet time series.
 
-
-### Backward design
-
-We sought to give our trainees opportunities to formulate and address a data science research question. We consulted the GAISE report for additional guidance. 
-The GAISE report executive summary highlights six goals for statistics training:
-
-1. Teach statistical thinking
-1. Focus on conceptual understanding
-1. Integrate real data with a context and purpose
-1. Foster active learning
-1. Use technology to explore concepts and analyze data
-1. Use assessments to improve and evaluate student learning
-
-
-
-
-### Learning outcomes
-
-
-
-
-
 ### Time period
 
 Our two students conducted their research projects during the 2015-2016 academic year. 
@@ -250,9 +228,9 @@ the date and time of the tweet. Every tweet has a unique identifier, the "id_str
 corresponds to a single "document". 
 
 
-### Parsing text of tweets
+### Parsing tweet text
 
-We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@]. 
 We then divided tweet text into words with functions from the `tidytext` R package. We 
 discarded commonly used "stop words" and emojis. 
 
