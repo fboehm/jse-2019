@@ -83,7 +83,6 @@ We collaboratively developed research goals with students through a series of di
 
 1. Student experience with data analysis software
 1. Student research interests and goals
-1. Best practices for reproducibility
 
 
 
@@ -107,13 +106,6 @@ expertise in linux computing and cluster computing, too.
 In our experience, student interests vary, and their initial ability to articulate research goals may be limited. An initial brainstorming session may clarify their interests and encourage them to think critically about goals under the time constraints of their academic schedules. Additionally, we anticipate that sharing completed student project reports will guide student thinking about the scope of possible projects.
 
 We mentored one student whose interest in financial time series guided her project. A second student formulated a project around event detection from tweet time series.
-
-### Best practices for reproducibility
-
-
-
-
-
 
 
 ### Backward design
@@ -251,19 +243,21 @@ our analyses.
 }
 ```
 
+Our analyses use three fields from each tweet: date ("created_at"), tweet identifier 
+("id_str"), and tweet text ("text"). The "created_at" field is a character string containing 
+the date and time of the tweet. Every tweet has a unique identifier, the "id_str" value. The 
+"text" field contains the unicode representation of the message. For our topic modeling, a single day defines a single "corpus", and a single tweet 
+corresponds to a single "document". 
 
 
 ### Parsing text of tweets
 
 We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
-We divided JSON arrays into their component vectors and added them
-to the data frame.
-
-We then divided tweet text into words with functions from the `tidytext` R package. We discarded commonly used "stop words" 
-and emojis. 
+We then divided tweet text into words with functions from the `tidytext` R package. We 
+discarded commonly used "stop words" and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
-document by term matrix. Each row corresponds to a single document (a single 
+document by term matrix. In a document by term matrix, each row corresponds to a single document (a single 
 tweet), and each column is a single term (or word). Each cell contains a 
 count (the number of 
 occurrences of a term in the specified document). We created a document by 
