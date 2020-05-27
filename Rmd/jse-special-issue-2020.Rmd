@@ -230,8 +230,8 @@ corresponds to a single "document".
 
 ### Parsing tweet text
 
-We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@]. 
-We then divided tweet text into words with functions from the `tidytext` R package. We 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@rtweet-package]. 
+We then divided tweet text into words with functions from the `tidytext` R package [@tidytext]. We 
 discarded commonly used "stop words" and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
