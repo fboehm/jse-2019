@@ -53,14 +53,14 @@ rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
 Recognizing the potential utility of tweets for data science research and teaching, 
 we created a collection of tweets over time by repeated querying of the Twitter streaming API.
 
-In line with recent calls for students to work with real data [@nolan2010computing], our 
+In line with recent calls for students to work with real data [@nolan2010computing;@carver2016guidelines], our 
 collection of tweets has served as a valuable resource in our mentoring 
 of undergraduate data science research. 
 Working with real data allows students to develop proficiency not 
 only in statistical analysis,
 but also in related data science skills, including data 
 transfer from online sources, data storage, using data 
-from multiple file formats, and communicating findings and their limitations. 
+from multiple file formats, and communicating findings. 
 Collaboratively asking and addressing novel questions with 
 our collection of tweets gave mentored students 
 opportunities to develop competency in all of these areas.
@@ -103,9 +103,15 @@ expertise in linux computing and cluster computing, too.
 
 ### Student research interests and goals
 
-In our experience, student interests vary, and their initial ability to articulate research goals may be limited. An initial brainstorming session may clarify their interests and encourage them to think critically about goals under the time constraints of their academic schedules. Additionally, we anticipate that sharing completed student project reports will guide student thinking about the scope of possible projects.
+In our experience, student interests vary, and students' ability to articulate research goals 
+may be limited. An initial brainstorming session may clarify their interests and encourage 
+them to think critically about goals under the time constraints of their academic schedules. 
+Additionally, we anticipate that sharing completed student project reports will guide student 
+thinking about the scope of possible projects.
 
-We mentored one student whose interest in financial time series guided her project. A second student formulated a project around event detection from tweet time series.
+We mentored one student whose interest in financial time series and tweet sentiment analysis 
+guided her project. A second student formulated a project around event detection from tweet 
+time series.
 
 ### Time period
 
@@ -246,17 +252,11 @@ term matrix with the R function `cast_dtm` from the `tidytext` package.
 Latent Dirichlet allocation is a statistical method for inferring latent (unobservable) topics (or themes)
 from a corpus (or collection) of documents. We pretend that
 there's an imaginary process for creating documents in the corpus. For each document,
-we choose a discrete distribution over topics. For example, some Mother's Day tweets wish 
-mothers a happy celebration. This may constitute one topic in the corpus. 
+we choose a discrete distribution over topics. For example, some tweets from Memorial Day may refer to the holiday. This may constitute one topic in the corpus. 
 Having chosen a distribution over topics, we then select document words by first 
 drawing a topic from the distribution over topics, then drawing a word from the
 chosen topic. 
-Thus, a topic is technically defined as a distribution over words in a fixed vocabulary (or collection of words).
-
-The literature on latent Dirichlet allocation and related methods is vast, 
-and we won't attempt to review it here. 
-
-
+Thus, a topic is technically defined as a distribution over words in a fixed vocabulary (or collection of words) [@blei2003latent].
 
 
 ### Study design
@@ -264,14 +264,17 @@ and we won't attempt to review it here.
 We sought to validate our hypothesis that we could detect a major social 
 media event by examining tweet topic content at distinct time periods. 
 As a proof of principle of our event detection strategy, we chose to 
-analyze tweets during and after Mother's Day 2020. We fitted latent Dirichlet allocation models for each of four 
-distinct five-minute periods. The first period began at noon Eastern time on Mother's Day 2020. Subsequent time periods started 
-24, 48, and 72 hours later. 
+analyze tweets before, during, and after Memorial Day 2020 (May 25, 2020). We fitted latent Dirichlet allocation models for each of three
+distinct five-minute periods. The first period began at noon Eastern time on May 24, 2020. Subsequent time periods started 
+24 and 48 hours later. 
 We defined each time period to be a single collection, or corpus, of tweets. We then fitted latent 
 Dirichlet allocation models to each corpus. 
 
+One challenge in latent Dirichlet allocation modeling is the choice of the 
+number of topics per corpus. To address this, we fitted each corpus to models 
+
 We used several criteria to evaluate latent Dirichlet allocation model fits, with 
-emphasis on choosing a reasonable number of topics per corpus.
+emphasis on choosing a small number of topics per corpus.
 Our strategy involved both visualization and more quantitative approaches to model 
 evaluation. For every model, we created one word cloud per topic. 
 
@@ -320,21 +323,8 @@ Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/do
 
 \newpage
 
-## Appendix 2: LDA results for May 12, 13, and 14
-
-```{r, fig.cap = "Top terms for LDA model from May 12, 2020"}
-knitr::include_graphics("../results/beta-2020-05-12.png")
-```
-
-```{r, fig.cap = "Top terms for LDA model from May 13, 2020"}
-knitr::include_graphics("../results/beta-2020-05-13.png")
-```
-
-```{r, fig.cap = "Top terms for LDA model from May 14, 2020"}
-knitr::include_graphics("../results/beta-2020-05-14.png")
-```
 
 \newpage
 
-## Appendix 3: R analysis code
+## Appendix 2: R analysis code
 

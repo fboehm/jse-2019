@@ -9,9 +9,9 @@ sleep <- FALSE
 if (!file.exists(tr_fn)){
   sleep <- TRUE
   tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
-  #tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) 
+  #tweets <- recover_stream(path = "../data/2020-05-26 12:00:02-tweets.json", verbose = TRUE) 
   id_fn <- paste0("../data/tweets-status-ids-", "{{date}}", ".csv")
-  #id_fn <- paste0("../data/tweets-status-ids-", "2020-05-10", ".csv")
+  #id_fn <- paste0("../data/tweets-status-ids-", "2020-05-26", ".csv")
   tweets %>%
     dplyr::select(status_id) %>%
     readr::write_csv(path = id_fn, 
