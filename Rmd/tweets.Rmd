@@ -9,11 +9,14 @@ output: html_document
 
 ## R code to query twitter streaming api
 
-Install `rtweet` package from CRAN.
+Install R packages from CRAN.
 
 ```{r, eval = FALSE}
-install.packages("rtweet")
-install.packages("lubridate")
+install.packages(c("rtweet", "lubridate", 
+                   "magrittr", "tidytext", 
+                   "qdapDictionaries", "purrr", "knitr", 
+                   "devtools", "git2r")
+                 )
 ```
 
 ## Parse json file

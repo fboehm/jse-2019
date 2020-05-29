@@ -77,6 +77,18 @@ time and 2) methods for detecting social media
 events via latent Dirichlet allocation modeling of tweets and 3) suggestions for 
 using tweets in research mentoring of undergraduate students.
 
+# Backward design and learning objectives
+
+## Backward design
+
+
+
+
+## Learning objectives
+
+
+
+
 
 # Preliminary research mentoring considerations
 
@@ -372,7 +384,6 @@ Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/do
 \newpage
 
 
-\newpage
 
 # Appendix 2: R analysis code
 
