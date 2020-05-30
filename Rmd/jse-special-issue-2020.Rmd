@@ -5,7 +5,7 @@ date: "June 15, 2020"
 params:
   lastmod: !r lubridate::now()
 bibliography: jse.bib
-csl: chicago-annotated-bibliography.csl
+csl: american-statistical-association.csl
 geometry: "left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm"
 output: 
   bookdown::pdf_document2:
@@ -229,7 +229,7 @@ Below is an example of Tweet JSON. Every tweet features the keys "created\_at" (
 our analyses.
 
 
-```{bash, eval = FALSE, fig.cap = "Example Tweet JSON"}
+```{bash, eval = FALSE, fig.cap = "Example Tweet JSON", echo = TRUE}
 {
   "created_at": "Thu Apr 06 15:24:15 +0000 2017",
   "id_str": "850006245121695744",
