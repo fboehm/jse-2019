@@ -21,10 +21,11 @@ output:
 Last modified: `r params$lastmod`.
 
 ```{r child = "abstract.Rmd", eval = TRUE}
-knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
 # Introduction
 
@@ -81,12 +82,32 @@ using tweets in research mentoring of undergraduate students.
 
 ## Backward design
 
+Backward design principles guided our planning and informed the writing of
+learning objectives [@wiggins2005understanding]. Following @wiggins2005understanding, 
+we began by listing 
+what students, at the end of their thesis research, should be able to do, 
+understand, and know. We then classified each of these items into 
+one of three categories: enduring understanding, important to know and do, 
+and worth being familiar with [@wiggins2005understanding] (Table \@ref(tab:circle-table)). 
 
-
+```{r, circle-table, echo = FALSE, message=FALSE}
+library(magrittr)
+readr::read_csv("../data/concepts-backward-design.csv") %>%
+  knitr::kable(caption = "Classifying project skills")
+```
 
 ## Learning objectives
 
+We translated into learning objectives our prioritized list of skills that 
+students should be able to do, understand, and know (Table \@ref(tab:circle-table)). We 
+phrased learning objectives in a manner that enabled their subsequent assessment.
 
+1. Write R code to perform text analysis of large volumes of tweets.
+1. Communicate results in a written report and poster presentation.
+1. Translate statistical findings into scientific conclusions.
+1. Develop data science strategies to address a scientific research question.
+
+Each objective is amenable to formative or summative assessment.
 
 
 
@@ -189,7 +210,7 @@ query the Twitter API to obtain full tweet content.
 
 ## Tweet structure
 
-```{r, echo = TRUE, message = FALSE}
+```{r, echo = FALSE, message = FALSE}
 data_dictionary <- readr::read_csv("../data/tweets-data-dictionary.csv")
 ```
 
