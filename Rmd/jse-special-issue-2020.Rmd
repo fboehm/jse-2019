@@ -424,3 +424,5 @@ Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/do
 
 # Appendix 2: R analysis code
 
+We include our R code in supplementary files.
+
