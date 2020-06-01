@@ -1,5 +1,5 @@
 ---
-title: "What is happening on Twitter? Tweet analysis and student research projects"
+title: "What is happening on Twitter? A framework for student research projects with tweets"
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "June 15, 2020"
 params:
@@ -388,6 +388,16 @@ many opportunities for student research projects. We provided
 instructions to enable readers to 
 establish their own tweet collections. We also presented details for one 
 mentored research project that made use of our stored tweets.
+
+Our mentoring in data science aligns with others' calls to reconsider training in statistics
+and data science [@nolan2010computing;@carver2016guidelines]. @hicks2018guide argue for
+incorporating three concepts into data science classes: computing, connecting and creating. 
+They use the terms "connecting" and "creating" to describe the processes of applying 
+quantitative methods to real data and real research questions and of research question 
+formulation, respectively. Our tweet analysis projects offer students opportunities in all
+three skills sets. Our students first formulated research questions, then collected and 
+analyzed data to address the questions. Throughout the projects, students 
+drew heavily on computing, both to acquire data and to analyze it.
 
 Tweet analysis gives students practical experience in the data science process of 
 formulating a research question, gathering data to address it, summarizing the 
