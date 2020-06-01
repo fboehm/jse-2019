@@ -364,7 +364,12 @@ students wrote a thesis and presented a poster to our statistics department.
 We asked questions at the poster session to probe student understanding and critically
 evaluated the theses. 
 
-In future iterations, we will use a written rubric to grade student theses. We'll
+```{r, summative, echo = FALSE, fig.cap = "Rubric for summative assessment of learning objectives."}
+summative <- readr::read_csv("../data/summative-assessments.csv")
+knitr::kable(summative, caption = "Rubric for summative assessment of learning objectives.")
+```
+
+In future iterations, we will use a written rubric to grade student theses (Table \@ref(tab:summative) ). We'll
 share the rubric with our students at the start of the academic year.
 
 ## Exploring more advanced topics
