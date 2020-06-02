@@ -154,10 +154,16 @@ time series.
 
 ## Time period
 
-Our two students conducted their research projects during the 2015-2016 academic year. 
+Our two statistics students conducted their research projects during the 2015-2016 academic year. 
 We recommend a full academic year for projects of this magnitude, although a one-semester 
 project is possible. Our students presented their findings at the statistics department’s 
 undergraduate poster session near the end of the 2015-2016 academic year.
+
+We present below reproducible R code for analyzing data from May 2020. While these
+are not the same data that our students analyzed in 2015, the methods and code 
+are very similar.
+
+
 
 
 # Methods
@@ -170,12 +176,8 @@ We include here instructions for creating a tweet collection. First, we created 
 new account on Twitter. With these user credentials, we used the 
 R package `rtweet` to query the API. Because we work with linux operating systems, we used the `crontab` software 
 to repeatedly execute R code to submit API queries. Each 
-query lasted five minutes. We timed the API queries so 
+query lasted five minutes and produced a text file of approximately 130 MB. We timed the API queries so 
 that there was no time lag between queries. We stored tweets resulting from API queries in their native JSON format. 
-
-The R package `rtweet` 
-provides functions that parse tweet JSON to R data frames. We then 
-conducted all further analyses in R.
 
 Setting up the query task with `crontab` is straightforward. On our computer, with 
 Ubuntu 20.04 linux operating system, we opened a terminal and typed `crontab -e`. This 
@@ -192,24 +194,24 @@ Users may need to slightly amend the above line to conform to requirements of th
 
 ## Querying Twitter API to get complete tweets
 
+
+From our collection of tweets, we chose to analyze those sent on three consecutive 
+days from May 24, 2020 to May 26, 2020. We wanted to see if we could use text analysis 
+tools to detect a transient change in topics for Memorial Day (May 25, 2020). To minimize the computing requirements, we 
+limited our analysis to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day. However, our methods are appropriate for much larger data sets.
+We then submitted API queries to Twitter
+to get the full content of tweets, including the tweet text.
+In supplementary files, we provide the R code that we used to 
+query the Twitter API to obtain full tweet content. 
+
 Twitter API use agreements forbid users from sharing complete API query results. 
 However, Twitter permits users to share tweet identification numbers. A user can 
 then query a Twitter API to obtain complete tweet data. In our experience, this 
 process is incomplete; that is, many tweets submitted to the Twitter API return 
 no data. Additionally, on repeated querying of the API, different sets of tweets 
 return data. This complicates our goal of making all analyses computationally 
-reproducible. 
-
-From our collection of tweets, we chose to analyze those sent on three consecutive 
-days from May 24, 2020 to May 26, 2020. We wanted to see if we could use text analysis 
-tools to detect a transient change in topics for Memorial Day (May 25, 2020).
-
-To minimize the computing requirements, we 
-limited our analysis to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day. However, our methods are appropriate for much larger data sets.
-We then submitted API queries to Twitter
-to get the full content of tweets, including the tweet text.
-In supplementary files, we provide the R code that we used to 
-query the Twitter API to obtain full tweet content. 
+reproducible and motivates our decision to share the tweet IDs of those tweets that 
+we actually analyzed.
 
 
 
@@ -221,7 +223,8 @@ data_dictionary <- readr::read_csv("../data/tweets-data-dictionary.csv")
 
 
 
-Tweets are available from the Twitter API as Javascript Object Notation (JSON) objects. Every tweet consists 
+Tweets are available from the Twitter API as Javascript Object Notation (JSON) objects [@json]. 
+Every tweet consists 
 of multiple key-value pairs. The number of fields per 
 tweet depends on user settings, retweet status, and other factors [@tweet_json]. 
 The 31 tweet key-value pairs belong to
@@ -269,8 +272,10 @@ Below is an example of Tweet JSON.
 Our analyses use three fields from each tweet: date ("created_at"), tweet identifier 
 ("id_str"), and tweet text ("text"). The "created_at" field is a character string containing 
 the date and time of the tweet. Every tweet has a unique identifier, the "id_str" value. The 
-"text" field contains the unicode representation of the message. For our topic modeling, a single day defines a single "corpus", and a single tweet 
-corresponds to a single "document". 
+"text" field contains the unicode representation of the message. After creating a text file 
+with tweet JSON, our next step involved reading and parsing tweets with the R 
+packages `rtweet` and `tidytext`.
+
 
 
 ## Parsing tweet text
@@ -279,7 +284,7 @@ We used functions from the `rtweet` R package to parse tweet JSON into a data fr
 We then divided tweet text into words with functions from the `tidytext` R package [@tidytext]. We 
 discarded commonly used "stop words" and emojis. 
 
-Latent Dirichlet allocation models require that the corpus be organized as a 
+Latent Dirichlet allocation model fitting requires that the corpus be organized as a 
 document by term matrix. In a document by term matrix, each row corresponds to a single document (a single 
 tweet), and each column is a single term (or word). Each cell contains a 
 count (the number of 
@@ -301,9 +306,9 @@ the vocabulary (the collection of all words in a corpus).
 
 Inference for latent Dirichlet allocation model is performed by either 
 sampling from the posterior distribution or through variational methods. Researchers
-have devised a variety of Gibbs sampling techniques for latent Dirichlet allocation models. 
+have devised a variety of Gibbs sampling techniques for these models. 
 Variational methods, while using approximations to the posterior distribution, offer the 
-advantage of computational speed. We used variational methods below. 
+advantage of computational speed [@blei2017variational]. We used variational methods below. 
 
 
 
@@ -317,8 +322,7 @@ As a proof of principle of our event detection strategy, we chose to
 analyze tweets before, during, and after Memorial Day (May 25, 2020). We fitted latent Dirichlet allocation models for each of three
 distinct five-minute periods. The first period began at noon Eastern time on May 24, 2020. Subsequent time periods started 
 24 and 48 hours later. 
-We defined each time period to be a single collection, or corpus, of tweets. We then fitted latent 
-Dirichlet allocation models to each corpus. 
+We defined each time period to be a single collection, or corpus, of tweets. 
 
 # Results
 
@@ -339,17 +343,12 @@ knitr::include_graphics("../results/beta-2020-05-26.png")
 
 Assigning meaning to topics is an active research area [@chang2009reading]. Since
 our interest is in the transient appearance of a new topic, we don't attempt to
-assign meaning to topics in our models.
+assign meaning to every topic in our models. We see that topic 7 from May 25 has several 
+words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not 
+seen on May 24 or May 26. Some topics persist, possibly with distinct word probabilities, 
+across the three days. For example, we see that President Trump features prominently in all 
+three models. We also note, on May 26, topic 10, which reflects discussion of the Amy Cooper Central Park incident. 
 
-We see that topic 7 from May 25 has several words that suggest Memorial Day: 
-memorial, remember, honor, country. A similar topic is not seen on May 24 or May 26.
-
-Some topics persist, possibly with distinct word probabilities, across the three days. For example, we see that President Trump features prominently in all three models.
-
-We also note, on May 26, topic 10, which reflects discussion of the Amy Cooper Central Park incident. 
-
-We found evidence that latent Dirichlet allocation summarizes elements of 
-large collections of Twitter conversations. 
 
 # Assessment of learning, exploring more advanced topics, and concluding remarks
 
@@ -364,12 +363,15 @@ students wrote a thesis and presented a poster to our statistics department.
 We asked questions at the poster session to probe student understanding and critically
 evaluated the theses. 
 
-```{r, summative, echo = FALSE, fig.cap = "Rubric for summative assessment of learning objectives."}
+```{r, summative, echo = FALSE, message = FALSE}
 summative <- readr::read_csv("../data/summative-assessments.csv")
-knitr::kable(summative, caption = "Rubric for summative assessment of learning objectives.")
+knitr::kable(summative, caption = "Rubric for summative assessment of learning objectives.") %>%
+  kableExtra::column_spec(column = 1:5, width = "10em") %>%
+  kableExtra::kable_styling(font_size = 6)
+
 ```
 
-In future iterations, we will use a written rubric to grade student theses (Table \@ref(tab:summative) ). We'll
+In future iterations, we will use a written rubric to grade student theses (Table \@ref(tab:summative)). We'll
 share the rubric with our students at the start of the academic year.
 
 ## Exploring more advanced topics
