@@ -164,11 +164,8 @@ In our experience, student interests vary, and students' ability to articulate r
 may be limited. An initial brainstorming session may clarify their interests and encourage 
 them to think critically about goals under the time constraints of their academic schedules. 
 Additionally, we anticipate that sharing completed student project reports will guide student 
-thinking about the scope of possible projects.
+thinking about the scope of possible projects (Supplemental files).
 
-We mentored one student whose interest in financial time series and tweet sentiment analysis 
-guided her project. A second student formulated a project around event detection from tweet 
-time series.
 
 ## Time period
 
@@ -213,23 +210,19 @@ Users may need to slightly amend the above line to conform to requirements of th
 ## Querying Twitter API to get complete tweets
 
 
-From our collection of tweets, we chose to analyze those sent on three consecutive 
-days from May 24, 2020 to May 26, 2020. We wanted to see if we could use text analysis 
-tools to detect a transient change in topics for Memorial Day (May 25, 2020). To minimize the computing requirements, we 
-limited our analysis to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day. However, our methods are appropriate for much larger data sets.
-We then submitted API queries to Twitter
-to get the full content of tweets, including the tweet text.
-In supplementary files, we provide the R code that we used to 
-query the Twitter API to obtain full tweet content. 
+We analyzed tweets sent on three consecutive 
+days from May 24, 2020 to May 26, 2020. We wanted to see if we could detect a transient change in topics for Memorial Day (May 25, 2020). To minimize the computing requirements, we 
+limited our analysis to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day. However, our methods are also appropriate for much larger data sets.
 
 Twitter API use agreements forbid users from sharing complete API query results. 
-However, Twitter permits users to share tweet identification numbers. A user can 
-then query a Twitter API to obtain complete tweet data. In our experience, this 
+However, Twitter permits users to share tweet identification numbers. With a tweet 
+identification number, a user may query a Twitter API to obtain complete tweet data. In our 
+experience, this 
 process is incomplete; that is, many tweets submitted to the Twitter API return 
 no data. Additionally, on repeated querying of the API, different sets of tweets 
 return data. This complicates our goal of making all analyses computationally 
 reproducible and motivates our decision to share the tweet IDs of those tweets that 
-we actually analyzed.
+we actually analyzed (Supplemental files).
 
 
 
@@ -298,6 +291,7 @@ packages `rtweet` and `tidytext`.
 
 ## Parsing tweet text
 
+The next task is to wrangle the tweet JSON into a data structure suitable for latent Dirichlet allocation modeling. 
 We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@rtweet-package]. 
 We then divided tweet text into words with functions from the `tidytext` R package [@tidytext]. We 
 discarded commonly used "stop words" and emojis. 
@@ -322,22 +316,19 @@ chosen topic.
 The goal for latent Dirichlet allocation is to infer both the distribution over topics and the topics [@blei2003latent]. A topic, in this setting, is a distribution over 
 the vocabulary (the collection of all words in a corpus).
 
-Inference for latent Dirichlet allocation model is performed by either 
+Inference for latent Dirichlet allocation models is performed by either 
 sampling from the posterior distribution or through variational methods. Researchers
-have devised a variety of Gibbs sampling techniques for these models. 
+have devised a variety of Gibbs sampling techniques for these models [@porteous2008fast]. 
 Variational methods, while using approximations to the posterior distribution, offer the 
 advantage of computational speed [@blei2017variational]. We used variational methods below. 
-
-
-
 
 
 ## Study design
 
 We sought to validate our hypothesis that we could detect a social 
 media event by examining tweet topic content at distinct time periods. 
-As a proof of principle of our event detection strategy, we chose to 
-analyze tweets before, during, and after Memorial Day (May 25, 2020). We fitted latent Dirichlet allocation models for each of three
+As a proof of principle of our event detection strategy, we analyzed tweets before, during, and 
+after Memorial Day (May 25, 2020). We fitted latent Dirichlet allocation models for each of three
 distinct five-minute periods. The first period began at noon Eastern time on May 24, 2020. Subsequent time periods started 
 24 and 48 hours later. 
 We defined each time period to be a single collection, or corpus, of tweets. 
@@ -372,11 +363,9 @@ three models. We also note, on May 26, topic 10, which reflects discussion of th
 
 ## Assessment of learning
 
-We examined student learning through both formative and summative assessments.
+We examined student learning with both formative and summative assessments.
 We conducted formative assessments through weekly discussions with students.
-In these discussions, we developed action items to advance research progress and overcome challenges. 
-
-We summatively assessed student achievement at the end of the academic year. Both
+In these discussions, we developed action items to advance research progress and overcome challenges. We summatively assessed student achievement at the end of the academic year. Both
 students wrote a thesis and presented a poster to our statistics department. 
 We asked questions at the poster session to probe student understanding and critically
 evaluated the theses. 
@@ -389,7 +378,7 @@ knitr::kable(summative, caption = "Rubric for summative assessment of learning o
 
 ```
 
-In future iterations, we will use a written rubric to grade student theses (Table \@ref(tab:summative)). We'll
+With future students, we will use a written rubric to evaluate theses (Table \@ref(tab:summative)). We'll
 share the rubric with our students at the start of the academic year.
 
 ## Exploring more advanced topics
@@ -411,10 +400,9 @@ for topic evolution with dynamic topic models [@blei2006dynamic].
 Tweet collections over time are a rich, large, authentic data set that offer 
 many opportunities for student research projects. We provided 
 instructions to enable readers to 
-establish their own tweet collections. We also presented details for one 
-mentored research project that made use of our stored tweets.
+establish their own tweet collections. We also presented details for one analysis strategy. 
 
-Our mentoring in data science aligns with others' calls to reconsider training in statistics
+Our mentoring in data science aligns with others' calls to reconsider the role of computing in statistics
 and data science [@nolan2010computing;@carver2016guidelines]. @hicks2018guide argue for
 incorporating three concepts into data science classes: computing, connecting and creating. 
 They use the terms "connecting" and "creating" to describe the processes of applying 
