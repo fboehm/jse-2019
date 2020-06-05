@@ -35,20 +35,28 @@ current events, sports, media, and many other topics.
 Recent development of accessible statistical methods for large-scale text 
 analysis now enable instructors to use tweets as contemporary pedagogical 
 tools in guiding undergraduate research projects.
-We report mentored text analysis projects. 
-We share our data and computer code to encourage others to undertake 
-tweet text analysis research. We also describe our methods for creating a 
+We guided two statistics students in their senior research projects. 
+Both students used tweets to address novel research questions. We 
+share products of their research in supplementary files. Because 
+their data are no longer available, we present as a case study one 
+analysis with tweets from May 2020. We share our data and computer 
+code to encourage others to undertake 
+tweet text analysis research. We also describe methods for creating a 
 collection of tweets.
 
 Some social media data, including tweets from Twitter, is
 available through website application product interfaces (APIs). 
-By way of a streaming API, Twitter shares a sample of approximately one percent of all 
-tweets during an API query time period [@tweet_stream]. Any Twitter user can freely 
+By way of a streaming API, Twitter shares a sample of approximately 
+one percent of all 
+tweets during an API query time period [@tweet_stream]. Any Twitter 
+user can freely 
 access this one percent sample, whereas access to a larger selection is available to researchers for a fee.
 
 
 
-Using large collections of tweets, scholars have studied diverse research questions, including
+Studies of Twitter conversations have yielded valuable insights into 
+modern culture. Using large collections of tweets, scholars have 
+investigated diverse research questions, including
 the inference of relationships and social networks among Twitter users [@lin2011joint]; 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
 rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
@@ -70,8 +78,8 @@ opportunities to develop competency in all of these areas.
 
 
 While our tweet collection enables us to address many possible research questions, the 
-dynamic content of tweets over time particularly piqued our interest. Together, students and 
-mentors hypothesized that high-profile social media events would generate a high volume of 
+dynamic content of tweets over time particularly piqued our interest. 
+We hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we would detect social media events through changes in tweet 
 topic content over time. We discuss in detail below one approach to studying this
 question.
@@ -79,7 +87,7 @@ question.
 In the sections that follow, we detail our backward design-inspired approach to 
 writing learning objectives, preliminary research mentoring considerations, 
 data science methods for collecting and analyzing tweets, analysis results, 
-and thoughts on assessment and advanced topics.
+and ideas on assessment and advanced topics.
 
 
 
@@ -101,24 +109,30 @@ readr::read_csv("../data/concepts-backward-design.csv") %>%
   knitr::kable(caption = "Classifying project skills")
 ```
 
+We note that nearly all of the skills in Table \@ref(tab:circle-table) are 
+transferable in that they apply not merely to the thesis projects, but also to
+data science research in general.
+
+
+
 ## Learning objectives
 
 We translated into learning objectives our prioritized list of skills that 
 students should be able to do, understand, and know (Table \@ref(tab:circle-table)). We 
-phrased learning objectives in a manner that enabled their subsequent assessment.
+phrased learning objectives in a manner that enabled their subsequent assessment 
+(Table \@ref(tab:summative)) with formative and summative strategies.
 
 1. Write R code to perform text analysis of large volumes of tweets [@r].
 1. Communicate results in a written report and poster presentation.
 1. Translate statistical findings into scientific conclusions.
 1. Develop data science strategies to address a scientific research question.
 
-Each objective is amenable to formative or summative assessment.
 
 
 
 # Preliminary research mentoring considerations
 
-We collaboratively developed research goals with students in a series of discussions during the academic year. As trainees begin their senior research projects, we suggest that mentors discuss with them:
+We developed research goals with students in a series of discussions. As trainees began their senior research projects, we spoke in detail about:
 
 1. Student experience with data analysis software
 1. Student research interests and goals
@@ -134,6 +148,10 @@ packages, such as Python.
 Those who do undergraduate statistics research often learn advanced topics in R
 computing, such as R package assembly, documentation, and testing. Many develop 
 expertise in linux computing and cluster computing, too. 
+
+Our data science projects required that students possess elementary R computing
+skills. We guided students towards supplementary R computing resources, including 
+the online books "R for data science" [@wickham2016r] and "Advanced R" [@wickham2019advanced].
 
 
 
