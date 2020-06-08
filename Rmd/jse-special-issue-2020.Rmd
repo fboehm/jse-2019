@@ -82,9 +82,7 @@ dynamic content of tweets over time particularly piqued our interest.
 We hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we would detect social media events through changes in tweet 
 topic content over time. We discuss in detail below one approach to studying this
-question.
-
-In the sections that follow, we detail our backward design-inspired approach to 
+question. In the sections that follow, we detail our backward design-inspired approach to 
 writing learning objectives, preliminary research mentoring considerations, 
 data science methods for collecting and analyzing tweets, analysis results, 
 and ideas on assessment and advanced topics.
@@ -181,8 +179,31 @@ are very similar.
 
 
 
-# Methods
+# Case study methods
 
+To illustrate the value of Twitter data, we present below a 
+reproducible case study. In it, we aim to detect a social media 
+event by examining topic content over time. We use latent Dirichlet 
+allocation models to infer topics on three consecutive days centered 
+on Memorial Day 2020. We chose to use this example case study, 
+instead of the student projects, because of limited data 
+availability for the student projects. Despite this, the case study 
+illustrates the strategy and methods for one of the student 
+projects. 
+
+## Case study design
+
+We sought to validate our hypothesis that we could detect a social 
+media event by examining tweet topic content at distinct time periods. 
+As a proof of principle of our event detection strategy, 
+we analyzed tweets before, during, and 
+after Memorial Day (May 25, 2020). 
+We fitted latent Dirichlet allocation models for each of three
+distinct five-minute periods. The first period began at noon Eastern time 
+on May 24, 2020. Subsequent time periods started 
+24 and 48 hours later. 
+We defined each time period to be a single collection, or corpus, of 
+tweets. 
 
 
 ## Collecting tweets over time
@@ -210,19 +231,18 @@ Users may need to slightly amend the above line to conform to requirements of th
 ## Querying Twitter API to get complete tweets
 
 
-We analyzed tweets sent on three consecutive 
-days from May 24, 2020 to May 26, 2020. We wanted to see if we could detect a transient change in topics for Memorial Day (May 25, 2020). To minimize the computing requirements, we 
-limited our analysis to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day. However, our methods are also appropriate for much larger data sets.
-
 Twitter API use agreements forbid users from sharing complete API query results. 
 However, Twitter permits users to share tweet identification numbers. With a tweet 
 identification number, a user may query a Twitter API to obtain complete tweet data. In our 
 experience, this 
-process is incomplete; that is, many tweets submitted to the Twitter API return 
-no data. Additionally, on repeated querying of the API, different sets of tweets 
+process is incomplete; that is, many tweet identification numbers submitted to the Twitter API return 
+no data. Additionally, on repeated querying of the API, different sets of tweet identification numbers
 return data. This complicates our goal of making all analyses computationally 
 reproducible and motivates our decision to share the tweet IDs of those tweets that 
-we actually analyzed (Supplemental files).
+we actually analyzed (Supplementary files). Should a reader wish to reproduce 
+our analysis, we anticipate that she will get complete tweet data
+for all or most of these tweet identification numbers from the API. We provide 
+R code for this task in the supplementary files.
 
 
 
@@ -239,7 +259,7 @@ Every tweet consists
 of multiple key-value pairs. The number of fields per 
 tweet depends on user settings, retweet status, and other factors [@tweet_json]. 
 The 31 tweet key-value pairs belong to
-`r length(unique(data_dictionary$Type))` distinct classes (Appendix 1). The 
+`r length(unique(data_dictionary$Type))` distinct classes (Supplementary files). The 
 classes are either vectors - numeric, logical, or character - or arrays assembled 
 from the vector classes.
 
@@ -313,7 +333,8 @@ refer to the holiday. This may constitute one topic in the corpus.
 Having chosen a distribution over topics, we then select document words by first 
 drawing a topic from the distribution over topics, then drawing a word from the
 chosen topic. 
-The goal for latent Dirichlet allocation is to infer both the distribution over topics and the topics [@blei2003latent]. A topic, in this setting, is a distribution over 
+The goal for latent Dirichlet allocation is to infer both the distribution over topics and 
+the topics [@blei2003latent]. A topic, in this setting, is a distribution over 
 the vocabulary (the collection of all words in a corpus).
 
 Inference for latent Dirichlet allocation models is performed by either 
@@ -323,30 +344,22 @@ Variational methods, while using approximations to the posterior distribution, o
 advantage of computational speed [@blei2017variational]. We used variational methods below. 
 
 
-## Study design
 
-We sought to validate our hypothesis that we could detect a social 
-media event by examining tweet topic content at distinct time periods. 
-As a proof of principle of our event detection strategy, we analyzed tweets before, during, and 
-after Memorial Day (May 25, 2020). We fitted latent Dirichlet allocation models for each of three
-distinct five-minute periods. The first period began at noon Eastern time on May 24, 2020. Subsequent time periods started 
-24 and 48 hours later. 
-We defined each time period to be a single collection, or corpus, of tweets. 
+# Case study results
 
-# Results
+We identified the top ten most probable terms for each of ten topics in our models 
+(Figures \@ref(fig:may24), \@ref(fig:may25), \@ref(fig:may26)). 
+We plotted the within-topic word probabilities as bar graphs.
 
-We identified the top ten terms for each of ten topics in our models. We plotted 
-the within-topic word probabilities as bar graphs.
-
-```{r, fig.cap = "Top terms for LDA model from May 24, 2020"}
+```{r, may24, fig.cap = "Top terms for LDA model from May 24, 2020"}
 knitr::include_graphics("../results/beta-2020-05-24.png")
 ```
 
-```{r, fig.cap = "Top terms for LDA model from May 25, 2020 (Memorial Day)"}
+```{r, may25, fig.cap = "Top terms for LDA model from May 25, 2020 (Memorial Day)"}
 knitr::include_graphics("../results/beta-2020-05-25.png")
 ```
 
-```{r, fig.cap = "Top terms for LDA model from May 26, 2020"}
+```{r, may26, fig.cap = "Top terms for LDA model from May 26, 2020"}
 knitr::include_graphics("../results/beta-2020-05-26.png")
 ```
 
@@ -354,7 +367,7 @@ Assigning meaning to topics is an active research area [@chang2009reading]. Sinc
 our interest is in the transient appearance of a new topic, we don't attempt to
 assign meaning to every topic in our models. We see that topic 7 from May 25 has several 
 words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not 
-seen on May 24 or May 26. Some topics persist, possibly with distinct word probabilities, 
+seen on May 24 or May 26. Some topics persist, with distinct word probabilities, 
 across the three days. For example, we see that President Trump features prominently in all 
 three models. We also note, on May 26, topic 10, which reflects discussion of the Amy Cooper Central Park incident. 
 
@@ -365,8 +378,9 @@ three models. We also note, on May 26, topic 10, which reflects discussion of th
 
 We examined student learning with both formative and summative assessments.
 We conducted formative assessments through weekly discussions with students.
-In these discussions, we developed action items to advance research progress and overcome challenges. We summatively assessed student achievement at the end of the academic year. Both
-students wrote a thesis and presented a poster to our statistics department. 
+In these discussions, we developed action items to advance research progress and overcome 
+challenges. We summatively assessed student achievement at the end of the academic year. 
+Both students wrote a thesis and presented a poster to our statistics department. 
 We asked questions at the poster session to probe student understanding and critically
 evaluated the theses. 
 
@@ -378,7 +392,8 @@ knitr::kable(summative, caption = "Rubric for summative assessment of learning o
 
 ```
 
-With future students, we will use a written rubric to evaluate theses (Table \@ref(tab:summative)). We'll
+With future students, we will use a written rubric to evaluate 
+theses (Table \@ref(tab:summative)). We'll
 share the rubric with our students at the start of the academic year.
 
 ## Exploring more advanced topics
@@ -397,27 +412,28 @@ for topic evolution with dynamic topic models [@blei2006dynamic].
 
 ## Concluding remarks
 
-Tweet collections over time are a rich, large, authentic data set that offer 
-many opportunities for student research projects. We provided 
-instructions to enable readers to 
-establish their own tweet collections. We also presented details for one analysis strategy. 
 
-Our mentoring in data science aligns with others' calls to reconsider the role of computing in statistics
+Our mentoring in data science aligns with others' calls to reconsider 
+the role of computing in statistics
 and data science [@nolan2010computing;@carver2016guidelines]. @hicks2018guide argue for
-incorporating three concepts into data science classes: computing, connecting and creating. 
+incorporating three concepts into data science training: 
+computing, connecting and creating. 
 They use the terms "connecting" and "creating" to describe the processes of applying 
-quantitative methods to real data and real research questions and of research question 
-formulation, respectively. Our tweet analysis projects offer students opportunities in all
+quantitative methods to real data and research questions and of formulating research 
+questions, respectively. Our tweet analysis projects offer students opportunities in all
 three skills sets. Our students first formulated research questions, then collected and 
 analyzed data to address the questions. Throughout the projects, students 
 drew heavily on computing, both to acquire data and to analyze it.
 
 Tweet analysis gives students practical experience in the data science process of 
 formulating a research question, gathering data to address it, summarizing the 
-data, visualizing results, and communicating findings. By considering first student 
-research interests and integrating them with our senior thesis learning objectives, 
-we successfully guided two undergraduate researchers in data science research with
-tweets.
+data, visualizing results, and communicating findings. Tweets over time are a rich, large, 
+authentic data set that offer many opportunities. 
+We provided instructions to enable readers to establish their own tweet collections. 
+We also presented details for one analysis strategy.
+By considering first student research interests and integrating them with our 
+senior thesis learning objectives, we successfully guided two undergraduate
+researchers in data science research with tweets.
 
 
 
@@ -437,15 +453,11 @@ editors and anonymous reviewers for their constructive comments and suggestions.
 
 \newpage
 
-# Appendix 1: Tweet data dictionary
+# Supplementary files
 
-Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object,  (Accessed: May 23, 2020)). We have saved it as a supplementary file, "tweets-data-dictionary.csv".
+## Student projects 
 
-\newpage
-
-
-
-# Appendix 2: R analysis code
-
-We include our R code in supplementary files.
-
+1. Jinyu poster
+1. Jinyu report
+2. useR 2016 slides
+3. political methods poster 2016

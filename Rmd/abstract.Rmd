@@ -3,7 +3,7 @@
 We present a framework for undergraduate research projects with Twitter data. We draw on experiences mentoring two students during 
 an academic year. 
 Leveraging backward design principles, we share our learning objectives and
-summative assessments. To illustrate the value of Twitter as a data source, 
+rubric for summative assessments. To illustrate the value of Twitter as a data source, 
 we detail methods for collecting and analyzing tweets. We conclude by emphasizing
 how Twitter text analysis projects enable students to formulate 
 original research questions, collect and analyze the needed data, and communicate

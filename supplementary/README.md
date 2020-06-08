@@ -1,10 +1,11 @@
 # Supplementary materials for JSE submission
 
-## Student deliverables
+## Student presentations and thesis
 
-1. Jinyu poster
-2. useR 2016 slides
-3. political methods poster 2016
+1. Project_Poster.pdf
+1. report.pdf
+2. user2016boehm.pdf
+3. warfdiscovery2016boehm.tiff
 
 ## Code
 
