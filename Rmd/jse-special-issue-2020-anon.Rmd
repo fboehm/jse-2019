@@ -1,6 +1,6 @@
 ---
 title: "What is happening on Twitter? A framework for student research projects with tweets"
-author: "Frederick J. Boehm and Bret M. Hanlon"
+author: ""
 date: "June 15, 2020"
 params:
   lastmod: !r lubridate::now()
@@ -58,7 +58,7 @@ modern culture. Using large collections of tweets, scholars have
 investigated diverse research questions, including
 the inference of relationships and social networks among Twitter users [@lin2011joint]; 
 authorship of specific tweets when multiple persons share a single account [@drob]; and 
-rhetoric in recruiting political supporters [@pelled2018little;@wells2016trump].
+rhetoric in recruiting political supporters.
 Recognizing the potential utility of tweets for data science research and teaching, 
 we created a collection of tweets over time by repeated querying of the Twitter streaming API.
 
@@ -442,8 +442,7 @@ researchers in data science research with tweets.
 
 # Acknowledgements
 
-The authors thank Betsy Colby Davie and Rick Nordheim for helpful discussions and 
-feedback on preliminary versions of the manuscript. We thank the special issue 
+We thank the special issue 
 editors and anonymous reviewers for their constructive comments and suggestions.
 
 
@@ -458,24 +457,24 @@ editors and anonymous reviewers for their constructive comments and suggestions.
 
 ## Tweets data dictionary
 
-1. [Data dictionary](https://github.com/fboehm/jse-2019/blob/master/data/tweets-data-dictionary.csv)
+1. Data dictionary
 
 
 ## R code to reproduce the case study
 
-1. [tweets.Rmd](https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/tweets.Rmd)
-1. [tweets-one.Rmd](https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/tweets-one.Rmd)
-1. [recover\_tweets.R](https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/recover_tweets.R)
+1. tweets.Rmd
+1. tweets-one.Rmd
+1. recover\_tweets.R
 
 
 ## Student projects 
 
-1. Student 1 poster: [Project\_Poster.pdf](https://github.com/fboehm/jse-2019/blob/master/supplementary/Project_Poster.pdf)
-1. Student 1 report: [report.pdf](https://github.com/fboehm/jse-2019/blob/master/supplementary/report.pdf)
-1. Student 2 useR 2016 slides: [user2016boehm.pdf](https://github.com/fboehm/jse-2019/blob/master/supplementary/user2016boehm.pdf) 
-1. Student 2 poster: [warfdiscovery2016boehm.tiff](https://github.com/fboehm/jse-2019/blob/master/supplementary/warfdiscovery2016boehm.tiff)
+1. Student 1 poster
+1. Student 1 report
+1. Student 2 useR 2016 slides
+1. Student 2 poster
 
 ## Github repository 
 
-1. https://github.com/fboehm/jse-2019
+1. 
 
