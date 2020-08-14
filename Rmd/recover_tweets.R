@@ -54,15 +54,14 @@ recover_stream <- function(path, dir = NULL, verbose = TRUE) {
   
   # Let user decide what to do
   if (length(bad_files) > 0) {
-    message("There were ", length(bad_files),
-            " tweets with problems. Should they be copied to your working directory?")
-    #sel <- menu(c("no", "yes", "copy a list with status_ids"))
     writeLines(bad_files, "broken_tweets.txt")
   }
   
   # clean up
   unlink(dir, recursive = TRUE)
-  
+  good_tweets_pre <- tweets_l[!test]
+  good_tweets <- lapply(X = good_tweets_pre, FUN = function(x){x$description <- as.character(x$description); return(x)})
+  out <- dplyr::bind_rows(good_tweets)
   # return good tweets
-  return(dplyr::bind_rows(tweets_l[!test]))
+  return(out)
 }

@@ -1,0 +1,15 @@
+Dear editors:
+
+We wish to submit our data sets and stories piece to the special issue on computing in the curriculum. The data that we present is a collection of tweets from Twitter. We also 
+provide user instructions for collecting tweets with reproducible R code. We describe a case study that uses tweets to detect a social media event. We place the case study within a larger training 
+framework that draws on backward design principles to create learning objectives and 
+assessment tools for undergraduate research projects.
+We complement the article text with hyperlinks (in the de-anonymized pdf) to 
+student project deliverables.
+
+Thank you for your consideration of this submission.
+
+Sincerely,
+
+Fred Boehm
+

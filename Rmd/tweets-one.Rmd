@@ -2,16 +2,12 @@
 
 ```{r, recover-{{date}}}
 fn <- paste0("../data/", "{{date}}", "-analyzed-tweet-ids.csv")
-#fn <- paste0("../data/", "2020-05-10", "-analyzed-tweet-ids.csv")
 tr_fn <- paste0("../data/", "{{date}}", "-rehydrated-tweets.rds")
-#tr_fn <- paste0("../data/", "2020-05-10", "-rehydrated-tweets.rds")
 sleep <- FALSE
 if (!file.exists(tr_fn)){
   sleep <- TRUE
   tweets <- recover_stream(path = "{{tweet_json_file}}", verbose = TRUE) 
-  #tweets <- recover_stream(path = "../data/2020-05-10 12:00:01-tweets.json", verbose = TRUE) 
   id_fn <- paste0("../data/tweets-status-ids-", "{{date}}", ".csv")
-  #id_fn <- paste0("../data/tweets-status-ids-", "2020-05-10", ".csv")
   tweets %>%
     dplyr::select(status_id) %>%
     readr::write_csv(path = id_fn, 
@@ -63,42 +59,20 @@ tweets_dtm <- word_counts %>%
 
 
 
-## Comparing models with distinct number of topics
 
 
-```{r, tuning-{{date}}}
-(result <- ldatuning::FindTopicsNumber(
-  tweets_dtm,
-  topics = seq(from = 5, to = 40, by = 1),
-  metrics = c("CaoJuan2009", "Arun2010", "Deveaud2014"),
-  method = "VEM",
-  mc.cores = 2L,
-  verbose = TRUE
-))
-```
 
-```{r, tuning2-{{date}}}
-ldatuning::FindTopicsNumber_plot(result)
-```
 
-```{r, tuning-fig-{{date}}}
-png(paste0("../results/ldatuning-", "{{date}}", ".png"))
-ldatuning::FindTopicsNumber_plot(result)
-dev.off()
-```
 
-```{r, optimal-k-{{date}}}
-(optimal_k_CaoJuan2009 <- result$topics[which.min(result$CaoJuan2009)])
-(optimal_k_Arun2010 <- result$topics[which.min(result$Arun2010)])
-(optimal_k_Deveaud2014 <- result$topics[which.max(result$Deveaud2014)])
-```
 
-```{r, lda-CJ09-{{date}}}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = optimal_k_CaoJuan2009)
+### Get beta plots
+
+```{r, lda-{{date}}}
+tweets_lda <- topicmodels::LDA(tweets_dtm, k = 10)
 tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
 ```
 
-```{r, topterms-CJ09-{{date}}}
+```{r, topterms-{{date}}}
 tweets_top_terms <- tweets_beta %>%
   dplyr::group_by(topic) %>%
   dplyr::top_n(10, beta) %>%
@@ -106,7 +80,7 @@ tweets_top_terms <- tweets_beta %>%
   dplyr::arrange(topic, -beta)
 ```
 
-```{r, plot-CJ09-{{date}}}
+```{r, plot-{{date}}}
 tweets_top_terms %>%
   dplyr::mutate(term = tidytext::reorder_within(term, beta, topic)) %>%
   ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
@@ -117,68 +91,8 @@ tweets_top_terms %>%
 
 ```
 
-```{r, ggsave-CJ09-{{date}}}
-ggplot2::ggsave(paste0("../results/beta-CJ09", "{{date}}", ".png"))
-```
-
-### Arun2010
-
-```{r, lda-Arun2010-{{date}}}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = optimal_k_Arun2010)
-tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
-```
-
-```{r, topterms-Arun2010-{{date}}}
-tweets_top_terms <- tweets_beta %>%
-  dplyr::group_by(topic) %>%
-  dplyr::top_n(10, beta) %>%
-  dplyr::ungroup() %>%
-  dplyr::arrange(topic, -beta)
-```
-
-```{r, plot-Arun2010-{{date}}}
-tweets_top_terms %>%
-  dplyr::mutate(term = tidytext::reorder_within(term, beta, topic)) %>%
-  ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
-  ggplot2::geom_col(show.legend = FALSE) +
-  ggplot2::facet_wrap(~ topic, scales = "free") +
-  ggplot2::coord_flip() + 
-  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 270))
-
-```
-
-```{r, ggsave-Arun2010-{{date}}}
-ggplot2::ggsave(paste0("../results/beta-Arun2010", "{{date}}", ".png"))
-```
-
-### Deveaud2014
-
-```{r, lda-Deveaud2014-{{date}}}
-tweets_lda <- topicmodels::LDA(tweets_dtm, k = optimal_k_Deveaud2014)
-tweets_beta <- tidytext::tidy(tweets_lda, matrix = "beta")
-```
-
-```{r, topterms-Deveaud2014-{{date}}}
-tweets_top_terms <- tweets_beta %>%
-  dplyr::group_by(topic) %>%
-  dplyr::top_n(10, beta) %>%
-  dplyr::ungroup() %>%
-  dplyr::arrange(topic, -beta)
-```
-
-```{r, plot-Deveaud2014-{{date}}}
-tweets_top_terms %>%
-  dplyr::mutate(term = tidytext::reorder_within(term, beta, topic)) %>%
-  ggplot2::ggplot(ggplot2::aes(term, beta, fill = factor(topic))) +
-  ggplot2::geom_col(show.legend = FALSE) +
-  ggplot2::facet_wrap(~ topic, scales = "free") +
-  ggplot2::coord_flip() + 
-  ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 270))
-
-```
-
-```{r, ggsave-Deveaud2014-{{date}}}
-ggplot2::ggsave(paste0("../results/beta-Deveaud2014", "{{date}}", ".png"))
+```{r, ggsave-{{date}}}
+ggplot2::ggsave(paste0("../results/beta-", "{{date}}", ".png"))
 ```
 
 

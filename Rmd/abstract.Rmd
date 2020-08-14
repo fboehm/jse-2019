@@ -1,7 +1,9 @@
 # Abstract
 
-We describe methods for collecting tweets from Twitter. With these methods, we 
-curate a large collection of tweets.
-We present methods for social media event detection through text analysis of tweets. 
-We describe our use of tweets in mentored undergraduate research. 
-We also offer other directions for text analysis of tweets.
+We draw on our experiences with mentoring two students to develop a framework for undergraduate research projects with Twitter data.
+Leveraging backward design principles, we share our learning objectives and
+rubric for summative assessments. To illustrate the value of Twitter as a data source, 
+we detail methods for collecting and analyzing tweets. We conclude by emphasizing
+how Twitter text analysis projects enable students to formulate 
+original research questions, collect and analyze data, and communicate
+findings and their implications.
