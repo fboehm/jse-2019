@@ -1,5 +1,5 @@
 ---
-title: 'Analyzing tweets to detect social media events'
+title: "What is happening on Twitter? Tweet analysis and undergraduate research projects"
 author: "Frederick J. Boehm and Bret M. Hanlon"
 date: "June 15, 2020"
 params:
@@ -18,14 +18,17 @@ output:
     toc: FALSE
 ---
 
+Last modified: `r params$lastmod`.
 
 ```{r child = "abstract.Rmd", eval = FALSE}
 ```
 
-# Introduction
+
+
+## Introduction
 
 Twitter has profoundly changed how we communicate. 
-In only 280 characters, users can instantly contribute to public conversations on politics, 
+In only 280 characters, users instantly contribute to public conversations on politics, 
 current events, sports, media, and many other topics. 
 Recent development of accessible statistical methods for large-scale text 
 analysis now enable instructors to use tweets as contemporary pedagogical 
@@ -69,18 +72,32 @@ dynamic content of tweets over time particularly piqued our interest. Together, 
 mentors hypothesized that high-profile social media events would generate a high volume of 
 tweets, and that we would detect social media events through changes in tweet 
 topic content over time. We present below 1) an approach for collecting tweets in real 
-time and 2) statistical methods for detecting social media 
-events via latent Dirichlet allocation modeling of collections of tweets and 3) reflections on 
-using this data set in research mentoring of undergraduate students.
+time and 2) methods for detecting social media 
+events via latent Dirichlet allocation modeling of tweets and 3) suggestions for 
+using tweets in research mentoring of undergraduate students.
 
 
-## Research mentoring considerations
+## Preliminary research mentoring considerations
 
 We collaboratively developed research goals with students through a series of discussions throughout the academic year. As trainees begin their senior research projects, we suggest that mentors discuss with them:
 
-### Student research interests and goals
-Student experience with data analysis and statistical analysis software
-Software for statistical analysis and best practices for reproducibility
+1. Student experience with data analysis software
+1. Student research interests and goals
+
+
+
+### Student experience with data analysis software
+
+Student experience with data analysis software varies. In our statistics department, 
+most students learn elementary R computing skills through class assignments. Some 
+students, by concentrating in computer science, learn other data analysis software 
+packages, such as Python. 
+Those who do undergraduate statistics research often learn advanced topics in R
+computing, such as R package assembly, documentation, and testing. Many develop 
+expertise in linux computing and cluster computing, too. 
+
+
+
 
 
 
@@ -90,42 +107,12 @@ In our experience, student interests vary, and their initial ability to articula
 
 We mentored one student whose interest in financial time series guided her project. A second student formulated a project around event detection from tweet time series.
 
-### Student experience with data analysis and statistical software
-
-### Software for data 
-
-We used the linux software package `crontab` to automate the execution of R code every five minutes. The tweets are available from the Twitter API as JSON. We saved the JSON in plain text files. 
-
-We performed all analyses in the R statistical computing environment. We used the Rstudio software package to interface with R. We share our R code to enhance reproducibility of our findings. Users may also find our code helpful when creating their own tweet collections.
-
-
-
-
-
-### Backward design
-
-We sought to give our trainees opportunities to formulate and address a data science research question. We consulted the GAISE report for additional guidance. 
-The GAISE report executive summary highlights six goals for statistics training:
-
-1. Teach statistical thinking  
-1. Focus on conceptual understanding  
-1. Integrate real data with a context and purpose  
-1. Foster active learning  
-1. Use technology to explore concepts and analyze data  
-1. Use assessments to improve and evaluate student learning  
-
-
-
-
-### Learning outcomes
-
-
-
-
-
 ### Time period
 
-We began collecting tweets in 2013. Our two students conducted their research projects during the 2015-2016 academic year. We recommend a full academic year for projects of this magnitude, although a one-semester project is possible. Our students presented their findings at the statistics department’s undergraduate poster session near the end of the 2015-2016 academic year.
+Our two students conducted their research projects during the 2015-2016 academic year. 
+We recommend a full academic year for projects of this magnitude, although a one-semester 
+project is possible. Our students presented their findings at the statistics department’s 
+undergraduate poster session near the end of the 2015-2016 academic year.
 
 
 ## Methods
@@ -161,7 +148,7 @@ Users may need to slightly amend the above line to conform to requirements of th
 ### Querying Twitter API to get complete tweets
 
 Twitter API use agreements forbid users from sharing complete API query results. 
-However, Twitter enables users to share tweet identification numbers. A user can 
+However, Twitter permits users to share tweet identification numbers. A user can 
 then query a Twitter API to obtain complete tweet data. In our experience, this 
 process is incomplete; that is, many tweets submitted to the Twitter API return 
 no data. Additionally, on repeated querying of the API, different sets of tweets 
@@ -173,7 +160,8 @@ days from May 10, 2020 to May 14, 2020. To minimize the computing requirements, 
 limited our study to tweets sent during a five-minute period (12:00pm to 12:05pm Eastern time) every day.
 We then submitted API queries to Twitter
 to get the full content of tweets, including the tweet text.
-In supplementary files, we provide the R code that we used to query the Twitter API to obtain full tweet content. 
+In supplementary files, we provide the R code that we used to 
+query the Twitter API to obtain full tweet content. 
 
 
 
@@ -202,7 +190,7 @@ our analyses.
 {
   "created_at": "Thu Apr 06 15:24:15 +0000 2017",
   "id_str": "850006245121695744",
-  "text": "1\/ Today we\u2019re sharing our vision for the future of the Twitter API platform!\nhttps:\/\/t.co\/XweGngmxlP",
+  "text": "1\/ Today we\u2019re sharing our vision for the future of the Twitter API platform!",
   "user": {
     "id": 2244994945,
     "name": "Twitter Dev",
@@ -233,19 +221,21 @@ our analyses.
 }
 ```
 
+Our analyses use three fields from each tweet: date ("created_at"), tweet identifier 
+("id_str"), and tweet text ("text"). The "created_at" field is a character string containing 
+the date and time of the tweet. Every tweet has a unique identifier, the "id_str" value. The 
+"text" field contains the unicode representation of the message. For our topic modeling, a single day defines a single "corpus", and a single tweet 
+corresponds to a single "document". 
 
 
-### Parsing text of tweets
+### Parsing tweet text
 
-We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
-With `rtweet` functions, we parsed JSON arrays into their component vectors and added them
-to the data frame.
-
-We then divided tweet text into words with functions from the `tidytext` R package. We discarded commonly used "stop words" 
-and emojis. 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@rtweet-package]. 
+We then divided tweet text into words with functions from the `tidytext` R package [@tidytext]. We 
+discarded commonly used "stop words" and emojis. 
 
 Latent Dirichlet allocation models require that the corpus be inputted as a 
-document by term matrix. Each row corresponds to a single document (a single 
+document by term matrix. In a document by term matrix, each row corresponds to a single document (a single 
 tweet), and each column is a single term (or word). Each cell contains a 
 count (the number of 
 occurrences of a term in the specified document). We created a document by 
@@ -287,6 +277,15 @@ evaluation. For every model, we created one word cloud per topic.
 
 We then inspected topic contents at each of the four time points.
 
+### Results
+
+```{r, fig.cap = "Top terms for LDA model from May 10, 2020 (Mother's Day)"}
+knitr::include_graphics("../results/beta-2020-05-10.png")
+```
+
+```{r, fig.cap = "Top terms for LDA model from May 11, 2020"}
+knitr::include_graphics("../results/beta-2020-05-11.png")
+```
 
 
 
@@ -295,8 +294,14 @@ We then inspected topic contents at each of the four time points.
 
 
 
+## Acknowledgements
+
+The authors thank Betsy Colby Davie and Rick Nordheim for helpful discussions and 
+feedback on preliminary versions of the manuscript. We thank the special issue 
+editors and anonymous reviewers for their constructive comments and suggestions.
 
 
+## Supplementary Material
 
 
 
@@ -312,4 +317,24 @@ We then inspected topic contents at each of the four time points.
 ## Appendix 1: Tweet data dictionary
 
 Twitter shares a data dictionary for tweets (https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object,  (Accessed: May 23, 2020)). We have saved it as a supplementary file, "tweets-data-dictionary.csv".
+
+\newpage
+
+## Appendix 2: LDA results for May 12, 13, and 14
+
+```{r, fig.cap = "Top terms for LDA model from May 12, 2020"}
+knitr::include_graphics("../results/beta-2020-05-12.png")
+```
+
+```{r, fig.cap = "Top terms for LDA model from May 13, 2020"}
+knitr::include_graphics("../results/beta-2020-05-13.png")
+```
+
+```{r, fig.cap = "Top terms for LDA model from May 14, 2020"}
+knitr::include_graphics("../results/beta-2020-05-14.png")
+```
+
+\newpage
+
+## Appendix 3: R analysis code
 

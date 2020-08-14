@@ -1,0 +1,89 @@
+---
+title: "Tweets"
+author: "Frederick J. Boehm"
+date: "4/9/2020"
+output: html_document
+---
+
+
+
+## R code to query twitter streaming api
+
+Install `rtweet` package from CRAN.
+
+```{r, eval = FALSE}
+install.packages("rtweet")
+install.packages("lubridate")
+```
+
+## Parse json file
+
+```{r}
+library(magrittr)
+source("recover_tweets.R")
+```
+
+```{r, stops}
+# create a twitter-specific stop word list
+remove_reg <- "&amp;|&lt;|&gt;"
+twitter_stop <- tibble::tibble(word = c("https", "http", "t.co", "amp"))
+# get a list of english language words and names
+library(qdapDictionaries) # contains object GradyAugmented
+library(tidytext) # get stop_words
+```
+
+
+
+
+```{r}
+date <- c("2020-05-10", "2020-05-11", "2020-05-12", "2020-05-13", "2020-05-14")
+tweet_json_file <- c("../data/2020-05-10 12:00:01-tweets.json",
+  "../data/2020-05-11 12:00:01-tweets.json", 
+  "../data/2020-05-12 12:00:02-tweets.json",
+  "../data/2020-05-13 12:00:02-tweets.json", 
+  "../data/2020-05-14 12:00:02-tweets.json")
+out <- purrr::pmap_dfc(tibble::tibble(date, tweet_json_file),
+                       .f = function(date, tweet_json_file){
+                         knitr::knit_expand(text = readLines("tweets-one.Rmd"))
+                       })
+```
+
+## May 10, 2020
+
+`r knitr::knit(text = out[[1]])`
+
+## May 11, 2020
+
+`r knitr::knit(text = out[[2]])`
+
+## May 12, 2020
+
+`r knitr::knit(text = out[[3]])`
+
+## May 13, 2020
+
+`r knitr::knit(text = out[[4]])`
+
+## May 14, 2020
+
+`r knitr::knit(text = out[[5]])`
+
+
+
+
+
+## Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r}
+# what commit is this file at? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
