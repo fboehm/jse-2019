@@ -13,3 +13,5 @@ The manuscript, pending minor revisions, is accepted for publication. We need to
 
 We've started the document "reply-to-reviewers.Rmd" to list and address, one by one, the suggestions from the three reviewers.
 
+"jse-special-issue-2020-october.Rmd" is the file that contains the revised text for the Oct 1 2020 deadline.
+
