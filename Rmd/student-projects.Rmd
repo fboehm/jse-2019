@@ -1,0 +1,16 @@
+We briefly describe the two student projects to give readers a better sense of research possibilities with tweets.
+
+One student examined relationships between 
+stock market index prices and tweet sentiment. For each day in her 12-month study period, 
+she identified stock market related tweets with a key word search. With the complete
+texts of stock market-related tweets for each day, she calculated a daily sentiment score and plotted it over time. 
+Her sentiment score reflected presence of emotion-associated terms (eg., "happy", "sad", "mad", "scared") 
+in tweet texts. Days with more net positive emotion words in the collected tweets received a higher (positive) daily sentiment score, while days with more net negative words received a negative daily sentiment score. 
+
+For her final project, she presented parallel plots over time of her daily sentiment scores and daily closing prices of the Standard and Poor's 500 index. She also explored time series analysis methods to quantify relationships between daily closing index prices and daily sentiment scores. 
+
+
+
+
+
+
