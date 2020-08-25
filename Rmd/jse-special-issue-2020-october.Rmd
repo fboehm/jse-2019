@@ -370,7 +370,7 @@ assign meaning to every topic in our models. We see that topic 7 from May 25 has
 words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not 
 seen on May 24 or May 26. Some topics persist, with distinct word probabilities, 
 across the three days. For example, we see that President Trump features prominently in all 
-three models. We also note, on May 26, topic 10, which reflects discussion of the Amy Cooper Central Park incident. 
+three models. We also note, on May 26, topic 10, which reflects discussion of the Amy Cooper Central Park incident (https://www.nytimes.com/2020/05/26/nyregion/amy-cooper-dog-central-park.html). 
 
 
 # Assessment of learning, exploring more advanced topics, and concluding remarks
