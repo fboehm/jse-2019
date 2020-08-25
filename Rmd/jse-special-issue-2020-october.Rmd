@@ -183,7 +183,7 @@ are very similar.
 To illustrate the value of Twitter data, we present below a 
 reproducible case study. In it, we aim to detect a social media 
 event by examining topic content over time. We use latent Dirichlet 
-allocation models to infer topics on three consecutive days centered 
+allocation models [@blei2003latent] to infer topics on three consecutive days centered 
 on Memorial Day 2020. We chose this example case study, 
 instead of the student projects, because of limited data 
 availability for the student projects. Despite this, the case study 
@@ -304,15 +304,15 @@ Our analyses use three fields from each tweet: date ("created_at"), tweet identi
 the date and time of the tweet. Every tweet has a unique identifier, the "id_str" value. The 
 "text" field contains the unicode representation of the message. After creating a text file 
 with tweet JSON, our next step involved reading and parsing tweets with the R 
-packages `rtweet` and `tidytext`.
+packages `rtweet` [@rtweet-package] and `tidytext` [@tidytext].
 
 
 
 ## Parsing tweet text
 
 The next task is to wrangle the tweet JSON into a data structure suitable for latent Dirichlet allocation modeling. 
-We used functions from the `rtweet` R package to parse tweet JSON into a data frame [@rtweet-package]. 
-We then divided tweet text into words with functions from the `tidytext` R package [@tidytext]. We 
+We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
+We then divided tweet text into words with functions from the `tidytext` R package. We 
 discarded commonly used "stop words" and emojis. 
 
 Latent Dirichlet allocation model fitting requires that the corpus be organized as a 
