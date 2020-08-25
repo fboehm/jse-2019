@@ -262,9 +262,9 @@ The 31 tweet key-value pairs belong to
 classes are either vectors - numeric, logical, or character - or arrays assembled 
 from the vector classes.
 
-Below is an example of Tweet JSON. 
+Below is an example of JSON for one tweet. 
 
-```{bash, eval = FALSE, fig.cap = "Example Tweet JSON", echo = TRUE}
+```{bash, eval = FALSE, fig.cap = "JSON example for one tweet", echo = TRUE}
 {
   "created_at": "Thu Apr 06 15:24:15 +0000 2017",
   "id_str": "850006245121695744",
