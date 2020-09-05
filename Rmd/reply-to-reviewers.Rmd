@@ -17,10 +17,18 @@ General Comments:
 > Specific Comments:
 
 > - Page 2 Line 28: Should there be a reference for “rhetoric in recruiting political supporters”?
+
+Yes, we mistakenly omitted them. We've now added key references for this point.
+
 > - Page 2 Line 52: I’d recommend adding a statement along the lines of: “different statistics and data science researchers may categorize these skills differently, but our assignment is based on our program/specific projects.” For example, I imagine some projects using twitter data may not categorize “Use text analysis tools to analyze tweets” as “Enduring Understanding”, but would categorize “Use data visualization to clarify and inform quantitative analysis” in such a way.
+
+We've now added a statement like this to the manuscript to reflect this point.
 
 
 > - Page 4 Sec 4.2: I agree with the authors that differences in student research interests and goals should be an important consideration and it would be nice to see some examples.
+
+We've added two examples from our students.
+
 > - Page 4 Line 82: Would this type of project also be appropriate for a summer research experience?
 > - Page 4 Line 88-92: This wording could be a little more clear: is the case study essentially a replicate of a student project? It would be helpful to see an overview of what the original project was, and then introduce the case study as a replicate.
 > - Page 5 Sec 5.2: would this process theoretically work for both windows and Mac machines? Is it necessary to use a crontab-like process, or could it be done entirely within R?

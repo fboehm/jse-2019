@@ -115,10 +115,10 @@ readr::read_csv("../data/concepts-backward-design.csv") %>%
 
 ## Learning objectives
 
-We translated into learning objectives our prioritized list of skills that 
-students should be able to do, understand, and know (Table \@ref(tab:circle-table)). We 
-phrased learning objectives in a manner that enabled their subsequent assessment 
-(Table \@ref(tab:summative)) with formative and summative strategies. These are 
+We translatedour prioritized list of skills that 
+students should be able to do, understand, and know into learning objectives (Table \@ref(tab:circle-table)). 
+We phrased learning objectives in a manner that enabled their subsequent assessment 
+(Table \@ref(tab:summative)) with formative and summative strategies. These were 
 our four learning objectives:
 
 1. Write R code to perform text analysis of large volumes of tweets [@r].
@@ -131,16 +131,9 @@ our four learning objectives:
 
 # Preliminary research mentoring considerations
 
-We developed research goals with students in a series of discussions. As trainees began their senior research projects, we spoke in detail about:
+We developed research goals with students in a series of discussions. As trainees began their senior research projects, we spoke in detail about both their research interests and goals and their experience with data analysis software.
 
-1. Student experience with data analysis software
-1. Student research interests and goals
-
-
-
-## Student experience with data analysis software
-
-Student experience with data analysis software varies. In our statistics department, 
+Student experience with statistical software varies. In our statistics department, 
 most students learn elementary R computing skills through class assignments. Some 
 students, by concentrating in computer science, learn other data analysis software 
 packages, such as Python. 
@@ -148,9 +141,17 @@ Those who do undergraduate statistics research often learn advanced topics in R
 computing, such as R package assembly, documentation, and testing. Many develop 
 expertise in linux computing and cluster computing, too. 
 
+One of our two students had extensive experience in statistical computing. In 
+addition to R computing skills, she also worked in Python and excelled in shell scripting. 
+She first learned Python in computer science courses. Our second student had 
+extensive experience with R from his statistics courses. His background 
+enabled him to write an R package as part of his senior project. 
+
+
+
 Our data science projects required that students possess elementary R computing
 skills. We guided students towards supplementary R computing resources, including 
-the online books "R for data science" [@wickham2016r] and "Advanced R" [@wickham2019advanced].
+the online books "R for Data Science" [@wickham2016r] and "Advanced R" [@wickham2019advanced].
 
 
 
@@ -164,6 +165,16 @@ may be limited. An initial brainstorming session may clarify their interests and
 them to think critically about goals under the time constraints of their academic schedules. 
 Additionally, we anticipate that sharing completed student project reports will guide student 
 thinking about the scope of possible projects (Supplementary files).
+
+We briefly describe the two student projects to give readers a better sense of research possibilities with tweets. Our first student examined relationships over time between 
+stock market index prices and tweet sentiment. For each day in her 12-month study period, 
+she identified stock market-related tweets with a key word search. With the complete
+texts of stock market-related tweets for each day, she calculated a daily sentiment score and plotted it over time. 
+Her sentiment score reflected presence of emotion-associated terms (eg., "happy", "sad", "mad", "scared") 
+in tweet texts. Days with more net positive emotion words in the collected tweets received a higher (positive) daily sentiment score, while days with more net negative words received a negative daily sentiment score. 
+
+For her final project, she presented plots over time of her daily sentiment scores and daily closing prices of the Standard and Poor's 500 index. She also explored time series analysis methods to quantify relationships between closing index prices and sentiment scores. 
+
 
 
 ## Time period
@@ -181,9 +192,10 @@ are very similar.
 # Case study methods
 
 To illustrate the value of Twitter data, we present below a 
-reproducible case study. In it, we aim to detect a social media 
-event by examining topic content over time. We use latent Dirichlet 
-allocation models [@blei2003latent] to infer topics on three consecutive days centered 
+reproducible case study. It is essentially a reproduction of our second student's project, but at a 
+distinct time period. In it, we aim to detect a social media 
+event by examining topic content over time. We use Latent Dirichlet 
+Allocation (LDA) models [@blei2003latent] to infer topics on three consecutive days centered 
 on Memorial Day 2020. We chose this example case study, 
 instead of the student projects, because of limited data 
 availability for the student projects. Despite this, the case study 
@@ -225,7 +237,7 @@ parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/",
 lubridate::now(), "-tweets"))'
 ```
 
-Readers may need to slightly amend the above line to conform to requirements of their operating system's `crontab`.
+Readers may need to slightly amend the above line to conform to requirements of their operating system's `crontab`. Readers who use Mac OS may proceed as we did, while those with Windows operating systems may consider using the R package "taskscheduleR" to schedule API queries via the Windows task scheduler [@taskscheduleR].
 
 ## Querying Twitter API to get complete tweets
 
