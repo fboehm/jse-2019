@@ -225,7 +225,7 @@ parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/",
 lubridate::now(), "-tweets"))'
 ```
 
-Readers may need to slightly amend the above line to conform to requirements of their operating system's `crontab`.
+Mac users may need to slightly amend the above line to conform to requirements of their operating system's `crontab`. Windows users may want to schedule task with the R package `taskscheduleR`, which interacts with the Windows task scheduler. 
 
 ## Querying Twitter API to get complete tweets
 
