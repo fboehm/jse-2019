@@ -368,6 +368,18 @@ refer to the holiday. This may constitute one topic in the corpus.
 Having chosen a distribution over topics, we then select document words by first 
 drawing a topic from the distribution over topics, then drawing a word from the
 chosen topic. 
+
+In mathematical notation, we write the generative process assumed by LDA [@blei2003latent]:
+
+1. Choose $N \sim \text{Poisson}(\xi)$  
+1. Choose $\theta \sim \text{Dirichlet}(\alpha)$  
+1. For each word, $w_n$ with $n = 1, ..., N$, 
+  a. Choose a topic $z_n \sim \text{Multinomial}(\theta)$  
+  b. Choose a word $w_n$ from $p(w_n | z_n, \beta)$, a multinomial probability
+
+$\beta$ refers to the $k$ by $V$ matrix of topic-specific word probabilities, where $k$
+is the number of topics and $V$ is the size of the vocabulary, *i.e.*, the number of unique words in the corpus.
+
 The goal for latent Dirichlet allocation is to infer both the distribution over topics and 
 the topics [@blei2003latent]. A topic, in this setting, is a distribution over 
 the vocabulary (the collection of all words in a corpus).
@@ -376,7 +388,7 @@ Inference for latent Dirichlet allocation models is performed by either
 sampling from the posterior distribution or through variational methods. Researchers
 have devised a variety of Gibbs sampling techniques for these models [@porteous2008fast]. 
 Variational methods, while using approximations to the posterior distribution, offer the 
-advantage of computational speed [@blei2017variational]. We used variational methods below. 
+advantage of computational speed [@blei2017variational]. We used variational methods below in our case study. 
 
 
 
