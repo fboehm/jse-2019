@@ -401,7 +401,9 @@ We identified the top ten most probable terms for each of ten topics in our mode
 (Figures \@ref(fig:may24), \@ref(fig:may25), \@ref(fig:may26)). 
 We plotted the within-topic word probabilities as bar graphs. We see that topic-specific 
 word probabilities seldom exceed 0.05. We also note that some words are heavily weighted in 
-multiple topics. This observation complicates semantic topic interpretation.
+multiple topics. This observation complicates semantic topic interpretation. We 
+also caution that the results display expletives (that appeared on Twitter) and may 
+not be "safe for work". 
 
 ```{r, may24, fig.cap = "Top terms for LDA model from May 24, 2020"}
 knitr::include_graphics("../results/beta-2020-05-24.png")
