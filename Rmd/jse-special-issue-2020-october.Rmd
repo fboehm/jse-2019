@@ -423,10 +423,10 @@ assign meaning to every topic in our models. We see that topic 7 from May 25 has
 words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not 
 seen on May 24 or May 26. Some topics persist, with distinct word probabilities, 
 across the three days. For example, we see that President Trump features prominently in all 
-three models. We also note, on May 26, topic 10, which reflects discussion of the Amy 
+three models. On May 26, topic 10 reflects discussion of the Amy 
 Cooper Central Park incident (https://www.nytimes.com/2020/05/26/nyregion/amy-cooper-dog-central-park.html).
 
-We also note that the murder of George Floyd occurred on May 25. Our last 
+The murder of George Floyd occurred on May 25. Our last 
 examined time period, from 12:00 pm to 12:05 pm (Eastern USA time zone) on May 26, occurred after Floyd's murder, 
 yet we didn't detect this event in our ten-topic LDA model. Several considerations 
 may account for this. While outrage at the murder eventually spread worldwide, there may have been few 
