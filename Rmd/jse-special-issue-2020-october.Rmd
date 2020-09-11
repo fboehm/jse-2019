@@ -233,7 +233,7 @@ media event by examining tweet topic content at distinct time periods.
 As a proof of principle of our event detection strategy, 
 we analyzed tweets before, during, and 
 after Memorial Day (May 25, 2020). 
-We fitted latent Dirichlet allocation models for each of three
+We fitted LDA models for each of three
 distinct five-minute periods. The first period began at noon Eastern time 
 on May 24, 2020. Subsequent time periods started 
 24 and 48 hours later. 
@@ -261,7 +261,10 @@ parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/",
 lubridate::now(), "-tweets"))'
 ```
 
-Readers may need to slightly amend the above line to conform to requirements of their operating system's `crontab`. Readers who use Mac OS may proceed as we did, while those with Windows operating systems may consider using the R package "taskscheduleR" to schedule API queries via the Windows task scheduler [@taskscheduleR].
+Readers may need to slightly amend the above line to conform to requirements of 
+their operating system's software. Readers who use Mac OS may proceed as we did, 
+while those with Windows operating systems may consider using the R package 
+"taskscheduleR" to schedule API queries via the Windows task scheduler [@taskscheduleR].
 
 ## Querying Twitter API to get complete tweets
 
@@ -346,21 +349,21 @@ packages `rtweet` [@rtweet-package] and `tidytext` [@tidytext].
 
 ## Parsing tweet text
 
-The next task is to wrangle the tweet JSON into a data structure suitable for latent Dirichlet allocation modeling. 
+The next task is to wrangle the tweet JSON into a data structure suitable for LDA modeling. 
 We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
 We then divided tweet text into words with functions from the `tidytext` R package. We 
 discarded commonly used "stop words" and emojis. 
 
-Latent Dirichlet allocation model fitting requires that the corpus be organized as a 
+LDA model fitting requires that the corpus be organized as a 
 document by term matrix. In a document by term matrix, each row corresponds to a single document (a single 
 tweet), and each column is a single term (or word). Each cell contains a 
 count (the number of 
 occurrences of a term in the specified document). We created a document by 
 term matrix with the R function `cast_dtm` from the `tidytext` package.
 
-## Latent Dirichlet allocation
+## Latent Dirichlet Allocation
 
-Latent Dirichlet allocation is a statistical method for inferring latent (unobservable) topics (or themes)
+LDA is a statistical method for inferring latent (unobservable) topics (or themes)
 from a large corpus (or collection) of documents [@blei2003latent].
 We pretend that there's an imaginary process for creating documents in the corpus. For each document,
 we choose a discrete distribution over topics. For example, some tweets from Memorial Day may 
@@ -380,7 +383,7 @@ In mathematical notation, we write the generative process assumed by LDA [@blei2
 $\beta$ refers to the $k$ by $V$ matrix of topic-specific word probabilities, where $k$
 is the number of topics and $V$ is the size of the vocabulary, *i.e.*, the number of unique words in the corpus.
 
-The goal for latent Dirichlet allocation is to infer both the distribution over topics and 
+The goal for LDA is to infer both the distribution over topics and 
 the topics [@blei2003latent]. A topic, in this setting, is a distribution over 
 the vocabulary (the collection of all words in a corpus).
 
@@ -463,7 +466,7 @@ one of our two students supplemented tweets with daily stock market index prices
 She studied sentiment of finance-related tweets and daily stock market index
 closing prices (Supplementary files).
 
-Latent Dirichlet allocation modeling and related methods are a major research area in the 
+LDA modeling and related methods are a major research area in the 
 quantitative social sciences. Advanced students with interest in statistical computing might
 compare inferential methods for topic models. Those with interests in event detection
 and time series analysis could build on the findings of our student by explicitly accounting
