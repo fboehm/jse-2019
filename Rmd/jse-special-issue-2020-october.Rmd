@@ -245,7 +245,7 @@ tweets.
 
 We include here instructions for creating a tweet collection. First, we created a 
 new account on Twitter. With these user credentials, we used the 
-R package `rtweet` to query the API. We used the linux `crontab` software 
+R package `rtweet` to query the API [@rtweet-package]. We used the linux `crontab` software 
 to repeatedly execute R code to submit API queries. Each 
 query lasted five minutes and produced a text file of approximately 130 MB. We timed the API queries so 
 that there was no time lag between queries. We stored tweets resulting from API queries in their native JSON format. 
