@@ -137,11 +137,14 @@ our four learning objectives:
 
 ## Preliminary research mentoring considerations
 
-We developed research goals with students in a series of discussions. As trainees began their senior research projects, we spoke in detail about both their research interests and goals and their experience with data analysis software.
+We developed research goals with students in a series of brainstorming sessions and discussions. 
+As trainees began their senior 
+research projects, we spoke in detail about both their research interests and goals and their 
+experience with data analysis software. When possible, we encouraged them to incorporate their 
+existing academic interests into their senior research projects.
 
-Student experience with statistical software varies. In our statistics department, 
-most students learn elementary R computing skills through class assignments. Some 
-students, by concentrating in computer science, learn other data analysis software 
+In our statistics department, most students learn elementary R computing skills through class 
+assignments. Some students, by concentrating in computer science, learn other data analysis software 
 packages, such as Python. 
 Those who do undergraduate statistics research often learn advanced topics in R
 computing, such as R package assembly, documentation, and testing. Many develop 
@@ -153,7 +156,7 @@ She first learned Python in computer science courses. Our second student had
 extensive experience with R from his statistics courses. His background 
 enabled him to write an R package as part of his senior project. To encourage 
 further development of R computing skills in our two students, we guided them 
-towards the online books "R for Data Science" [@wickham2016r] and "Advanced R" [@wickham2019advanced].
+towards the free, online books "R for Data Science" [@wickham2016r] and "Advanced R" [@wickham2019advanced].
 
 
 
@@ -162,11 +165,12 @@ towards the online books "R for Data Science" [@wickham2016r] and "Advanced R" [
 
 ## Student research interests and goals
 
-Student interests vary, and students' ability to articulate research goals 
-may be limited. An initial brainstorming session may clarify their interests and encourage 
-them to think critically about goals under the time constraints of their academic schedules. 
-Additionally, we anticipate that sharing completed student project reports will guide student 
-thinking about the scope of possible projects (Supplementary files).
+Our two students had diverse interests, and, initially, they had little experience in 
+articulating research goals. We engaged each in a brainstorming session to 
+clarify their interests and encourage them to think critically about research goals under 
+the time constraints of their academic schedules. 
+Additionally, we anticipate that sharing completed student project reports with 
+future trainees will guide thinking about the scope of possible projects (Supplementary files).
 
 We briefly describe the two student projects to give readers a better sense 
 of research possibilities with tweets. Our first student examined relationships over time between 
