@@ -116,7 +116,14 @@ readr::read_csv("../data/concepts-backward-design.csv") %>%
   kableExtra::column_spec(column = 2, border_right = TRUE)
 ```
 
-
+In particular, our project skills reflect elements of "data acumen", as defined 
+in a report from the U.S.A. National Academies of Sciences, Engineering, and Medicine (NASEM) [@national2018data]. For example, our skills "Acquire data from internet sources" and 
+"Develop data science strategies to address a research question" implicitly require 
+a trainee, in the language of the NASEM report [@national2018data], to "ingest, clean, and then 
+wrangle data into reliable and useful forms" and to "combine many existing programs or codes
+into a workflow that will accomplish some important task". Additionally, we tailored our list 
+of project skills with the assumption that students would work in R. R use is not required for such projects, but it is a 
+convenience for many of our students.
 
 
 ## Learning objectives
@@ -132,6 +139,8 @@ our four learning objectives:
 1. Translate statistical findings into scientific conclusions.
 1. Develop data science strategies to address a scientific research question.
 
+Having decided on four learning objectives for students, we next established
+mentoring relationships with each student. 
 
 
 
@@ -169,11 +178,10 @@ Our two students had diverse interests, and, initially, they had little experien
 articulating research goals. We engaged each in a brainstorming session to 
 clarify their interests and encourage them to think critically about research goals under 
 the time constraints of their academic schedules. 
-Additionally, we anticipate that sharing completed student project reports with 
-future trainees will guide thinking about the scope of possible projects (Supplementary files).
-
 We briefly describe the two student projects to give readers a better sense 
-of research possibilities with tweets. Our first student examined relationships over time between 
+of research possibilities with tweets. 
+
+Our first student examined relationships over time between 
 stock market index prices and tweet sentiment. For each day in her 12-month study period, 
 she identified stock market-related tweets with a key word search. With the complete
 texts of stock market-related tweets for each day, she calculated a daily sentiment score and plotted it over time. 
@@ -227,8 +235,11 @@ Allocation (LDA) models [@blei2003latent] to infer topics on three consecutive d
 on Memorial Day 2020. We chose this example case study, 
 instead of the student projects, because of limited data 
 availability for the student projects. Despite this, the case study 
-illustrates the strategy and methods for one of the student 
-projects. 
+illustrates the strategy and methods for one student 
+project.
+
+We next discuss case study design, tweet collection, and tweet structure, before turning 
+to statistical methods for the case study. 
 
 ## Case study design
 
@@ -422,14 +433,14 @@ knitr::include_graphics("../results/beta-2020-05-26.png")
 
 Assigning meaning to topics is an active research area [@chang2009reading]. Since
 our interest is in the transient appearance of a new topic, we don't attempt to
-assign meaning to every topic in our models. We see that topic 7 from May 25 has several 
+assign meaning to every topic in our models. Instead, we anticipate that discussions on Twitter are a mixture of topics that endure over weeks or months and subjects that appear and disappear quickly. We see that topic 7 from May 25 has several 
 words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not 
 seen on May 24 or May 26. Some topics persist, with distinct word probabilities, 
 across the three days. For example, we see that President Trump features prominently in all 
-three models. On May 26, topic 10 reflects discussion of the Amy 
+three models' results. On May 26, topic 10 reflects discussion of the Amy 
 Cooper Central Park incident (https://www.nytimes.com/2020/05/26/nyregion/amy-cooper-dog-central-park.html).
 
-The murder of George Floyd occurred on May 25. Our last 
+The murder of George Floyd occurred on May 25, 2020. Our last 
 examined time period, from 12:00 pm to 12:05 pm (Eastern USA time zone) on May 26, occurred after Floyd's murder, 
 yet we didn't detect this event in our ten-topic LDA model. Several considerations 
 may account for this. While outrage at the murder eventually spread worldwide, there may have been few 
