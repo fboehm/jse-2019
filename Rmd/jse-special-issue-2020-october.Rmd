@@ -289,8 +289,7 @@ However, Twitter permits users to share tweet identification numbers. With a twe
 identification number, a user may query a Twitter API to obtain complete tweet data. In our 
 experience, this 
 process is incomplete; that is, many tweet identification numbers submitted to the Twitter API return 
-no data. Additionally, on repeated querying of the API, different sets of tweet identification numbers
-return data. This complicates our goal of making all analyses computationally 
+no data. Additionally, some tweet identification numbers return data on the first query, but don't return data on subsequent queries. This complicates our goal of making all analyses computationally 
 reproducible and motivates our decision to share the tweet IDs of those tweets that 
 we actually analyzed (Supplementary files). Should a reader wish to reproduce 
 our analysis, we anticipate that she will get complete tweet data
@@ -472,7 +471,10 @@ knitr::kable(summative, caption = "Rubric for summative assessment of learning o
 
 With future students, we will use a written rubric to evaluate 
 theses (Table \@ref(tab:summative)). We'll
-share the rubric with our students at the start of the academic year.
+share the rubric with our students at the start of the academic year. With only minor
+modifications, the rubric may be suitable for projects that don't use tweets.
+
+
 
 ## Exploring more advanced topics
 

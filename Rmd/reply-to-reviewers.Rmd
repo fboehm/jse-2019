@@ -105,7 +105,7 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > Section 4.2 says that “an initial brainstorming session may clarify.” Why not “helped”? Is an initial brainstorming session just something you recommend/plan to do in the future, or did you actually do it with those students? You say that you anticipate that sharing completed student project reports will guide future students, but this is from the 2015-2016 school year. Since this project, has it become easier to talk to students about goals, grounded in examples like this? Back to the students in 2015-2016, what goals did you eventually land on?
 
-**Thank you for raising this issue. We agree that it needs clarification. We've added text to address this at lines.**
+**Thank you for raising this issue. We agree that it needs clarification. We've added text to address this.**
 
 
 
@@ -117,7 +117,7 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > I found the case study pretty easy to follow starting at 5.3, but I personally have never used crontab before, so that was the most intimidating piece of this. I’d guess that my experience is pretty similar to many JSE readers, who may be familiar with R but not unix/linux commands. Can you insert a short description of what crontab is, and a reference to how to learn more? I’d guess that the instructions you provided would work on Mac, and probably on an RStudio server or RStudio Cloud, but not on a Windows computer. You may want to explicitly state this.
 
-**Yes, we completely agree. We've added text to explain what crontab is and what it does. We've also pointed readers to R packages, for Windows and Mac, that allow one to circumvent the need to directly interact with crontab.** 
+**Yes, we completely agree. We've added text to explain what crontab is and what it does. We've also pointed readers to an R package for Windows** 
 
 
 
@@ -195,6 +195,8 @@ The authors describe a framework for student research using data available using
 
 > 4)      It will be important to note early and in section 6/figure 1 that some tweets may not be suitable for work in terms of inappropriate language.  This is a general issue that might be important for instructors to discuss.
 
+**Thank you. We've added text to warn readers about this.**
+
 > 5)      Please provide a link to the Amy Cooper Central Park incident.
 
 **We've added a link to a New York Times article.**
@@ -207,6 +209,8 @@ The authors describe a framework for student research using data available using
 
 
 > 7)      I wonder whether the title might be reconsidered.  Perhaps “A framework for student research projects in data science courses”?  The application to Twitter feels secondary to me.
+
+**We appreciate the suggestion. We chose the title with hopes of promoting the use of tweets and text analysis in student research projects. With all of our supplementary materials explicitly dealing with tweets, we feel more comfortable with the current title.** 
 
 
 > Editor's Comments to Author:
