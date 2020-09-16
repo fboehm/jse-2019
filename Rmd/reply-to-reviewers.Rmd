@@ -221,7 +221,7 @@ The manuscript is a substantial revision and provides excellent information for 
 
 > In particular, the referees all spoke about the way that "research question" was addressed in the manuscript.    Although your focus away from the student projects makes sense, bringing in their research question would be a way to address the referees suggestions that twitter data is hard to use for generating hypotheses.  Indeed, you might address the point by speaking to the difference between "data science research" and "political science research".  It seems as though the former was a learning goal and the latter would be difficult to do with such exploratory data as twitter.  Can you expand on that point?
 
-
+**Thanks for raising this point. We've now added text in the introduction that addresses the interplay between data science research and discipline-specific research, like that in political science.**
 
 
 > In terms of George Floyd, my guess is that by May 26, the 1% of twitter hadn't get caught wind of the situation?  You might make a comment to that effect.

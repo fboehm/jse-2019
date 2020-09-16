@@ -41,7 +41,7 @@ their data are no longer available, we present as a case study one
 analysis with tweets from May 2020. We share our data and computer 
 code to encourage others to undertake 
 tweet text analysis research. We also describe methods for creating a 
-collection of tweets.
+collection of tweets. 
 
 Some social media data, including tweets from Twitter, is
 available through website application product interfaces (APIs). 
@@ -49,7 +49,19 @@ By way of a streaming API, Twitter shares a sample of approximately
 one percent of all 
 tweets during an API query time period [@tweet_stream]. Any Twitter 
 user can freely 
-access this one percent sample, whereas access to a larger selection is available to researchers for a fee.
+access this one percent sample, whereas access to a larger selection is available to 
+researchers for a fee.
+
+Through our work with tweets, we demonstrate
+that Twitter data is a rich source of new data science research questions. 
+@box1976science described a 
+positive feedback loop for the interplay of discipline-specific research
+and quantitative methods research. The two components, "science" and "statistics" in the 
+language of @box1976science, iteratively fuel research questions in each other. 
+A new statistical 
+method enables new discipline-specific questions to be addressed, while a new 
+scientific question motivates new data science methods. We describe below two
+data science research questions that mentored students addressed with tweets. 
 
 
 
@@ -227,19 +239,17 @@ are very similar to that of our second student's project.
 
 # Case study methods
 
-To illustrate the value of Twitter data, we present below a 
+To illustrate the value of Twitter data and to encourage readers to envision other uses for tweets, we present below a 
 reproducible case study. It is essentially a reproduction of our second student's project, but at a 
 distinct time period. In it, we aim to detect a social media 
-event by examining topic content over time. We use Latent Dirichlet 
+event by examining tweet topic content over time. We use Latent Dirichlet 
 Allocation (LDA) models [@blei2003latent] to infer topics on three consecutive days centered 
 on Memorial Day 2020. We chose this example case study, 
 instead of the student projects, because of limited data 
 availability for the student projects. Despite this, the case study 
 illustrates the strategy and methods for one student 
-project.
-
-We next discuss case study design, tweet collection, and tweet structure, before turning 
-to statistical methods for the case study. 
+project. Below, we discuss case study design, tweet collection, and tweet structure, 
+before turning to statistical methods for the case study. 
 
 ## Case study design
 
