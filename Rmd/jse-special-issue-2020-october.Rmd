@@ -249,7 +249,7 @@ instead of the student projects, because of limited data
 availability for the student projects. Despite this, the case study 
 illustrates the strategy and methods for one student 
 project. Below, we discuss case study design, tweet collection, and tweet structure, 
-before turning to statistical methods for the case study. 
+before turning to quantitative methods for the case study. 
 
 ## Case study design
 
