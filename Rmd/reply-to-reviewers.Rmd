@@ -1,7 +1,17 @@
 ---
-title: "Replies to reviewers"
-output: bookdown::pdf_document2
+output: 
+  bookdown::pdf_document2:
+    toc: false
 ---
+
+Dear editors and reviewers:
+
+We present below our replies to the very helpful comments that you shared
+when reviewing the manuscript. We include both the text of the comments and (in bold) our 
+replies. 
+We are grateful for the constructive feedback that you've shared. Our manuscript
+is better because of it.
+
 
 > Reviewer: 1
 
@@ -87,7 +97,7 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > I think sections 3 and 4 could be combined into one section that is perhaps “Structure of mentored research” or something like that. Perhaps there would be fewer subsections under that section header, but more details on how the research was structured.
 
-**We agree. We've removed many of the subsection headings and used your suggested section title.**
+**We agree. We now use your suggested section title.**
 
 
 
