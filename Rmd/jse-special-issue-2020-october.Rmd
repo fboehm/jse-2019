@@ -533,7 +533,7 @@ researchers in data science research with tweets.
 
 The authors thank Betsy Colby Davie and Rick Nordheim for helpful discussions and 
 feedback on preliminary versions of the manuscript. We thank the special issue 
-editors and anonymous reviewers for their constructive comments and suggestions.
+editors and anonymous reviewers for their constructive comments and suggestions. Finally, this work wouldn't have been possible without the keen and enthusiastic students, Jinyu Xia and Robert Turner. 
 
 
 
