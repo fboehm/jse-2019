@@ -1,7 +1,7 @@
 MANUSCRIPT = jse-special-issue-2020-october
 
-all: $(MANUSCRIPT).md
+all: $(MANUSCRIPT).pdf
 
-$(MANUSCRIPT).md: $(MANUSCRIPT).Rmd abstract.Rmd 
+$(MANUSCRIPT).pdf: $(MANUSCRIPT).Rmd abstract.Rmd jse.bib
 	R -e "rmarkdown::render('$<', output_format = 'all')"
 

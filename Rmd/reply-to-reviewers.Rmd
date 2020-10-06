@@ -1,7 +1,17 @@
 ---
-title: "Replies to reviewers"
-output: bookdown::pdf_document2
+output: 
+  bookdown::pdf_document2:
+    toc: false
 ---
+
+Dear editors and reviewers:
+
+We present below our replies to the very helpful comments that you shared
+when reviewing the manuscript. We include both the text of the comments and (in bold) our 
+replies. 
+We are grateful for the constructive feedback that you've shared. Our manuscript
+is better because of it.
+
 
 > Reviewer: 1
 
@@ -12,7 +22,14 @@ General Comments:
 
 > I have only two general suggestions: first, it would be nice to have a brief description of the two undergraduate projects within the manuscript. While I understand the data is no longer available, and think it was the right decision to focus on the case study for methods and results, including a short paragraph about each of the undergraduate projects you supervised would help to give the reader a sense of the range of possibilities of a twitter-based project. This is briefly mentioned at the end of the manuscript but it would help to see the motivations for such a project earlier.
 
+**Thank you for this suggestion! We've now added text that describes the two projects early in the manuscript.**
+
 > Second, while I appreciate the concise and clear writing, adding transitions between the sections would help the reader anticipate what is coming. As one example, prior to Sec 5.2, there is no indication that the authors will walk through (a) querying twitter API (b) accessing full tweets via ID numbers (c) parsing JSON.
+
+**We appreciate this suggestion, too. We've worked to add transitions between sections with the goal of better guiding the reader's expectations.**
+
+
+
 
 > Specific Comments:
 
@@ -30,7 +47,13 @@ General Comments:
 **We've added two examples from our students.**
 
 > - Page 4 Line 82: Would this type of project also be appropriate for a summer research experience?
+
+**Yes, we've amended the text to reflect this.**
+
 > - Page 4 Line 88-92: This wording could be a little more clear: is the case study essentially a replicate of a student project? It would be helpful to see an overview of what the original project was, and then introduce the case study as a replicate.
+
+**We've reworded this to clarify the point. Yes, the case study essentially replicates a student project.**
+
 > - Page 5 Sec 5.2: would this process theoretically work for both windows and Mac machines? Is it necessary to use a crontab-like process, or could it be done entirely within R?
 
 **Thanks for this question. We've added text to clarify that this process is possible from Windows, Mac, and linux operating systems. We've also included text to say that there are R packages that interact with operating system-specific scheduling software, so that a user would only interact with the R GUI.** 
@@ -57,7 +80,7 @@ General Comments:
 
 > - Page 11 Line 162-163: “… our interest is in the transient appearance of a new topic” — this could be made more clear at the beginning of the case study. Another sentence or two motivating what to expect for results would be helpful.
 
-**We agree with this suggestion, too.** 
+**We agree with this suggestion, too. We have tried to clarify it by adding a sentence to this section.** 
 
 
 > Reviewer: 2
@@ -74,13 +97,13 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > I think sections 3 and 4 could be combined into one section that is perhaps “Structure of mentored research” or something like that. Perhaps there would be fewer subsections under that section header, but more details on how the research was structured.
 
-**We agree. We've removed many of the subsection headings and used your suggested section title.**
+**We agree. We now use your suggested section title.**
 
 
 
 > Throughout the existing sections, the verb tenses were strange. Since this is now a case study, I expected everything to be grounded in what you actually did. But, on page 3 it says, “These are our four learning objectives.” Why not, “were”? Did you develop the learning objectives after the fact?
 
-**We didn't write out learning objectives at the time of working with these students. Back then, we were new to research mentoring. We now are more explicit while designing projects with students.**
+**We didn't write out learning objectives at the time of working with these students, but we did informally discuss them. Back then (2015), we were new to research mentoring. We now are more explicit while designing projects with students.**
 
 
 
@@ -92,19 +115,19 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > Section 4.2 says that “an initial brainstorming session may clarify.” Why not “helped”? Is an initial brainstorming session just something you recommend/plan to do in the future, or did you actually do it with those students? You say that you anticipate that sharing completed student project reports will guide future students, but this is from the 2015-2016 school year. Since this project, has it become easier to talk to students about goals, grounded in examples like this? Back to the students in 2015-2016, what goals did you eventually land on?
 
-**Thank you for raising this issue. We agree that it needs clarification. We've added text to address this at lines ___ on page .**
+**Thank you for raising this issue. We agree that it needs clarification. We've added text to address this.**
 
 
 
 > I assume that those discussions with students involved conversations about the learning objectives from the previous section, as well as the expectations for students (presentation at the end of the year, perhaps some amount of weekly work?).
 
-**Yes, although we were new research mentors when we began working with these two students. Regretably, we didn't structure our conversations as we would now.** 
+**Yes, although we were new research mentors when we began working with these two students. Regrettably, we didn't structure our conversations as we would now.** 
 
 
 
 > I found the case study pretty easy to follow starting at 5.3, but I personally have never used crontab before, so that was the most intimidating piece of this. I’d guess that my experience is pretty similar to many JSE readers, who may be familiar with R but not unix/linux commands. Can you insert a short description of what crontab is, and a reference to how to learn more? I’d guess that the instructions you provided would work on Mac, and probably on an RStudio server or RStudio Cloud, but not on a Windows computer. You may want to explicitly state this.
 
-**Yes, we completely agree. We've added text to explain what crontab is and what it does. We've also pointed readers to R packages, for Windows and Mac, that allow one to circumvent the need to directly interact with crontab.** 
+**Yes, we completely agree. We've added text to explain what crontab is and what it does. We've also pointed readers to an R package for Windows** 
 
 
 
@@ -121,7 +144,7 @@ Summary: This paper describes a case study using Twitter data and latent Dirichl
 
 > I really liked the fully-reproducible analysis, but I think it would also be worthwhile to discuss the projects your students actually did. You talked about those projects in the previous version of the paper, and while I know the data is no longer available, perhaps you could incorporate the ideas into the paper somewhere. Either when you talk about question generation, or at the end about other topics. Having a variety of ideas for using tweets might help instructors see that they could either follow your code, or do something related but different.
 
-**Thank you. We've now added text about the student projects. We've also explicitly pointed out what you say in the last sentence - that there are a variety of ways in which an instructor could choose to use this article. We've also added more references to point readers to other researchers' work with Twitter.**
+**Thank you. We've now added text about the student projects. We've also added more references to point readers to other researchers' work with Twitter.**
 
 
 
@@ -158,7 +181,7 @@ The authors describe a framework for student research using data available using
 
 > My main issue relates to the question being answered here: what actionable insights are being extracted from these data?  Is it really just that Memorial Day words show up on Memorial Day?  Are there other questions that could be considered (even if the authors don’t answer them)?  I’m left with the concern that Twitter data is cumbersome to deal with (in terms of scale and restrictions on use of the API) and not particularly information rich.
 
-**We've attempted to address these concerns by writing more about the original two student projects.** 
+**Thank you. We've attempted to address these concerns by writing more about the original two student projects.** 
 
 
 > Suggestions:
@@ -182,6 +205,8 @@ The authors describe a framework for student research using data available using
 
 > 4)      It will be important to note early and in section 6/figure 1 that some tweets may not be suitable for work in terms of inappropriate language.  This is a general issue that might be important for instructors to discuss.
 
+**Thank you. We've added text to warn readers about this.**
+
 > 5)      Please provide a link to the Amy Cooper Central Park incident.
 
 **We've added a link to a New York Times article.**
@@ -195,6 +220,8 @@ The authors describe a framework for student research using data available using
 
 > 7)      I wonder whether the title might be reconsidered.  Perhaps “A framework for student research projects in data science courses”?  The application to Twitter feels secondary to me.
 
+**We appreciate the suggestion. We chose the title with hopes of promoting the use of tweets and text analysis in student research projects. With all of our supplementary materials explicitly dealing with tweets, we feel more comfortable with the current title.** 
+
 
 > Editor's Comments to Author:
 
@@ -204,7 +231,7 @@ The manuscript is a substantial revision and provides excellent information for 
 
 > In particular, the referees all spoke about the way that "research question" was addressed in the manuscript.    Although your focus away from the student projects makes sense, bringing in their research question would be a way to address the referees suggestions that twitter data is hard to use for generating hypotheses.  Indeed, you might address the point by speaking to the difference between "data science research" and "political science research".  It seems as though the former was a learning goal and the latter would be difficult to do with such exploratory data as twitter.  Can you expand on that point?
 
-
+**Thanks for raising this point. We've now added text in the introduction that addresses the interplay between data science research and discipline-specific research, like that in political science.**
 
 
 > In terms of George Floyd, my guess is that by May 26, the 1% of twitter hadn't get caught wind of the situation?  You might make a comment to that effect.
