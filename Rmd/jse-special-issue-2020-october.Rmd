@@ -12,6 +12,7 @@ output:
     latex_engine: xelatex
     toc: FALSE
     number_sections: TRUE
+    keep_tex: TRUE
     includes:
       in_header: head.tex
   bookdown::word_document2:

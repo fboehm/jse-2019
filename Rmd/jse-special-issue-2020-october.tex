@@ -1,0 +1,864 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={What is happening on Twitter? A framework for student research projects with tweets},
+  pdfauthor={Frederick J. Boehm and Bret M. Hanlon},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+%\usepackage{lineno}
+%\linenumbers
+\usepackage{setspace}
+\doublespacing
+\usepackage{caption}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+%\usepackage[utf8x]{inputenc}
+\usepackage{rotating}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\title{What is happening on Twitter? A framework for student research projects with tweets}
+\author{Frederick J. Boehm and Bret M. Hanlon}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
+
+We draw on our experiences with mentoring two students to develop a framework for undergraduate research projects with Twitter data.
+Leveraging backward design principles, we share our learning objectives and
+rubric for summative assessments. To illustrate the value of Twitter as a data source,
+we detail methods for collecting and analyzing tweets. We conclude by emphasizing
+how Twitter text analysis projects enable students to formulate
+original research questions, collect and analyze data, and communicate
+findings and their implications.
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Twitter has profoundly changed how we communicate.
+In only 280 characters, users instantly contribute to public conversations on politics,
+current events, sports, media, and many other topics.
+Recent development of accessible statistical methods for large-scale text
+analysis now enable instructors to use tweets as contemporary pedagogical
+tools in guiding undergraduate research projects.
+We guided two statistics students in their senior research projects.
+Both students used tweets to address novel research questions. We
+share products of their research in supplementary files. Because
+their data are no longer available, we present as a case study one
+analysis with tweets from May 2020. We share our data and computer
+code to encourage others to undertake
+tweet text analysis research. We also describe methods for creating a
+collection of tweets.
+
+Some social media data, including tweets from Twitter, is
+available through website application product interfaces (APIs).
+By way of a streaming API, Twitter shares a sample of approximately
+one percent of all
+tweets during an API query time period (``Sampled stream'' 2019). Any Twitter
+user can freely
+access this one percent sample, whereas access to a larger selection is available to
+researchers for a fee.
+
+Through our work with tweets, we demonstrate
+that Twitter data is a rich source of new data science research questions.
+Box (1976) described a
+positive feedback loop for the interplay of discipline-specific research
+and quantitative methods research. The two components, ``science'' and ``statistics'' in the
+language of Box (1976), iteratively fuel research questions in each other.
+A new statistical
+method enables new discipline-specific questions to be addressed, while a new
+scientific question motivates new data science methods. We describe below two
+data science research questions that mentored students addressed with tweets.
+
+Studies of Twitter conversations have yielded valuable insights into
+modern culture. Using large collections of tweets, scholars have
+investigated diverse research questions, including
+the inference of relationships and social networks among Twitter users (Lin et al. 2011);
+authorship of specific tweets when multiple persons share a single account (Robinson 2016); and
+rhetoric in recruiting political supporters (Pelled et al. 2018; Wells et al. 2016).
+Recognizing the potential utility of tweets for data science research and teaching,
+we created a collection of tweets over time by repeated querying of the Twitter streaming API.
+We envisioned this collection as a rich resource for data science research projects. This vision
+grew into two mentored undergraduate student research projects in the 2015-2016 academic year.
+
+In line with recent calls for students to work with real data (Carver et al. 2016; Nolan and Temple Lang 2010), our
+collection of tweets has served as a valuable resource in our mentoring
+of undergraduate data science research.
+Working with real data allows students to develop proficiency not
+only in statistical analysis,
+but also in related data science skills, including data
+transfer from online sources, data storage, using data
+from multiple file formats, and communicating findings.
+Collaboratively asking and addressing novel questions with
+our collection of tweets gave mentored students
+opportunities to develop competency in all of these areas.
+
+While our tweet collection enables us to address many possible research questions, the
+dynamic content of tweets over time particularly piqued our interest.
+We hypothesized that high-profile social media events would generate a high volume of
+tweets, and that we would detect social media events through changes in tweet
+topic content over time. We discuss in detail below one approach to studying this
+question. In the sections that follow, we detail our backward design-inspired approach to
+writing learning objectives, preliminary research mentoring considerations,
+data science methods for collecting and analyzing tweets, analysis results,
+and ideas on assessment and advanced topics.
+
+\hypertarget{structure-of-mentored-research}{%
+\section{Structure of mentored research}\label{structure-of-mentored-research}}
+
+\hypertarget{backward-design}{%
+\subsection{Backward design}\label{backward-design}}
+
+Backward design principles guided our planning and informed the writing of
+learning objectives (Wiggins and McTighe 2005). Following Wiggins and McTighe (2005),
+we began by listing
+what students, at the end of their thesis research, should be able to do,
+understand, and know. We then classified each of these items into
+one of three categories: enduring understanding, important to know and do,
+and worth being familiar with (Wiggins and McTighe 2005) (Table \ref{tab:circle-table}).
+While other researchers may categorize these skills differently,
+our assignments reflect our projects' priorities.
+Nearly all of the skills in Table \ref{tab:circle-table} are
+transferable. They apply not merely to thesis projects, but also to
+data science research in general.
+
+\begin{table}
+
+\caption{\label{tab:circle-table}Classifying project skills}
+\centering
+\begin{tabular}[t]{|>{}l|>{}l|}
+\hline
+Skill & Category\\
+\hline
+Structure research project files as R package & Worth being familiar with\\
+\hline
+Communicate results in speaking and in writing & Enduring understanding\\
+\hline
+Formulate a research question & Enduring understanding\\
+\hline
+Develop data science strategies to address research question & Enduring understanding\\
+\hline
+Use Github to share code and documentation & Important to know and do\\
+\hline
+Use git for version control & Important to know and do\\
+\hline
+Use text analysis tools to analyze tweets & Enduring understanding\\
+\hline
+Use cluster computing as needed & Worth being familiar with\\
+\hline
+Use data visualization to clarify and inform quantitative analyses & Important to know and do\\
+\hline
+Translate analysis results into scientific conclusions & Enduring understanding\\
+\hline
+Incorporate supplementary data sources into analysis & Important to know and do\\
+\hline
+Acquire data from internet sources & Important to know and do\\
+\hline
+Describe assumptions and limitations of statistical analyses & Enduring understanding\\
+\hline
+\end{tabular}
+\end{table}
+
+In particular, our project skills reflect elements of ``data acumen'', as defined
+in a report from the U.S.A. National Academies of Sciences, Engineering, and Medicine (NASEM) (National Academies of Sciences et al. 2018). For example, our skills ``Acquire data from internet sources'' and
+``Develop data science strategies to address a research question'' implicitly require
+a trainee, in the language of the NASEM report (National Academies of Sciences et al. 2018), to ``ingest, clean, and then
+wrangle data into reliable and useful forms'' and to ``combine many existing programs or codes
+into a workflow that will accomplish some important task''. Additionally, we tailored our list
+of project skills with the assumption that students would work in R. R use is not required for such projects, but it is a
+convenience for many of our students.
+
+\hypertarget{learning-objectives}{%
+\subsection{Learning objectives}\label{learning-objectives}}
+
+We translated our prioritized list of skills that
+students should be able to do, understand, and know into learning objectives (Table \ref{tab:circle-table}).
+We phrased learning objectives in a manner that enabled their subsequent assessment
+(Table \ref{tab:summative}) with formative and summative strategies. These were
+our four learning objectives:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Write R code to perform text analysis of large volumes of tweets (R Core Team 2019).
+\item
+  Communicate results in a written report and poster presentation.
+\item
+  Translate statistical findings into scientific conclusions.
+\item
+  Develop data science strategies to address a scientific research question.
+\end{enumerate}
+
+Having decided on four learning objectives for students, we next established
+mentoring relationships with each student.
+
+\hypertarget{preliminary-research-mentoring-considerations}{%
+\subsection{Preliminary research mentoring considerations}\label{preliminary-research-mentoring-considerations}}
+
+We developed research goals with students in a series of brainstorming sessions and discussions.
+As trainees began their senior
+research projects, we spoke in detail about both their research interests and goals and their
+experience with data analysis software. When possible, we encouraged them to incorporate their
+existing academic interests into their senior research projects.
+
+In our statistics department, most students learn elementary R computing skills through class
+assignments. Some students, by concentrating in computer science, learn other data analysis software
+packages, such as Python.
+Those who do undergraduate statistics research often learn advanced topics in R
+computing, such as R package assembly, documentation, and testing. Many develop
+expertise in linux computing and cluster computing, too.
+
+One of our two students had extensive experience in statistical computing. In
+addition to R computing skills, she also worked in Python and excelled in shell scripting.
+She first learned Python in computer science courses. Our second student had
+extensive experience with R from his statistics courses. His background
+enabled him to write an R package as part of his senior project. To encourage
+further development of R computing skills in our two students, we guided them
+towards the free, online books ``R for Data Science'' (Wickham and Grolemund 2016) and ``Advanced R'' (Wickham 2019).
+
+\hypertarget{student-research-interests-and-goals}{%
+\subsection{Student research interests and goals}\label{student-research-interests-and-goals}}
+
+Our two students had diverse interests, and, initially, they had little experience in
+articulating research goals. We engaged each in a brainstorming session to
+clarify their interests and encourage them to think critically about research goals under
+the time constraints of their academic schedules.
+We briefly describe the two student projects to give readers a better sense
+of research possibilities with tweets.
+
+Our first student examined relationships over time between
+stock market index prices and tweet sentiment. For each day in her 12-month study period,
+she identified stock market-related tweets with a key word search. With the complete
+texts of stock market-related tweets for each day, she calculated a daily sentiment score and plotted it over time.
+Her sentiment score reflected presence of emotion-associated terms
+(\emph{eg}., ``happy'', ``sad'', ``mad'', ``scared'')
+in tweet texts. Days with more net positive emotion words in the collected tweets received a higher
+(positive) daily sentiment score, while days with more net negative words received a negative daily
+sentiment score.
+For her final project, she presented plots over time of her daily sentiment scores and daily closing
+prices of the Standard and Poor's 500 index. She also explored time series analysis methods to quantify
+relationships between index prices and sentiment scores.
+
+Our second student developed social media event detection methods with topic
+models. He hypothesized that tweet content changes over time, and that we
+might detect these changes by comparing inferred tweet topics from distinct
+time periods. To validate his hypothesis, he examined tweet content before, during, and after
+the National Football League's Super Bowl game in 2015. He reasoned that
+because the Super Bowl is widely discussed on Twitter, we might detect
+Super Bowl-related topics from tweets sent during the game, but that the football-related
+topics would be short-lived in the continuous Twitter stream. We discovered
+evidence to support his strategy, and we ultimately presented our findings
+at international and local research meetings. We share below a case study based
+on this approach.
+
+\hypertarget{time-period}{%
+\subsection{Time period}\label{time-period}}
+
+Our two statistics students conducted their research projects during the 2015-2016 academic year.
+We recommend a full academic year for projects of this magnitude, although a summer or one-semester
+project is possible. Our students presented their findings at the statistics department's
+undergraduate poster session near the end of the 2015-2016 academic year (Supplementary files). We
+present below reproducible R code for analyzing data from May 2020. While these
+are not the same data that our students analyzed in 2015, the methods and code
+are very similar to that of our second student's project.
+
+\hypertarget{case-study-methods}{%
+\section{Case study methods}\label{case-study-methods}}
+
+To illustrate the value of Twitter data and to encourage readers to envision other uses for tweets, we present below a
+reproducible case study. It is essentially a reproduction of our second student's project, but at a
+distinct time period. In it, we aim to detect a social media
+event by examining tweet topic content over time. We use Latent Dirichlet
+Allocation (LDA) models (Blei et al. 2003) to infer topics on three consecutive days centered
+on Memorial Day 2020. We chose this example case study,
+instead of the student projects, because of limited data
+availability for the student projects. Despite this, the case study
+illustrates the strategy and methods for one student
+project. Below, we discuss case study design, tweet collection, and tweet structure,
+before turning to quantitative methods for the case study.
+
+\hypertarget{case-study-design}{%
+\subsection{Case study design}\label{case-study-design}}
+
+We sought to validate our hypothesis that we could detect a social
+media event by examining tweet topic content at distinct time periods.
+As a proof of principle of our event detection strategy,
+we analyzed tweets before, during, and
+after Memorial Day (May 25, 2020).
+We fitted LDA models for each of three
+distinct five-minute periods. The first period began at noon Eastern time
+on May 24, 2020. Subsequent time periods started
+24 and 48 hours later.
+We defined each time period to be a single collection, or corpus, of
+tweets.
+
+\hypertarget{collecting-tweets-over-time}{%
+\subsection{Collecting tweets over time}\label{collecting-tweets-over-time}}
+
+We include here instructions for creating a tweet collection. First, we created a
+new account on Twitter. With these user credentials, we used the
+R package \texttt{rtweet} to query the API (Kearney 2019). We used the linux \texttt{crontab} software
+to repeatedly execute R code to submit API queries. Each
+query lasted five minutes and produced a text file of approximately 130 MB. We timed the API queries so
+that there was no time lag between queries. We stored tweets resulting from API queries in their native JSON format.
+
+Setting up the query task with \texttt{crontab} is straightforward. On our computer, with
+Ubuntu 20.04 linux operating system, we opened a terminal and typed \texttt{crontab\ -e}. This
+opened a text file containing user-specified tasks. We added the following line to the
+bottom of the file before saving and closing the text file.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{*/5}\NormalTok{ * * * * R -e }\StringTok{'rtweet::stream_tweets(timeout = (60 * 5), }
+\StringTok{parse = FALSE, file_name = paste0("~/work/mentoring/mentoring-framework/data/",}
+\StringTok{lubridate::now(), "-tweets"))'}
+\end{Highlighting}
+\end{Shaded}
+
+Readers may need to slightly amend the above line to conform to requirements of
+their operating system's software. Readers who use Mac OS may proceed as we did,
+while those with Windows operating systems may consider using the R package
+``taskscheduleR'' to schedule API queries via the Windows task scheduler (Wijffels and Belmans 2018).
+
+\hypertarget{querying-twitter-api-to-get-complete-tweets}{%
+\subsection{Querying Twitter API to get complete tweets}\label{querying-twitter-api-to-get-complete-tweets}}
+
+Twitter API use agreements forbid users from sharing complete API query results.
+However, Twitter permits users to share tweet identification numbers. With a tweet
+identification number, a user may query a Twitter API to obtain complete tweet data. In our
+experience, this
+process is incomplete; that is, many tweet identification numbers submitted to the Twitter API return
+no data. Additionally, some tweet identification numbers return data on the first query, but don't return data on subsequent queries. This complicates our goal of making all analyses computationally
+reproducible and motivates our decision to share the tweet IDs of those tweets that
+we actually analyzed (Supplementary files). Should a reader wish to reproduce
+our analysis, we anticipate that she will get complete tweet data
+for all or most of these tweet identification numbers from the API. We provide
+R code for this task in the supplementary files.
+
+\hypertarget{tweet-structure}{%
+\subsection{Tweet structure}\label{tweet-structure}}
+
+Tweets are available from the Twitter API as Javascript Object Notation (JSON) objects (``Introducing JSON'' 2020).
+Every tweet consists
+of multiple key-value pairs. The number of fields per
+tweet depends on user settings, retweet status, and other factors (``Introduction to Tweet JSON'' 2020).
+The 31 tweet key-value pairs belong to
+12 distinct classes (Supplementary files). The
+classes are either vectors - numeric, logical, or character - or arrays assembled
+from the vector classes.
+
+Below is an example of JSON for one tweet.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\{}
+  \StringTok{"created_at"}\NormalTok{: }\StringTok{"Thu Apr 06 15:24:15 +0000 2017"}\NormalTok{,}
+  \StringTok{"id_str"}\NormalTok{: }\StringTok{"850006245121695744"}\NormalTok{,}
+  \StringTok{"text"}\NormalTok{: }\StringTok{"1\textbackslash{}/ Today we\textbackslash{}u2019re sharing our vision for the future of the Twitter API platform!"}\NormalTok{,}
+  \StringTok{"user"}\NormalTok{: }\KeywordTok{\{}
+    \StringTok{"id"}\NormalTok{: }\ExtensionTok{2244994945}\NormalTok{,}
+    \StringTok{"name"}\NormalTok{: }\StringTok{"Twitter Dev"}\NormalTok{,}
+    \StringTok{"screen_name"}\NormalTok{: }\StringTok{"TwitterDev"}\NormalTok{,}
+    \StringTok{"location"}\NormalTok{: }\StringTok{"Internet"}\NormalTok{,}
+    \StringTok{"url"}\NormalTok{: }\StringTok{"https:\textbackslash{}/\textbackslash{}/dev.twitter.com\textbackslash{}/"}\NormalTok{,}
+    \StringTok{"description"}\NormalTok{: }\StringTok{"Your official source for Twitter Platform news, updates & events. }
+\StringTok{    Need technical help? Visit https:\textbackslash{}/\textbackslash{}/twittercommunity.com\textbackslash{}/ \textbackslash{}u2328\textbackslash{}ufe0f }
+\StringTok{    #TapIntoTwitter"}
+  \KeywordTok{\}}\NormalTok{,}
+  \StringTok{"place"}\NormalTok{: }\KeywordTok{\{}   
+  \KeywordTok{\}}\NormalTok{,}
+  \StringTok{"entities"}\NormalTok{: }\KeywordTok{\{}
+    \StringTok{"hashtags"}\NormalTok{:}\BuiltInTok{ [}      
+\NormalTok{    ],}
+    \StringTok{"urls"}\NormalTok{: [}
+\NormalTok{      \{}
+        \StringTok{"url"}\NormalTok{: }\StringTok{"https:\textbackslash{}/\textbackslash{}/t.co\textbackslash{}/XweGngmxlP"}\NormalTok{,}
+        \StringTok{"unwound"}\NormalTok{: \{}
+          \StringTok{"url"}\NormalTok{: }\StringTok{"https:\textbackslash{}/\textbackslash{}/cards.twitter.com\textbackslash{}/cards\textbackslash{}/18ce53wgo4h\textbackslash{}/3xo1c"}\NormalTok{,}
+          \StringTok{"title"}\NormalTok{: }\StringTok{"Building the Future of the Twitter API Platform"}
+\NormalTok{        \}}
+\NormalTok{      \}}
+\NormalTok{    ],}
+    \StringTok{"user_mentions"}\NormalTok{: [     }
+\NormalTok{    ]}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Our analyses use three fields from each tweet: date (``created\_at''), tweet identifier
+(``id\_str''), and tweet text (``text''). The ``created\_at'' field is a character string containing
+the date and time of the tweet. Every tweet has a unique identifier, the ``id\_str'' value. The
+``text'' field contains the unicode representation of the message. After creating a text file
+with tweet JSON, our next step involved reading and parsing tweets with the R
+packages \texttt{rtweet} (Kearney 2019) and \texttt{tidytext} (Silge and Robinson 2016).
+
+\hypertarget{parsing-tweet-text}{%
+\subsection{Parsing tweet text}\label{parsing-tweet-text}}
+
+The next task is to wrangle the tweet JSON into a data structure suitable for LDA modeling.
+We used functions from the \texttt{rtweet} R package to parse tweet JSON into a data frame.
+We then divided tweet text into words with functions from the \texttt{tidytext} R package. We
+discarded commonly used ``stop words'' and emojis.
+
+LDA model fitting requires that the corpus be organized as a
+document by term matrix. In a document by term matrix, each row corresponds to a single document (a single
+tweet), and each column is a single term (or word). Each cell contains a
+count (the number of
+occurrences of a term in the specified document). We created a document by
+term matrix with the R function \texttt{cast\_dtm} from the \texttt{tidytext} package.
+
+\hypertarget{latent-dirichlet-allocation}{%
+\subsection{Latent Dirichlet Allocation}\label{latent-dirichlet-allocation}}
+
+LDA is a statistical method for inferring latent (unobservable) topics (or themes)
+from a large corpus (or collection) of documents (Blei et al. 2003).
+We pretend that there's an imaginary process for creating documents in the corpus. For each document,
+we choose a discrete distribution over topics. For example, some tweets from Memorial Day may
+refer to the holiday. This may constitute one topic in the corpus.
+Having chosen a distribution over topics, we then select document words by first
+drawing a topic from the distribution over topics, then drawing a word from the
+chosen topic.
+
+In mathematical notation, we write the generative process assumed by LDA (Blei et al. 2003):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Choose \(N \sim \text{Poisson}(\xi)\)\\
+\item
+  Choose \(\theta \sim \text{Dirichlet}(\alpha)\)\\
+\item
+  For each word, \(w_n\) with \(n = 1, ..., N\),
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Choose a topic \(z_n \sim \text{Multinomial}(\theta)\)\\
+\item
+  Choose a word \(w_n\) from \(p(w_n | z_n, \beta)\), a multinomial probability
+\end{enumerate}
+
+\(\beta\) refers to the \(k\) by \(V\) matrix of topic-specific word probabilities, where \(k\)
+is the number of topics and \(V\) is the size of the vocabulary, \emph{i.e.}, the number of unique words in the corpus.
+
+The goal for LDA is to infer both the distribution over topics and
+the topics (Blei et al. 2003). A topic, in this setting, is a distribution over
+the vocabulary (the collection of all words in a corpus).
+Inference for latent Dirichlet allocation models is performed by either
+sampling from the posterior distribution or through variational methods. Researchers
+have devised a variety of Gibbs sampling techniques for these models (Porteous et al. 2008).
+Variational methods, while using approximations to the posterior distribution, offer the
+advantage of computational speed (Blei et al. 2017). We used variational methods below in our case study.
+
+\hypertarget{case-study-results}{%
+\section{Case study results}\label{case-study-results}}
+
+We identified the top ten most probable terms for each of ten topics in our models
+(Figures \ref{fig:may24}, \ref{fig:may25}, \ref{fig:may26}).
+We plotted the within-topic word probabilities as bar graphs. We see that topic-specific
+word probabilities seldom exceed 0.05. We also note that some words are heavily weighted in
+multiple topics. This observation complicates semantic topic interpretation. We
+also caution that the results display expletives (that appeared on Twitter) and may
+not be ``safe for work''.
+
+\begin{figure}
+\includegraphics[width=29.17in]{../results/beta-2020-05-24} \caption{Top terms for LDA model from May 24, 2020}\label{fig:may24}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=29.17in]{../results/beta-2020-05-25} \caption{Top terms for LDA model from May 25, 2020 (Memorial Day)}\label{fig:may25}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=29.17in]{../results/beta-2020-05-26} \caption{Top terms for LDA model from May 26, 2020}\label{fig:may26}
+\end{figure}
+
+Assigning meaning to topics is an active research area (Chang et al. 2009). Since
+our interest is in the transient appearance of a new topic, we don't attempt to
+assign meaning to every topic in our models. Instead, we anticipate that discussions on Twitter are a mixture of topics that endure over weeks or months and subjects that appear and disappear quickly. We see that topic 7 from May 25 has several
+words that suggest Memorial Day: memorial, remember, honor, country. A similar topic is not
+seen on May 24 or May 26. Some topics persist, with distinct word probabilities,
+across the three days. For example, we see that President Trump features prominently in all
+three models' results. On May 26, topic 10 reflects discussion of the Amy
+Cooper Central Park incident (\url{https://www.nytimes.com/2020/05/26/nyregion/amy-cooper-dog-central-park.html}).
+
+The murder of George Floyd occurred on May 25, 2020. Our last
+examined time period, from 12:00 pm to 12:05 pm (Eastern USA time zone) on May 26, occurred after Floyd's murder,
+yet we didn't detect this event in our ten-topic LDA model. Several considerations
+may account for this. While outrage at the murder eventually spread worldwide, there may have been few
+Floyd-related tweets during our collection time on May 26, less than 24 hours after the murder and video release.
+Had we extended our analysis to May 27 and beyond, we may have identified George Floyd-related topics.
+
+\hypertarget{assessment-of-learning-exploring-more-advanced-topics-and-concluding-remarks}{%
+\section{Assessment of learning, exploring more advanced topics, and concluding remarks}\label{assessment-of-learning-exploring-more-advanced-topics-and-concluding-remarks}}
+
+\hypertarget{assessment-of-learning}{%
+\subsection{Assessment of learning}\label{assessment-of-learning}}
+
+We examined student learning with both formative and summative assessments.
+We conducted formative assessments through weekly discussions with students.
+In these discussions, we developed action items to advance research progress and overcome
+challenges. We summatively assessed student achievement at the end of the academic year.
+Both students wrote a thesis and presented a poster to our statistics department.
+We asked questions at the poster session to probe student understanding and critically
+evaluated the theses.
+
+\begin{table}
+
+\caption{\label{tab:summative}Rubric for summative assessment of learning objectives.}
+\centering
+\fontsize{6}{8}\selectfont
+\begin{tabular}[t]{>{\raggedright\arraybackslash}p{10em}|>{\raggedright\arraybackslash}p{10em}|>{\raggedright\arraybackslash}p{10em}|>{\raggedright\arraybackslash}p{10em}|>{\raggedright\arraybackslash}p{10em}}
+\hline
+Learning objective & Assessment item & 2 points & 1 point & 0 points\\
+\hline
+Write R code to perform text analysis of large volumes of tweets. & R code performs intended analyses & Code contains few or no bugs & Code contains one or more errors & Code contains many errors\\
+\hline
+Write R code to perform text analysis of large volumes of tweets. & Uses literate programming tools, such as Sweave or knitr & Report is written using literate programming tools. It compiles easily when run by instructor. Time-consuming calculations are cached. & Report is written using literate programming tools, but compilation takes too long or fails. & Report is not written with literate programming tools.\\
+\hline
+Write R code to perform text analysis of large volumes of tweets. & Uses git for version control & Log reveals regular commits with informative commit messages & Log reveals intermittent commits and uninformative commit messages & Doesn't use git.\\
+\hline
+Write R code to perform text analysis of large volumes of tweets. & Shares code and data via Github & Instructor easily clones repository from Github. Contains share-able data and instructions for getting other data to reproduce analysis. & One or more needed files is missing from repository. & Doesn't use Github.\\
+\hline
+Communicate results in a written report and poster presentation. & Organizes poster to highlight main points & When prompted, can describe main points in less than one minute. & Less fluid presentation with periods of silence or confusion. & Disorganized presentation.\\
+\hline
+Communicate results in a written report and poster presentation. & Accurately presents study and findings during poster session & Fluently describes background, study goals, study design, approach, data, findings, and conclusions & At least one section is incomplete or is verbal explanation is incomplete. & At least one section is missing.\\
+\hline
+Communicate results in a written report and poster presentation. & Report structure mirrors a research manuscript & Contains abstract, introduction, methods, results, and discussion & At least one section is incomplete. & At least one section is missing.\\
+\hline
+Translate statistical findings into scientific conclusions. & Places statistical results in their scientific context & Demonstrates understanding of scientific context and integrates findings into it. & Incomplete scientific understanding or incomplete integration of findings. & Major gaps in scientific understanding or integration of findings.\\
+\hline
+Translate statistical findings into scientific conclusions. & Accurately portrays study limitations & Accurately describes, in writing and in speaking, limitations of the study & Incomplete or partially inaccurate description of limitations & Doesn't describe limitations.\\
+\hline
+Translate statistical findings into scientific conclusions. & Demonstrates familiarity with relevant literature & Fluent in both relevant data science literature and scientific literature. & Incomplete knowledge and understanding of relevant literature & Major gaps in knowledge and understanding\\
+\hline
+Develop data science strategies to address a scientific research question. & Presents an original research question & Presents, in writing and in speaking, a novel research question. Explains why it's novel, too. & Partially lacking in elements of question's background or novelty. & Doesn't present an original question.\\
+\hline
+Develop data science strategies to address a scientific research question. & Effectively uses data visualizations & Visualizations highlight main points of report. & Incomplete or omitted visualizations. & Doesn't use visualizations.\\
+\hline
+Develop data science strategies to address a scientific research question. & Presents accurate scientific conclusions & Effectively translates analysis results into their scientific context. & Minor inaccuracy in translation of findings into scientific context. & Major errors in translation of results.\\
+\hline
+\end{tabular}
+\end{table}
+
+With future students, we will use a written rubric to evaluate
+theses (Table \ref{tab:summative}). We'll
+share the rubric with our students at the start of the academic year. With only minor
+modifications, the rubric may be suitable for projects that don't use tweets.
+
+\hypertarget{exploring-more-advanced-topics}{%
+\subsection{Exploring more advanced topics}\label{exploring-more-advanced-topics}}
+
+Twitter data over time inspires a variety of research projects. Supplementing
+tweets with public data from other sources multiplies the possibilities. For example,
+one of our two students supplemented tweets with daily stock market index prices.
+She studied sentiment of finance-related tweets and daily stock market index
+closing prices (Supplementary files).
+
+LDA modeling and related methods are a major research area in the
+quantitative social sciences. Advanced students with interest in statistical computing might
+compare inferential methods for topic models. Those with interests in event detection
+and time series analysis could build on the findings of our student by explicitly accounting
+for topic evolution with dynamic topic models (Blei and Lafferty 2006).
+
+\hypertarget{concluding-remarks}{%
+\subsection{Concluding remarks}\label{concluding-remarks}}
+
+Our mentoring in data science aligns with others' calls to reconsider
+the role of computing in statistics
+and data science (Carver et al. 2016; Nolan and Temple Lang 2010). Hicks and Irizarry (2018) argue for
+incorporating three concepts into data science training:
+computing, connecting and creating.
+They use the terms ``connecting'' and ``creating'' to describe the processes of applying
+quantitative methods to real data and research questions and of formulating research
+questions, respectively. Our tweet analysis projects offer students opportunities in all
+three skills sets. Our students first formulated research questions, then collected and
+analyzed data to address the questions. Throughout the projects, students
+drew heavily on computing, both to acquire data and to analyze it.
+
+Tweet analysis gives students practical experience in the data science process of
+formulating a research question, gathering data to address it, summarizing the
+data, visualizing results, and communicating findings. Tweets over time are a rich, large,
+authentic data set that offers many opportunities.
+We provided instructions to enable readers to establish their own tweet collections.
+We also presented details for one analysis strategy.
+By considering first student research interests and integrating them with our
+senior thesis learning objectives, we successfully guided two undergraduate
+researchers in data science research with tweets.
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+The authors thank Betsy Colby Davie and Rick Nordheim for helpful discussions and
+feedback on preliminary versions of the manuscript. We thank the special issue
+editors and anonymous reviewers for their constructive comments and suggestions. Finally, this work wouldn't have been possible without the keen and enthusiastic students, Jinyu Xia and Robert Turner.
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-blei2017variational}{}%
+Blei, D. M., Kucukelbir, A., and McAuliffe, J. D. (2017), ``Variational inference: A review for statisticians,'' \emph{Journal of the American Statistical Association}, Taylor \& Francis, 112, 859--877.
+
+\leavevmode\hypertarget{ref-blei2006dynamic}{}%
+Blei, D. M., and Lafferty, J. D. (2006), ``Dynamic topic models,'' in \emph{Proceedings of the 23rd International Conference on Machine Learning}, pp. 113--120.
+
+\leavevmode\hypertarget{ref-blei2003latent}{}%
+Blei, D. M., Ng, A. Y., and Jordan, M. I. (2003), ``Latent Dirichlet Allocation,'' \emph{Journal of Machine Learning Research}, 3, 993--1022.
+
+\leavevmode\hypertarget{ref-box1976science}{}%
+Box, G. E. (1976), ``Science and statistics,'' \emph{Journal of the American Statistical Association}, Taylor \& Francis, 71, 791--799.
+
+\leavevmode\hypertarget{ref-carver2016guidelines}{}%
+Carver, R., Everson, M., Gabrosek, J., Horton, N., Lock, R., Mocko, M., Rossman, A., Roswell, G. H., Velleman, P., Witmer, J., and others (2016), ``Guidelines for assessment and instruction in statistics education (GAISE) college report 2016,'' AMSTAT.
+
+\leavevmode\hypertarget{ref-chang2009reading}{}%
+Chang, J., Gerrish, S., Wang, C., Boyd-Graber, J. L., and Blei, D. M. (2009), ``Reading tea leaves: How humans interpret topic models,'' in \emph{Advances in Neural Information Processing Systems}, pp. 288--296.
+
+\leavevmode\hypertarget{ref-hicks2018guide}{}%
+Hicks, S. C., and Irizarry, R. A. (2018), ``A guide to teaching data science,'' \emph{The American Statistician}, Taylor \& Francis, 72, 382--391.
+
+\leavevmode\hypertarget{ref-json}{}%
+``Introducing JSON'' (2020), \url{https://www.json.org/json-en.html}.
+
+\leavevmode\hypertarget{ref-tweet_json}{}%
+``Introduction to Tweet JSON'' (2020), \url{https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json}.
+
+\leavevmode\hypertarget{ref-rtweet-package}{}%
+Kearney, M. W. (2019), ``rtweet: Collecting and analyzing Twitter data,'' \emph{Journal of Open Source Software}, 4, 1829. \url{https://doi.org/10.21105/joss.01829}.
+
+\leavevmode\hypertarget{ref-lin2011joint}{}%
+Lin, C. X., Mei, Q., Han, J., Jiang, Y., and Danilevsky, M. (2011), ``The joint inference of topic diffusion and evolution in social communities,'' in \emph{2011 IEEE 11th International Conference on Data Mining}, IEEE, pp. 378--387.
+
+\leavevmode\hypertarget{ref-national2018data}{}%
+National Academies of Sciences, Engineering, Medicine, and others (2018), \emph{Data science for undergraduates: Opportunities and options}, National Academies Press.
+
+\leavevmode\hypertarget{ref-nolan2010computing}{}%
+Nolan, D., and Temple Lang, D. (2010), ``Computing in the statistics curricula,'' \emph{The American Statistician}, Taylor \& Francis, 64, 97--107.
+
+\leavevmode\hypertarget{ref-pelled2018little}{}%
+Pelled, A., Lukito, J., Boehm, F., Yang, J., and Shah, D. (2018), ```Little Marco,'`Lyin'Ted,'`Crooked Hillary,' and the `Biased' media: How Trump used Twitter to attack and organize,'' in \emph{Digital Discussions}, Routledge, pp. 176--196.
+
+\leavevmode\hypertarget{ref-porteous2008fast}{}%
+Porteous, I., Newman, D., Ihler, A., Asuncion, A., Smyth, P., and Welling, M. (2008), ``Fast Collapsed Gibbs Sampling for Latent Dirichlet Allocation,'' in \emph{Proceedings of the 14th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}, pp. 569--577.
+
+\leavevmode\hypertarget{ref-r}{}%
+R Core Team (2019), \emph{R: A language and environment for statistical computing}, Vienna, Austria: R Foundation for Statistical Computing.
+
+\leavevmode\hypertarget{ref-drob}{}%
+Robinson, D. (2016), ``Text analysis of Trump's tweets confirms he writes only the (angrier) Android half,'' \url{http://varianceexplained.org/r/trump-tweets/}.
+
+\leavevmode\hypertarget{ref-tweet_stream}{}%
+``Sampled stream'' (2019), \url{https://developer.twitter.com/en/docs/labs/sampled-stream/overview}.
+
+\leavevmode\hypertarget{ref-tidytext}{}%
+Silge, J., and Robinson, D. (2016), ``tidytext: Text mining and analysis using tidy data principles in R,'' \emph{JOSS}, The Open Journal, 1. \url{https://doi.org/10.21105/joss.00037}.
+
+\leavevmode\hypertarget{ref-wells2016trump}{}%
+Wells, C., Shah, D. V., Pevehouse, J. C., Yang, J., Pelled, A., Boehm, F., Lukito, J., Ghosh, S., and Schmidt, J. L. (2016), ``How Trump drove coverage to the nomination: Hybrid media campaigning,'' \emph{Political Communication}, Taylor \& Francis, 33, 669--676.
+
+\leavevmode\hypertarget{ref-wickham2019advanced}{}%
+Wickham, H. (2019), \emph{Advanced R}, CRC press.
+
+\leavevmode\hypertarget{ref-wickham2016r}{}%
+Wickham, H., and Grolemund, G. (2016), \emph{R for Data Science: Import, tidy, transform, visualize, and model data}, O'Reilly Media, Inc.
+
+\leavevmode\hypertarget{ref-wiggins2005understanding}{}%
+Wiggins, G., and McTighe, J. (2005), \emph{Understanding by Design}.
+
+\leavevmode\hypertarget{ref-taskscheduleR}{}%
+Wijffels, J., and Belmans, O. (2018), \emph{taskscheduleR: Schedule R Scripts and Processes with the Windows Task Scheduler}.
+
+\newpage
+
+\hypertarget{supplementary-files}{%
+\section{Supplementary files}\label{supplementary-files}}
+
+\hypertarget{tweets-data-dictionary}{%
+\subsection{Tweets data dictionary}\label{tweets-data-dictionary}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/fboehm/jse-2019/blob/master/data/tweets-data-dictionary.csv}{Data dictionary}
+\end{enumerate}
+
+\hypertarget{r-code-to-reproduce-the-case-study}{%
+\subsection{R code to reproduce the case study}\label{r-code-to-reproduce-the-case-study}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/tweets.Rmd}{tweets.Rmd}
+\item
+  \href{https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/tweets-one.Rmd}{tweets-one.Rmd}
+\item
+  \href{https://raw.githubusercontent.com/fboehm/jse-2019/master/Rmd/recover_tweets.R}{recover\_tweets.R}
+\end{enumerate}
+
+\hypertarget{student-projects}{%
+\subsection{Student projects}\label{student-projects}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Student 1 poster: \href{https://github.com/fboehm/jse-2019/blob/master/supplementary/Project_Poster.pdf}{Project\_Poster.pdf}
+\item
+  Student 1 report: \href{https://github.com/fboehm/jse-2019/blob/master/supplementary/report.pdf}{report.pdf}
+\item
+  Student 2 useR 2016 slides: \href{https://github.com/fboehm/jse-2019/blob/master/supplementary/user2016boehm.pdf}{user2016boehm.pdf}
+\item
+  Student 2 poster: \href{https://github.com/fboehm/jse-2019/blob/master/supplementary/warfdiscovery2016boehm.tiff}{warfdiscovery2016boehm.tiff}
+\end{enumerate}
+
+\hypertarget{github-repository}{%
+\subsection{Github repository}\label{github-repository}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \url{https://github.com/fboehm/jse-2019}
+\end{enumerate}
+
+\end{document}
