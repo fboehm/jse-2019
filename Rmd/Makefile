@@ -1,4 +1,4 @@
-MANUSCRIPT = jse-special-issue-2020-october
+MANUSCRIPT = jse-special-issue-2020-november
 
 all: $(MANUSCRIPT).pdf
 
