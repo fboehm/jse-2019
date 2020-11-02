@@ -73,7 +73,7 @@ data into”) page 13, line 46
 warning to the Figure 1 caption. Would an additional sentence noting that instructors could have students remove words
 from a list of common expletives or inappropriate words?
 
-> Thanks. We've fixed this wording.
+> Thanks. We've fixed this wording and added a sentence to explain that instructors could apply a filter to remove expletives.
 
 * Would it make sense to have all of the supplementary files available on a new public GitHub repo? That would simplify
 references and updates.

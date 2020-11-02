@@ -426,8 +426,9 @@ We plotted the within-topic word probabilities as bar graphs. We see that topic-
 word probabilities seldom exceed 0.05. We also note that some words are heavily weighted in 
 multiple topics. This observation complicates semantic topic interpretation. We 
 also caution that the results display expletives (that appeared on Twitter) and may be "not suitable for work (NSFW)". 
+Instructors may apply a filter to remove common expletives before LDA modeling of tweets.  
 
-```{r, may24, fig.cap = 'Top terms for LDA model from May 24, 2020. Results contain expletives and may be "not suitable for work (NSFW)".'}
+```{r, may24, fig.cap = 'Top terms for LDA model from May 24, 2020. Results contain expletives and may be not suitable for work (NSFW).'}
 knitr::include_graphics("../results/beta-2020-05-24.png")
 ```
 
