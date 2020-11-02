@@ -1,0 +1,81 @@
+---
+output: 
+  bookdown::pdf_document2:
+    toc: false
+    number_sections: false
+---
+
+November 2, 2020
+
+
+Dear editors and reviewers:
+
+We are writing to submit an updated manuscript that incorporates the suggested edits. 
+
+We include both the text of the comments and our replies. 
+
+
+
+
+## Editor's Comments to Author:
+
+* unfortunately, I don't think JSE has formatting guidelines for packages. However, they should be internally consistent in
+your paper (e.g., bold, quoted, without format, etc.): rtweet, tidytext, lubridate,...
+
+> We now do this for all packages that we discuss in the text.  
+
+* API stands for application programming interface (not application product interface)
+
+> Thank you for this correction. We've made the change.
+
+* how was table 1 ordered? As is, the sorting is (seemingly?) arbitrary, and I think it would be easier to read if sorted. I’d
+suggest one of two ways:
+- sort by order of category
+- sort by the order in which the skills are performed in a standard data analysis.
+
+> Thank you. We now order the rows by category. 
+
+* page 10, line 12 “eg., “ should be “e.g.,”
+
+> We've now made this change.
+
+* page 10, line 32. You discovered evidence to “support his strategy” ... what is his strategy? Do you mean to “support his
+hypothesis”? or maybe to “support his ideas” ?
+
+> Thank you. We decided to use "support his ideas". 
+
+* page 10, line 34 “We share below a case study based on this approach.” I’d clarify to say “Below, we share a case study
+on a different widely discussed topic which is analyzed using an approach similar to that from the Super Bowl tweets.”
+
+> Thanks. We've made this change.
+
+* page 12, line 32 ... still something is off as I read the word JSON. You write: “Below is an example of JSON for one
+tweet.” Here are some possible alternatives:
+- “Below is an example of a JSON entry for one tweet.”
+- “Below is an example of a JSON file for one tweet.”
+- “Below is an example of a tweet in JSON format.”
+
+> Thank you. We've chosen to use the last of the three suggested wordings.
+
+* “to wrangle the tweet JSON into” (instead change to: “to wrangle the JSON tweet into” or “to wrangle the tweet JSON
+data into”) page 13, line 46
+
+> Thanks. We've made this change by using the latter suggested wording.
+
+* I think “document by term matrix” should be “document-term matrix”
+
+> We agree. We've made the changes.
+
+
+* page 10: suggest changing 'may not be "safe for work"' to "may be "not suitable for work (NSFW)" and add a similar
+warning to the Figure 1 caption. Would an additional sentence noting that instructors could have students remove words
+from a list of common expletives or inappropriate words?
+
+> Thanks. We've fixed this wording.
+
+* Would it make sense to have all of the supplementary files available on a new public GitHub repo? That would simplify
+references and updates.
+
+
+> Yes, all files are in a Github repo at https://github.com/fboehm/jse-2019. If an additional (new) repo is needed, we're happy to make one. 
+

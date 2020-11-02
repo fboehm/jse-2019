@@ -290,7 +290,7 @@ lubridate::now(), "-tweets"))'
 Readers may need to slightly amend the above line to conform to requirements of 
 their operating system's software. Readers who use Mac OS may proceed as we did, 
 while those with Windows operating systems may consider using the R package 
-"taskscheduleR" to schedule API queries via the Windows task scheduler [@taskscheduleR].
+`taskscheduleR` to schedule API queries via the Windows task scheduler [@taskscheduleR].
 
 ## Querying Twitter API to get complete tweets
 
@@ -374,7 +374,7 @@ packages `rtweet` [@rtweet-package] and `tidytext` [@tidytext].
 
 ## Parsing tweet text
 
-The next task is to wrangle the tweet JSON into a data structure suitable for LDA modeling. 
+The next task is to wrangle the tweet JSON data into a structure suitable for LDA modeling. 
 We used functions from the `rtweet` R package to parse tweet JSON into a data frame. 
 We then divided tweet text into words with functions from the `tidytext` R package. We 
 discarded commonly used "stop words" and emojis. 
@@ -427,11 +427,11 @@ word probabilities seldom exceed 0.05. We also note that some words are heavily 
 multiple topics. This observation complicates semantic topic interpretation. We 
 also caution that the results display expletives (that appeared on Twitter) and may be "not suitable for work (NSFW)". 
 
-```{r, may24, fig.cap = "Top terms for LDA model from May 24, 2020"}
+```{r, may24, fig.cap = 'Top terms for LDA model from May 24, 2020. Results contain expletives and may be "not suitable for work (NSFW)".'}
 knitr::include_graphics("../results/beta-2020-05-24.png")
 ```
 
-```{r, may25, fig.cap = "Top terms for LDA model from May 25, 2020 (Memorial Day). Results contain expletives and may be 'not suitable for work (NSFW)'."}
+```{r, may25, fig.cap = "Top terms for LDA model from May 25, 2020 (Memorial Day)."}
 knitr::include_graphics("../results/beta-2020-05-25.png")
 ```
 
